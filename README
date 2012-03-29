@@ -1,0 +1,153 @@
+				**********
+				* TiLP 2 *
+				**********
+
+
+
+
+
+DESCRIPTION
+-----------
+
+TiLP is a program allowing a PC to communicate with 
+a TI calculator.
+
+It works on Linux, Windows, Mac OS-X and FreeBSD platforms.
+See README.linux, README.win32 or README.freebsd according to your
+platform for more informations.
+
+All physical link cables are supported by TiLP: parallel, serial, 
+BlackLink, GrayLink, AVRlink, SilverLink and DirectLink.
+TiLP also support some virtual links: one for VirtualTI, the other one for
+GtkTiEmu.
+
+Note1: the SilverLink cable may not work fine TI82/85.
+Note2: remote control is not supported by DirectLink yet.
+
+Supported calculators are: 
+	TI73, TI82, TI83, TI83+(SE), TI84+(SE), TI85, TI86, 
+	TI89, TI89 Titanium, TI92, TI92+ and V200,
+	NSpire (CAS and non-CAS).
+
+
+FEATURES
+--------
+
+Note: some features may depend on the OS version.
+Be sure to have the latest OS version... except maybe on the Nspire, because newer
+OS versions tend to contain with unwanted changes (backwards incompatibilities
+in documents, anti-downgrade protections, fixes for vulnerabilities that allowed
+native code programs, etc.).
+
+NSpire (CAS):
+  - screen dump
+  - directory list
+  - sending/receiving/deleting file
+  - creating 
+  - upgrading OS
+  - version
+
+TI89/TI89 Titanium/TI92+/V200:
+  - remote control of the calculator
+  - screen dump
+  - directory list
+  - sending/receiving/deleting variable
+  - sending/receiving backup
+  - ROM dump
+  - sending/receiving/deleting FLASH applications
+  - upgrading of Operating System (AMS)
+  - getting/setting time (need AMS >= 2.08)
+
+TI92:
+  - remote control of the calculator
+  - screen dump
+  - directory list
+  - sending/receiving/deleting variable
+  - sending/receiving backup
+  - ROM version
+  - ROM dump (FARGO II required)
+
+TI86:
+  - screen dump
+  - sending/receiving backup (old & new ti86 calcs)
+  - sending/receiving variable
+  - TIGL file support
+  - ROM dump
+
+TI85:
+  - screen dump
+  - sending/receiving backup
+  - sending/receiving variable
+  - TIGL file support
+  - ROM dump
+
+TI83+/TI84+ (SE or not SE):
+  - screen dump
+  - directory list
+  - sending/receiving backup (archived vars are not backed up !)
+  - sending/receiving/deleting variable
+  - sending/receiving/deleting FLASH applications
+  - upgrading of Operating System (GRAPH EXPLORER SOFTWARE)
+  - ROM dump
+
+Note: the TI83+ is the only calc to have a GROUP variable. TiLP supports it in
+a specific way: this kind of var is saved as a single file as any other
+variable. Thus, if you send it, it will stay grouped on calc.
+The TI's software has a different way: it explodes the GROUP variable
+into a .8Xg group file and you lose the grouping on calculator.
+
+TI83:
+  - screen dump
+  - directory list
+  - sending/receiving variable
+  - sending/receiving backup
+  - TIGL file support
+  - ROM dump
+
+TI82:
+  - screen dump
+  - sending/receiving variable
+  - sending/receiving backup
+  - TIGL files support
+  - ROM dump
+
+TI73:
+  - screen dump
+  - directory list
+  - sending/receiving variable
+  - sending/receiving of FLASH applications
+  - upgrading of Operating System (GRAPH EXPLORER SOFTWARE)
+  - ROM dump
+
+
+AVAILABILITY
+------------
+
+  http://lpg.ticalc.org/prj_tilp 
+	(redirected from http://tilp.info)
+
+
+COPYRIGHT
+---------
+
+TiLP is Copyright (C) 1999-2010 by the TiLP team <tilp-users@lists.sf.net>.
+
+Copying is allowed under the terms of GNU General Public License.  
+See the file COPYING for more details.
+
+Texas Instruments and TI are trademarks of  Texas Instruments Incorporated.
+For more informations: <http://education.ti.com/educationportal/sites/US/nonProductSingle/global_trademarks.html>
+This document has been written independantly of Texas Instruments.
+
+THANKS
+------
+
+See the THANKS file, please.
+
+
+----------------------------------------------------------------------
+Please report any bugs, questions, ...  
+(please give us your platform, your 
+calculator type (with ROM version) and your link cable model).
+
+The TiLP team <tilp-users@lists.sf.net>.

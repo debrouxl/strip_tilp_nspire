@@ -1,0 +1,18 @@
+To do:
+------
+
+1) bug: broken pipe problem (T. Evans); see long mail about that
+
+2) need to exit TiLP to clear an USB error (SilverLink only)
+
+3) fix Titanium/USB sous Linux
+
+4) need to exit TiLP to restart NSpire connection (ticalcs2 API is missing a function)
+
+//------
+
+Tips:
+	Set svn:eol property to native on all files
+
+	Run './configure --enable-static=yes --enable-shared=no' for use with
+		ValGrind. Run 'valgrind --tool=memcheck --leak-check=yes ./test'

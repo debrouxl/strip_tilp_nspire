@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="generator" content="Bluefish 1.0.7">
+<title>FAQ</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="Lionel_Debroux">
+<meta name="description" content="Frequently Asked Questions">
+</head>
+<body>
+<h1 align="center">FAQ (Frequently Asked Questions)</h1>
+<h2>Windows specific</h2>
+<p><b>Q</b>: I am getting font/glyph-related messages such as the following:
+<pre>** WARNING **: Couldn't load font "MS Sans Serif 8" falling back to "Sans 8"</pre>
+<pre>** ERROR **: file shape.c line 75: assertion failed: (glyphs-&gt;num_glyphs &gt; 0)</pre>
+What to do ?<br><br>
+<b>A</b>: the fix is to open your <code>C:\Program Files\Shared Files\Gtk\2.0\etc\gtk-2.0\gtkrc</code> and to add the following lines:</p>
+<pre>
+{
+font_name="Arial"
+}
+widget_class "*" style "user-font"</pre>
+This forces GTK+ to use a compatible font (Arial) and reportedly fixes both the aforementioned problems, and probably others too...
+<hr>
+<p><b>Q</b>: When I try to run the program, an error message appears on the screen saying it could not locate a dll file or that entry point is missing.<br>
+<b>A</b>: Be sure you installed the right GTK+ libaries. If unsure, uninstall them. Next, install TiLP again and request to download library when installers prompts for it.</p>
+<hr><br><br><br>
+<h2>Linux specific</h2>
+<br><b>Q</b>:
+<pre>Hi,
+I'm using tilp2-1.00 on gentoo linux.
+xeelvr / # tilp2
+ticables-INFO: Check for parport usability:
+ticables-INFO: node /dev/parport0: exists
+ticables-INFO: permissions/user/group: -rw-rw---- root root
+ticables-INFO: is user can r/w on device: yes
+ticables-INFO: is useable: no
+tilp-INFO: Msg: illegal operation or argument.
+Cause: the program which uses this library is buggy. Fire-up the developer!
+System: Inappropriate ioctl for device (errno = 25)
+tilp-INFO: tilp_device_err catched error 51
+Do you have any idea ?
+</pre>
+<br>
+<b>A</b>: check that your kernel has support for parport and ppdev. Your linux kernel .config file must contains at least:
+<pre>CONFIG_PARPORT=y
+CONFIG_PARPORT_PC=
+CONFIG_PPDEV=y></pre>
+That's all !<br>
+</body>
+</html>

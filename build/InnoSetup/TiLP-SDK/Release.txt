@@ -1,0 +1,15 @@
+		[ Release notes ]
+
+
+
+Previous version: 1.04 (14/05/2007)
+Current version:  1.07 (29/08/2007)
+
+SubVersion (CVS) revision: $Id: Release.txt 4053 2007-12-06 21:42:25Z roms $
+
+- ticables2 v1.0.8
+- tifiles2  v1.0.7
+- ticalcs2  v1.0.7
+- ticonv    v1.0.4
+
+- cticables2 v0.0.2
