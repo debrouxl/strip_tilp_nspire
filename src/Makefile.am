@@ -62,7 +62,7 @@ tilpm_SOURCES = *.h \
 	romdump.c \
 	ticalcs.c
 
-EXTRA_DIST = bsd/* linux/* macos/* win32/*.c win32/*.h win32/dha/* win32/usb/* win64/*.c win64/*.h win64/rwp/*
+EXTRA_DIST = bsd/* linux/* macos/* win32/*.c win32/*.h win32/usb/*
 
 if OS_WIN32
 libusbdir = $(pkgdatadir)/libusb

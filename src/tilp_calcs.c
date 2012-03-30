@@ -93,11 +93,7 @@ int tilp_calc_isready(void)
 	   Note: Titanium does _not_ like too fast close/open under Linux. 
 	*/
 
-	if(!win32 && options.calc_model == CALC_TI89T_USB)
-	  {
-	    // does nothing here due to Titanium firmware bug
-	  }
-	else if((options.cable_model == CABLE_USB || 
+	if((options.cable_model == CABLE_USB || 
 	   options.cable_model == CABLE_DEV))
 	  {
 		tilp_device_close();
@@ -108,24 +104,6 @@ int tilp_calc_isready(void)
 	to = ticables_options_set_timeout(cable_handle, 10);
 	err = ticalcs_calc_isready(calc_handle);
 	ticables_options_set_timeout(cable_handle, to);
-
-	if(err == 257)	/* 257 = ERR_NOT_READY */
-	{
-		switch(options.calc_model)
-		{
-		case CALC_TI89:
-		case CALC_TI89T:
-			err = ticalcs_calc_send_key(calc_handle, 277);	//KEY89_HOME
-			break;
-		case CALC_TI92:
-		case CALC_TI92P:
-		case CALC_V200:
-			err = ticalcs_calc_send_key(calc_handle, 8273);	//
-			break;
-
-		default: break;
-		}
-	}
 
 	if(options.calc_model == CALC_NSPIRE)
 	{
@@ -309,14 +287,6 @@ int tilp_calc_rom_dump(void)
 	{
 		gif->destroy_pbar();
 		return -1;
-	}
-
-	switch(options.calc_model)
-	{
-		case CALC_TI73: gif->msg_box1("Information", "Launch the ROM dumper on your TI-73 by entering the following commands: PRGM, EXEC, ROMDUMP. Next, press Close."); break;
-		case CALC_TI82: gif->msg_box1("Information", "Launch the ROM dumper on your TI-82 by entering the following commands: PRGM, EXEC, ROMDUMP. Next, press Close."); break;
-		case CALC_TI85: gif->msg_box1("Information", "Launch the ROM dumper on your TI-85 by CUSTOM, F1, scroll down to ROMDUMP, ENTER. Next, press Close."); break;
-		case CALC_TI86: gif->msg_box1("Information", "Launch the ROM dumper on your TI-86 by typing ASM(ROMDump), ENTER. Next, press Close."); break;
 	}
 
 	/* Get data from dumper */
@@ -854,9 +824,6 @@ int tilp_calc_del_var(void)
 	if(!(ticalcs_calc_features(calc_handle) & OPS_DELVAR))
 		return 0;
 
-	if(tilp_calc_check_version("2.09") < 0)
-		return -1;
-
 	if(options.overwrite)
 	{
 		int ret = gif->msg_box2(_("Warning"), _("You are about to delete variable(s).\nAre you sure you want to do that?"));
@@ -911,13 +878,6 @@ int tilp_calc_new_fld(void)
 
 	if(!(ticalcs_calc_features(calc_handle) & OPS_NEWFLD))
 		return 0;
-
-	// This operation is currently implemented the following way:
-	// * for the legacy I/O port, a temporary file is created and then deleted. The latter requires AMS 2.09.
-	// * for the USB port (AMS >= 3.00), it's always supported.
-	// => require AMS 2.09 or later.
-	if(tilp_calc_check_version("2.09") < 0)
-		return -1;
 
 	fldname = gif->msg_entry(_("New Folder"), _("Name: "), _("folder"));
 	if (fldname == NULL)

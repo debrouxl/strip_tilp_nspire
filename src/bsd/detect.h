@@ -26,7 +26,6 @@
 
 int bsd_check_root(void);
 int bsd_check_tty(const char *devname);
-int bsd_check_parport(const char *devname);
 int bsd_check_libusb(void);
 
 #endif

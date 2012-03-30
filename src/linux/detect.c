@@ -355,52 +355,6 @@ int linux_check_tty(const char *devname)
     return 0;
 }
 
-int linux_check_parport(const char *devname)
-{
-    int fd;
-
-    ticables_info(_("Check for parport support:"));
-#ifdef HAVE_LINUX_PARPORT_H    
-    ticables_info(_("    parport support: available."));
-#else
-    ticables_info(_("    parport support: not compiled."));
-    return ERR_PPDEV;
-#endif
-
-    // check for node usability
-    ticables_info(_("Check for parport usability:"));
-    if(check_for_node_usability(devname) == -1)
-        return ERR_PPDEV;
-
-#ifdef HAVE_LINUX_PARPORT_H    
-    // check for device availability
-    fd = open(devname, 0);
-    if (fd == -1)
-    {
-        ticables_warning("unable to open parallel device '%s'.", devname);
-        return ERR_PPDEV;
-    }
-
-    if (ioctl(fd, PPCLAIM) == -1)
-    {
-        ticables_info(_("    is useable: no"));
-        close(fd);
-        return ERR_PPDEV;
-    }
-
-    ticables_info(_("    is useable: yes"));
-
-    if (ioctl(fd, PPRELEASE) == -1)
-    {
-        ticables_info("unable to release parallel device '%s'", devname);
-    }
-
-    close(fd);
-#endif
-
-    return 0;
-}
-
 #define        USBFS        "/proc/bus/usb/"
 #define DEVFS    "/dev/bus/usb/"
 
@@ -454,37 +408,4 @@ int linux_check_libusb(void)
     }
 
     return 0;
-}
-
-int linux_check_tiusb(const char *devname)
-{
-    int fd;
-    int arg;
-
-    // check for node usability
-    ticables_info(_("Check for tiusb usability:"));
-    if(check_for_node_usability(devname) == -1)
-        return ERR_TTDEV;
-
-#ifdef HAVE_LINUX_TICABLE_H
-    // check for device availability
-    fd = open(devname, 0);
-    if (fd == -1)
-    {
-        ticables_warning("unable to open USB device '%s'", devname);
-        return ERR_TTDEV;
-    }
-
-    if (ioctl(fd, IOCTL_TIUSB_GET_MAXPS, &arg) == -1)
-        return ERR_TTDEV;
-
-    ticables_info(_("    is useable: yes"));
-    close(fd);
-
-    return 0;
-#else
-    fd = arg = -1;
-    ticables_info(_("    tiusb support: not compiled."));
-    return ERR_TTDEV;
-#endif
 }

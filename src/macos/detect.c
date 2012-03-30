@@ -121,37 +121,6 @@ static const char *get_group_name(uid_t uid)
 }
 
 /*
-   Attempt to find a specific string in /proc (vfs)
-   - entry [in] : an entry such as '/proc/devices'
-   - str [in) : an occurence to find (such as 'tipar')
-*/
-#if 0
-static int find_string_in_proc(char *entry, char *str)
-{
-	FILE *f;
-	char buffer[80];
-	int found = 0;
-
-	f = fopen(entry, "rt");
-	if (f == NULL)
-	{
-	    ticables_warning("can't open '%s'", entry);
-	    return -1;
-	}
-
-	while (!feof(f))
-	{
-		fscanf(f, "%s", buffer);
-		if (strstr(buffer, str))
-			found = 1;
-	}
-	fclose(f);
-
-	return found;
-}
-#endif
-
-/*
    Attempt to find if an user is attached to a group.
    - user [in] : a user name
    - group [in] : a group name
@@ -285,11 +254,6 @@ int linux_check_tty(const char *devname)
 	return ERR_TTDEV;
 
     return 0;
-}
-
-int linux_check_parport(const char *devname)
-{
-    return ERR_PPDEV;
 }
 
 int linux_check_libusb(void)

@@ -312,11 +312,6 @@ int bsd_check_tty(const char *devname)
     return 0;
 }
 
-int bsd_check_parport(const char *devname)
-{
-    return ERR_PPDEV;
-}
-
 int bsd_check_libusb(void)
 {
 	ticables_info(_("Check for lib-usb support:"));

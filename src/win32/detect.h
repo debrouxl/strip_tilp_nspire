@@ -30,9 +30,6 @@
 
 int win32_check_os(void);
 
-int win32_check_dha(void);
-int win32_check_rwp(void);
-
 int win32_check_libusb(void);
 
 #endif

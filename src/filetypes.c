@@ -93,30 +93,6 @@ TIEXPORT2 const char *TICALL tifiles_fext_of_group (CalcModel model)
 	{
 		case CALC_NONE:
 			return "XXx";
-		case CALC_TI73:
-			return "73g";
-		case CALC_TI82:
-			return "82g";
-		case CALC_TI83:
-			return "83g";
-		case CALC_TI83P:
-		case CALC_TI84P:
-		case CALC_TI84P_USB:
-			return "8Xg";
-		case CALC_TI85:
-			return "85g";
-		case CALC_TI86:
-			return "86g";
-		case CALC_TI89:
-		case CALC_TI89T:
-		case CALC_TI89T_USB:
-			return "89g";
-		case CALC_TI92:
-			return "92g";
-		case CALC_TI92P:
-			return "9Xg";
-		case CALC_V200:
-			return "V2g";
 		case CALC_NSPIRE:
 			return "XXx";
 		default:
@@ -141,31 +117,6 @@ TIEXPORT2 const char *TICALL tifiles_fext_of_backup (CalcModel model)
 	{
 		case CALC_NONE:
 			return "??b";
-		case CALC_TI73:
-			return "73b";
-		case CALC_TI82:
-			return "82b";
-		case CALC_TI83:
-			return "83b";
-		case CALC_TI83P:
-		case CALC_TI84P:
-			return "8Xb";
-		case CALC_TI85:
-			return "85b";
-		case CALC_TI86:
-			return "86b";
-		case CALC_TI89:
-		case CALC_TI89T:
-		case CALC_TI89T_USB:
-			return "89g";
-		case CALC_TI92:
-			return "92b";
-		case CALC_TI92P:
-			return "9Xg";
-		case CALC_V200:
-			return "V2g";
-		case CALC_TI84P_USB:
-			return "8Xg";
 		case CALC_NSPIRE:
 			return "XXx";
 		default:
@@ -190,30 +141,6 @@ TIEXPORT2 const char *TICALL tifiles_fext_of_flash_app (CalcModel model)
 	{
 		case CALC_NONE:
 			return "??k";
-		case CALC_TI73:
-			return "73k";
-		case CALC_TI82:
-			return "XXx";
-		case CALC_TI83:
-			return "XXx";
-		case CALC_TI83P:
-		case CALC_TI84P:
-		case CALC_TI84P_USB:
-			return "8Xk";
-		case CALC_TI85:
-			return "XXx";
-		case CALC_TI86:
-			return "XXx";
-		case CALC_TI89:
-		case CALC_TI89T:
-		case CALC_TI89T_USB:
-			return "89k";
-		case CALC_TI92:
-			return "XXx";
-		case CALC_TI92P:
-			return "9Xk";
-		case CALC_V200:
-			return "V2k";
 		case CALC_NSPIRE:
 			return "XXx";
 		default:
@@ -238,30 +165,6 @@ TIEXPORT2 const char *TICALL tifiles_fext_of_flash_os(CalcModel model)
 	{
 		case CALC_NONE:
 			return "??u";
-		case CALC_TI73:
-			return "73u";
-		case CALC_TI82:
-			return "XXx";
-		case CALC_TI83:
-			return "XXx";
-		case CALC_TI83P:
-		case CALC_TI84P:
-		case CALC_TI84P_USB:
-			return "8Xu";
-		case CALC_TI85:
-			return "XXx";
-		case CALC_TI86:
-			return "XXx";
-		case CALC_TI89:
-		case CALC_TI89T:
-		case CALC_TI89T_USB:
-			return "89u";
-		case CALC_TI92:
-			return "XXx";
-		case CALC_TI92P:
-			return "9Xu";
-		case CALC_V200:
-			return "V2u";
 		case CALC_NSPIRE:
 			return "tno";
 		default:
@@ -286,30 +189,6 @@ TIEXPORT2 const char *TICALL tifiles_fext_of_certif(CalcModel model)
 	{
 		case CALC_NONE:
 			return "??q";
-		case CALC_TI73:
-			return "73q";
-		case CALC_TI82:
-			return "XXx";
-		case CALC_TI83:
-			return "XXx";
-		case CALC_TI83P:
-		case CALC_TI84P:
-		case CALC_TI84P_USB:
-			return "8Xq";
-		case CALC_TI85:
-			return "XXx";
-		case CALC_TI86:
-			return "XXx";
-		case CALC_TI89:
-		case CALC_TI89T:
-		case CALC_TI89T_USB:
-			return "89q";
-		case CALC_TI92:
-			return "XXx";
-		case CALC_TI92P:
-			return "9Xq";
-		case CALC_V200:
-			return "V2q";
 		case CALC_NSPIRE:
 			return "XXx";
 		default:
@@ -855,7 +734,7 @@ TIEXPORT2 int TICALL tifiles_file_test(const char *filename, FileClass type, Cal
 		else
 			return tifiles_file_is_backup(filename);
 	}
-	
+
 	if(type & TIFILE_OS)
 	{
 		if(target && !g_ascii_strcasecmp(e, FLASH_OS_FILE_EXT[target]))
@@ -929,29 +808,7 @@ TIEXPORT2 CalcModel TICALL tifiles_file_get_model(const char *filename)
 	strncpy(str, ext, 2);
 	str[2] = '\0';
 
-	if (!g_ascii_strcasecmp(str, "73"))
-		type = CALC_TI73;
-	else if (!g_ascii_strcasecmp(str, "82"))
-		type = CALC_TI82;
-	else if (!g_ascii_strcasecmp(str, "83"))
-		type = CALC_TI83;
-	else if (!g_ascii_strcasecmp(str, "8x"))
-		type = CALC_TI83P;
-	else if (!g_ascii_strcasecmp(str, "85"))
-		type = CALC_TI85;
-	else if (!g_ascii_strcasecmp(str, "86"))
-		type = CALC_TI86;
-	else if (!g_ascii_strcasecmp(str, "89"))
-		type = CALC_TI89;
-	else if (!g_ascii_strcasecmp(str, "92"))
-		type = CALC_TI92;
-	else if (!g_ascii_strcasecmp(str, "9X"))
-		type = CALC_TI92P;
-	else if (!g_ascii_strcasecmp(str, "V2"))
-		type = CALC_V200;
-	//else if (!g_ascii_strcasecmp(str, "tib"))
-		//type = CALC_TI89;	// consider .tib as TI89
-	else if (!g_ascii_strcasecmp(str, "tn") || !g_ascii_strcasecmp(str, "tc") || !g_ascii_strcasecmp(str, "tm"))
+	if (!g_ascii_strcasecmp(str, "tn") || !g_ascii_strcasecmp(str, "tc") || !g_ascii_strcasecmp(str, "tm"))
 		type = CALC_NSPIRE;
 	else
 		type = CALC_NONE;

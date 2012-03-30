@@ -27,14 +27,6 @@
 #include "../logging.h"
 #include "detect.h"
 
-#include "../win32/dha.h"
-#include "../win64/rwp.h"
-
-#ifdef __MINGW32__
-#include "../win32/dha.c"
-#include "../win64/rwp.c"
-#endif
-
 // Note: the kernel version of XP x64 is 5.2, like Windows 2003, not 5.1 as 
 // Windows XP 32-Bit.
 
@@ -59,32 +51,6 @@ int win32_check_os(void)
 		return WIN_NT;
 
 	return 0;
-}
-
-int win32_check_dha(void)
-{
-#ifndef _WIN64
-	int result = 0;
-
-	dha_detect(&result);
-
-	return result ? 0 : ERR_DHA_NOT_FOUND;
-#else
-	return 0;
-#endif
-}
-
-int win32_check_rwp(void)
-{
-#ifdef _WIN64
-	int result = 0;
-
-	rwp_detect(&result);
-
-	return result ? 0: ERR_RWP_NOT_FOUND;
-#else
-	return 0;
-#endif
 }
 
 int win32_check_libusb(void)

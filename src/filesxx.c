@@ -334,21 +334,6 @@ TIEXPORT2 FlashContent* TICALL tifiles_content_create_flash(CalcModel model)
 	if (content != NULL)
 	{
 		content->model = model;
-		if(tifiles_calc_is_ti9x(content->model))
-		{
-			time_t tt;
-			struct tm *lt;
-
-			time(&tt);
-			lt = localtime(&tt);
-			content->revision_major = 1;
-			content->revision_minor = 0;
-			content->flags = 0;
-			content->object_type = 0;
-			content->revision_day = lt->tm_mday;
-			content->revision_month = lt->tm_mon;
-			content->revision_year = lt->tm_year + 1900;
-		}
 	}
 
 	return content;
