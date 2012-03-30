@@ -30,7 +30,6 @@ tilpm_SOURCES = *.h \
 	\
 	ticonv.c tokens.c filename.c \
 	\
-	minizip/*.h \
 	comments.c \
 	error.c \
 	filesnsp.c filesxx.c \
@@ -45,11 +44,6 @@ tilpm_SOURCES = *.h \
 	typesnsp.c \
 	typesxx.c \
 	ve_fp.c \
-	minizip/ioapi.c   \
-	minizip/miniunz.c \
-	minizip/minizip.c \
-	minizip/unzip.c   \
-	minizip/zip.c\
 	\
 	data_log.c \
 	detect.c \
