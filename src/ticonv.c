@@ -32,7 +32,6 @@
 #include <glib.h>
 
 #include "ticonv.h"
-#include "charset.h"
 
 /***********/
 /* Methods */
@@ -130,19 +129,6 @@ TIEXPORT4 char* TICALL ticonv_charset_utf16_to_ti_s(CalcModel model, const unsig
 	{
 		switch(model)
 		{
-			case CALC_TI73: return ticonv_utf16_to_ti73(utf16, ti); break;
-			case CALC_TI82: return ticonv_utf16_to_ti82(utf16, ti); break;
-			case CALC_TI83: return ticonv_utf16_to_ti83(utf16, ti); break;
-			case CALC_TI83P:
-			case CALC_TI84P:return ticonv_utf16_to_ti83p(utf16, ti); break;
-			case CALC_TI85: return ticonv_utf16_to_ti85(utf16, ti); break;
-			case CALC_TI89:
-			case CALC_TI89T:
-			case CALC_TI92:
-			case CALC_TI92P:
-			case CALC_V200: return ticonv_utf16_to_ti9x(utf16, ti); break;
-			case CALC_TI84P_USB: return ticonv_utf16_to_ti84pusb(utf16, ti); break;
-			case CALC_TI89T_USB: return ticonv_utf16_to_ti89tusb(utf16, ti); break;
 			case CALC_NSPIRE:
 				{
 				char *tmp = ticonv_utf16_to_utf8(utf16);
@@ -204,20 +190,6 @@ TIEXPORT4 unsigned short* TICALL ticonv_charset_ti_to_utf16_s(CalcModel model, c
 	{
 		switch(model)
 		{
-			case CALC_TI73: return ticonv_ti73_to_utf16(ti, utf16); break;
-			case CALC_TI82: return ticonv_ti82_to_utf16(ti, utf16); break;
-			case CALC_TI83: return ticonv_ti83_to_utf16(ti, utf16); break;
-			case CALC_TI83P:
-			case CALC_TI84P:return ticonv_ti83p_to_utf16(ti, utf16); break;
-			case CALC_TI85: return ticonv_ti85_to_utf16(ti, utf16); break;
-			case CALC_TI86: return ticonv_ti86_to_utf16(ti, utf16); break;
-			case CALC_TI89:
-			case CALC_TI89T:
-			case CALC_TI92:
-			case CALC_TI92P:
-			case CALC_V200: return ticonv_ti9x_to_utf16(ti, utf16); break;
-			case CALC_TI84P_USB: return ticonv_ti84pusb_to_utf16(ti, utf16); break;
-			case CALC_TI89T_USB: return ticonv_ti89tusb_to_utf16(ti, utf16); break;
 			case CALC_NSPIRE:
 				{
 				unsigned short *tmp = ticonv_utf8_to_utf16(ti);
@@ -468,28 +440,7 @@ TIEXPORT4 char* TICALL ticonv_varname_to_tifile(CalcModel model, const char *src
 		return NULL;
 	}
 
-	// Do TI-UTF-8 -> UTF-16,UTF-16 -> TI-8x/9x charset
-	if(model == CALC_TI84P_USB)
-	{
-		utf16 = ticonv_charset_ti_to_utf16(CALC_TI84P_USB, src);
-		
-		ti = ticonv_charset_utf16_to_ti(CALC_TI84P, utf16);
-		g_free(utf16);
-		
-		dst = ticonv_varname_tokenize(CALC_TI84P, ti, type);
-		g_free(ti);
-	}
-	else if(model == CALC_TI89T_USB)
-	{
-		utf16 = ticonv_charset_ti_to_utf16(CALC_TI89T_USB, src);
-
-		ti = ticonv_charset_utf16_to_ti(CALC_TI89T, utf16);
-		g_free(utf16);
-
-		dst = ti;
-	}
-	else
-		dst = g_strdup(src);
+	dst = g_strdup(src);
 
 	return dst;
 }
@@ -545,26 +496,8 @@ TIEXPORT4 char* TICALL ticonv_varname_from_tifile(CalcModel model, const char *s
 		return NULL;
 	}
 
-	if(model == CALC_TI84P_USB)
-	{
-		ti = ticonv_varname_detokenize(CALC_TI84P, src, type);
+	dst = g_strdup(src);
 
-		utf16 = ticonv_charset_ti_to_utf16(CALC_TI84P, ti);
-		g_free(ti);
-
-		dst = ticonv_charset_utf16_to_ti(CALC_TI84P_USB, utf16);
-		g_free(utf16);
-	}
-	else if(model == CALC_TI89T_USB)
-	{
-		utf16 = ticonv_charset_ti_to_utf16(CALC_TI89T, src);
-
-		dst = ticonv_charset_utf16_to_ti(CALC_TI89T_USB, utf16);
-		g_free(utf16);
-	}
-	else
-		dst = g_strdup(src);
-	
 	return dst;
 }
 
@@ -595,4 +528,3 @@ TIEXPORT4 char* TICALL ticonv_varname_from_tifile_s(CalcModel model, const char 
 		return NULL;
 	}
 }
-

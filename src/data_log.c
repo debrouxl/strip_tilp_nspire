@@ -41,8 +41,6 @@
 #include "data_log.h"
 
 #include "log_hex.h"
-#include "log_dbus.h"
-#include "log_dusb.h"
 #include "log_nsp.h"
 
 int log_start(CableHandle *h)
@@ -57,15 +55,10 @@ int log_start(CableHandle *h)
 
 	if(h->model == CABLE_USB)
 	{
-		log_dusb_start();
 		log_nsp_start();
 	}
-	if(h->model != CABLE_USB)
-	{
-		log_dbus_start();
-	}
 
-  	return 0;
+	return 0;
 }
 
 int log_1(CableHandle *h, int dir, uint8_t data)
@@ -74,15 +67,10 @@ int log_1(CableHandle *h, int dir, uint8_t data)
 
 	if(h->model == CABLE_USB)
 	{
-		log_dusb_1(dir, data);
 		log_nsp_1(dir, data);
 	}
-	if(h->model != CABLE_USB)
-	{
-		log_dbus_1(dir, data);
-	}
 
-  	return 0;
+	return 0;
 }
 
 int log_N(CableHandle *h, int dir, uint8_t *data, int len)
@@ -94,12 +82,10 @@ int log_N(CableHandle *h, int dir, uint8_t *data, int len)
 	{
 		
 		log_hex_1(dir, data[i]);
-		log_dusb_1(dir, data[i]);
-		log_dbus_1(dir, data[i]);
 		log_nsp_1(dir, data[i]);
 	}
-  	
-  	return 0;
+
+	return 0;
 }
 
 int log_stop(CableHandle *h)
@@ -108,13 +94,8 @@ int log_stop(CableHandle *h)
 
 	if(h->model == CABLE_USB)
 	{
-		log_dusb_stop();
 		log_nsp_stop();
 	}
-	if(h->model != CABLE_USB)
-	{
-		log_dbus_stop();
-	}
 
-  	return 0;
+	return 0;
 }

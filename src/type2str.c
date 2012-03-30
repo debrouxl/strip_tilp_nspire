@@ -42,20 +42,6 @@ TIEXPORT2 const char *TICALL tifiles_model_to_string(CalcModel model)
 	switch (model)
 	{
 	case CALC_NONE:  return "none";
-	case CALC_V200:  return "V200";
-	case CALC_TI92P: return "TI92+";
-	case CALC_TI92:  return "TI92";
-	case CALC_TI89T: return "TI89t";
-	case CALC_TI89:  return "TI89";
-	case CALC_TI86:  return "TI86";
-	case CALC_TI85:  return "TI85";
-	case CALC_TI84P: return "TI84+";
-	case CALC_TI83P: return "TI83+";
-	case CALC_TI83:  return "TI83";
-	case CALC_TI82:  return "TI82";
-	case CALC_TI73:  return "TI73";
-	case CALC_TI84P_USB: return "TI84+ USB";
-	case CALC_TI89T_USB: return "TI89t USB";
 	case CALC_NSPIRE: return "NSpire";
 	default: return "unknown";
 	}
@@ -73,47 +59,7 @@ TIEXPORT2 CalcModel TICALL tifiles_string_to_model(const char *str)
 {
 	if (str != NULL)
 	{
-		if(!g_ascii_strcasecmp(str, "TI73") || !g_ascii_strcasecmp(str, "73"))
-			return CALC_TI73;
-		else if(!g_ascii_strcasecmp(str, "TI82") || !g_ascii_strcasecmp(str, "82"))
-			return CALC_TI82;
-		else if(!g_ascii_strcasecmp(str, "TI83") || !g_ascii_strcasecmp(str, "83"))
-			return CALC_TI83;
-		else if(   !g_ascii_strncasecmp(str, "TI83+", 5)
-			|| !g_ascii_strncasecmp(str, "TI83p", 5)
-			|| !g_ascii_strncasecmp(str, "83+", 3)
-			|| !g_ascii_strncasecmp(str, "83p", 3)
-		       )
-			return CALC_TI83P;
-		else if(   !g_ascii_strncasecmp(str, "TI84+", 5)
-			|| !g_ascii_strncasecmp(str, "TI84p", 5)
-			|| !g_ascii_strncasecmp(str, "84+", 3)
-			|| !g_ascii_strncasecmp(str, "84p", 3)
-		       )
-			return CALC_TI84P;
-		else if(!g_ascii_strcasecmp(str, "TI85") || !g_ascii_strcasecmp(str, "85"))
-			return CALC_TI85;
-		else if(!g_ascii_strcasecmp(str, "TI86") || !g_ascii_strcasecmp(str, "86"))
-			return CALC_TI86;
-		else if(!g_ascii_strcasecmp(str, "TI89") || !g_ascii_strcasecmp(str, "89"))
-			return CALC_TI89;
-		else if(!g_ascii_strcasecmp(str, "TI89t") || !g_ascii_strcasecmp(str, "89t"))
-			return CALC_TI89T;
-		else if(!g_ascii_strcasecmp(str, "TI92") || !g_ascii_strcasecmp(str, "92"))
-			return CALC_TI92;
-		else if(   !g_ascii_strncasecmp(str, "TI92+", 5)
-			|| !g_ascii_strncasecmp(str, "TI92p", 5)
-			|| !g_ascii_strncasecmp(str, "92+", 3)
-			|| !g_ascii_strncasecmp(str, "92p", 3)
-		       )
-			return CALC_TI92P;
-		else if(!g_ascii_strcasecmp(str, "TIV200") || !g_ascii_strcasecmp(str, "V200"))
-			return CALC_V200;
-		else if(!g_ascii_strcasecmp(str, "TI84+ USB") || !g_ascii_strcasecmp(str, "84+ USB"))
-			return CALC_TI84P_USB;
-		else if(!g_ascii_strcasecmp(str, "TI89t USB") || !g_ascii_strcasecmp(str, "89T USB"))
-			return CALC_TI89T_USB;
-		else if(!g_ascii_strncasecmp(str, "TI NSpire", 9) || !g_ascii_strncasecmp(str, "NSpire", 6))
+		if(!g_ascii_strncasecmp(str, "TI NSpire", 9) || !g_ascii_strncasecmp(str, "NSpire", 6))
 			return CALC_NSPIRE;
 	}
 
@@ -235,15 +181,7 @@ TIEXPORT1 const char *TICALL ticables_model_to_string(CableModel model)
   	switch (model) 
 	{
 	case CABLE_NUL: return "null";
-	case CABLE_GRY: return "GrayLink";
-	case CABLE_BLK: return "BlackLink";
-	case CABLE_PAR: return "Parallel";
-	case CABLE_SLV: return "SilverLink";
 	case CABLE_USB: return "DirectLink";
-	case CABLE_VTI: return "VTi";
-	case CABLE_TIE: return "TiEmu";
-	case CABLE_ILP: return "linkport";
-	case CABLE_DEV: return "UsbKernel";
 	default: return "unknown";
 	}
 }
@@ -266,30 +204,8 @@ TIEXPORT1 CableModel TICALL ticables_string_to_model(const char *str)
 
 	if(!g_ascii_strcasecmp(str, "null"))
 		return CABLE_NUL;
-	else if(!g_ascii_strcasecmp(str, "GrayLink"))
-		return CABLE_GRY;
-	else if(!g_ascii_strcasecmp(str, "BlackLink"))
-		return CABLE_BLK;
-	else if(!g_ascii_strcasecmp(str, "Parallel"))
-		return CABLE_PAR;
-	else if(!g_ascii_strcasecmp(str, "SilverLink"))
-		return CABLE_SLV;
 	else if(!g_ascii_strcasecmp(str, "DirectLink"))
 		return CABLE_USB;
-	else if(!g_ascii_strcasecmp(str, "VTi"))
-		return CABLE_VTI;
-	else if(!g_ascii_strcasecmp(str, "TiEmu"))
-		return CABLE_TIE;
-	else if(!g_ascii_strcasecmp(str, "TilEm"))
-		return CABLE_TIE;
-	else if(!g_ascii_strcasecmp(str, "TiEmu/TilEm"))
-		return CABLE_TIE;
-	else if(!g_ascii_strcasecmp(str, "TiEmu"))
-		return CABLE_TIE;
-	else if(!g_ascii_strcasecmp(str, "linkport"))
-		return CABLE_ILP;
-	else if(!g_ascii_strcasecmp(str, "UsbKernel"))
-		return CABLE_DEV;
 
 	return CABLE_NUL;
 }
@@ -357,10 +273,6 @@ TIEXPORT1 const char *TICALL ticables_usbpid_to_string(UsbPid pid)
 {
 	switch (pid)
 	{
-	case PID_TIGLUSB: return "SilverLink";	// must match ticables name
-	case PID_TI89TM: return "TI89t";		// must match tifiles name
-	case PID_TI84P: return "TI84+";			// must match tifiles name
-	case PID_TI84P_SE: return "TI84+";		// remap
 	case PID_NSPIRE: return "NSpire";		// must match tifiles name
 	default: return "unknown";
 	}
@@ -382,15 +294,7 @@ TIEXPORT1 UsbPid TICALL ticables_string_to_usbpid(const char *str)
 		return PID_UNKNOWN;
 	}
 
-	if(!strcmp(str, "SilverLink"))
-		return PID_TIGLUSB;
-	else if(!strcmp(str, "TI89t"))
-		return PID_TI89TM;
-	else if(!strcmp(str, "TI84+"))
-		return PID_TI84P;
-	else if(!strcmp(str, "TI84+SE"))
-		return PID_TI84P_SE;
-	else if(!strcmp(str, "NSpire"))
+	if(!strcmp(str, "NSpire"))
 		return PID_NSPIRE;
 
 	return PID_UNKNOWN;

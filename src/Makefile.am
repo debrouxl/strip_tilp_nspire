@@ -28,7 +28,7 @@ tilpm_SOURCES = *.h \
 	release.c screenshot.c scroptions.c splash.c support.c \
 	toolbar.c fileprop.c \
 	\
-	ticonv.c charset.c tokens.c filename.c \
+	ticonv.c tokens.c filename.c \
 	\
 	minizip/*.h \
 	comments.c \
@@ -54,18 +54,16 @@ tilpm_SOURCES = *.h \
 	data_log.c \
 	detect.c \
 	link_nul.c link_usb.c link_xxx.c \
-	log_dbus.c log_dusb.c log_hex.c log_nsp.c \
-	hex2dbus.c hex2dusb.c hex2nsp.c \
+	log_hex.c log_nsp.c \
+	hex2nsp.c \
 	probe.c \
 	ticables.c \
 	none.c \
 	\
 	calc_00.c calc_xx.c \
 	calc_nsp.c \
-	dusb_cmd.c nsp_cmd.c \
+	nsp_cmd.c \
 	dirlist.c \
-	dbus_pkt.c \
-	dusb_rpkt.c dusb_vpkt.c \
 	nsp_rpkt.c nsp_vpkt.c \
 	romdump.c \
 	ticalcs.c

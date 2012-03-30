@@ -148,9 +148,7 @@ TIEXPORT2 int TICALL tifiles_error_get(FileError number, char **message)
 }
 
 // extern helpers
-extern void dusb_vtl_pkt_purge(void);
 extern void nsp_vtl_pkt_purge(void);
-extern void cpca_purge(void);
 
 extern int nsp_reset;
 
@@ -173,8 +171,6 @@ TIEXPORT3 int TICALL ticalcs_error_get(CalcError number, char **message)
 	char error_msg[2048];
 
 	// free memory
-	dusb_vtl_pkt_purge();
-	cpca_purge();
 	nsp_vtl_pkt_purge();
 
 	if (message == NULL)

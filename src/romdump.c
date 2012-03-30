@@ -28,7 +28,6 @@
 #include <string.h>
 
 #include "ticalcs.h"
-#include "dbus_pkt.h"
 #include "logging.h"
 #include "error.h"
 #include "macros.h"
