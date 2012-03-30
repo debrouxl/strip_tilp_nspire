@@ -33,7 +33,6 @@
 #include "error.h"
 #include "macros.h"
 #include "pause.h"
-#include "cmd73.h"
 
 #define MAX_RETRY	3
 

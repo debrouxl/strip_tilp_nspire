@@ -900,46 +900,6 @@ TIEXPORT2 int TICALL tifiles_file_test(const char *filename, FileClass type, Cal
 	{
 		return tifiles_file_test(filename, TIFILE_OS, target) || tifiles_file_test(filename, TIFILE_APP, target);
 	}
-	
-	if(type & TIFILE_TIGROUP)
-	{
-		if(target)
-		{
-			// No easy/light way for this part: we have to load the whole file
-			// and to parse the TigEntry structures.
-			TigContent *content;
-			int ret, ok=0;
-			int k;
-
-			if(!tifiles_file_has_tig_header(filename))
-				return 0;
-
-			content = tifiles_content_create_tigroup(CALC_NONE, 0);
-			ret = tifiles_file_read_tigroup(filename, content);
-			if(ret) return 0;
-
-			for (k = 0; k < content->n_apps; k++)
-			{
-				TigEntry *te = content->app_entries[k];
-
-				if(tifiles_calc_are_compat(te->content.regular->model, target))
-					ok++;
-			}
-
-			for (k = 0; k < content->n_vars; k++)
-			{
-				TigEntry *te = content->var_entries[k];
-
-				if(tifiles_calc_are_compat(te->content.regular->model, target))
-					ok++;
-			}
-
-			tifiles_content_delete_tigroup(content);
-			return ok;
-		}
-		else
-			return tifiles_file_is_tigroup(filename);
-	}
 
 	return 0;
 }
@@ -1039,9 +999,6 @@ TIEXPORT2 const char *TICALL tifiles_file_get_type(const char *filename)
 	if (!strcmp(ext, ""))
 		return "";
 
-	if (!g_ascii_strcasecmp(ext, "tib"))
-		return _("OS upgrade");
-
 	if(   !g_ascii_strcasecmp(ext, "tno") || !g_ascii_strcasecmp(ext, "tnc")
 	   || !g_ascii_strcasecmp(ext, "tco") || !g_ascii_strcasecmp(ext, "tcc")
 	   || !g_ascii_strcasecmp(ext, "tmo") || !g_ascii_strcasecmp(ext, "tmc")
@@ -1051,54 +1008,8 @@ TIEXPORT2 const char *TICALL tifiles_file_get_type(const char *filename)
 	if (!tifiles_file_is_ti(filename))
 		return "";
 
-	if(tifiles_file_is_tigroup(filename))
-		return _("TIGroup");
-
-	if (tifiles_file_is_group(filename))
-	{
-		switch (tifiles_file_get_model(filename))
-		{
-			case CALC_TI89:
-			case CALC_TI89T:
-			case CALC_TI89T_USB:
-			case CALC_TI92P:
-			case CALC_V200:
-				return _("Group/Backup");
-			default:
-				return _("Group");
-		}
-	}
-
 	switch (tifiles_file_get_model(filename))
 	{
-#ifndef DISABLE_TI8X
-		case CALC_TI73:
-			return ti73_byte2desc(ti73_fext2byte(ext));
-		case CALC_TI82:
-			return ti82_byte2desc(ti82_fext2byte(ext));
-		case CALC_TI83:
-			return ti83_byte2desc(ti83_fext2byte(ext));
-		case CALC_TI83P:
-		case CALC_TI84P:
-		case CALC_TI84P_USB:
-			return ti83p_byte2desc(ti83p_fext2byte(ext));
-		case CALC_TI85:
-			return ti85_byte2desc(ti85_fext2byte(ext));
-		case CALC_TI86:
-			return ti86_byte2desc(ti86_fext2byte(ext));
-#endif
-#ifndef DISABLE_TI9X
-		case CALC_TI89:
-		case CALC_TI89T:
-		case CALC_TI89T_USB:
-			return ti89_byte2desc(ti89_fext2byte(ext));
-		case CALC_TI92:
-			return ti92_byte2desc(ti92_fext2byte(ext));
-		case CALC_TI92P:
-			return ti92p_byte2desc(ti92p_fext2byte(ext));
-		case CALC_V200:
-			return v200_byte2desc(v200_fext2byte(ext));
-#endif
 		case CALC_NSPIRE:
 			return nsp_byte2desc(nsp_fext2byte(ext));
 		case CALC_NONE:
@@ -1137,54 +1048,8 @@ TIEXPORT2 const char *TICALL tifiles_file_get_icon(const char *filename)
 	if (!tifiles_file_is_ti(filename))
 		return "";
 
-	if(tifiles_file_is_tigroup(filename))
-		return _("TIGroup");
-
-	if (tifiles_file_is_group(filename))
-	{
-		switch (tifiles_file_get_model(filename))
-		{
-			case CALC_TI89:
-			case CALC_TI89T:
-			case CALC_TI89T_USB:
-			case CALC_TI92P:
-			case CALC_V200:
-				return _("Group/Backup");
-			default:
-				return _("Group");
-		}
-	}
-
 	switch (tifiles_file_get_model(filename))
 	{
-#ifndef DISABLE_TI8X
-		case CALC_TI73:
-			return ti73_byte2icon(ti73_fext2byte(ext));
-		case CALC_TI82:
-			return ti82_byte2icon(ti82_fext2byte(ext));
-		case CALC_TI83:
-			return ti83_byte2icon(ti83_fext2byte(ext));
-		case CALC_TI83P:
-		case CALC_TI84P:
-		case CALC_TI84P_USB:
-			return ti83p_byte2icon(ti83p_fext2byte(ext));
-		case CALC_TI85:
-			return ti85_byte2icon(ti85_fext2byte(ext));
-		case CALC_TI86:
-			return ti86_byte2icon(ti86_fext2byte(ext));
-#endif
-#ifndef DISABLE_TI9X
-		case CALC_TI89:
-		case CALC_TI89T:
-		case CALC_TI89T_USB:
-			return ti89_byte2icon(ti89_fext2byte(ext));
-		case CALC_TI92:
-			return ti92_byte2icon(ti92_fext2byte(ext));
-		case CALC_TI92P:
-			return ti92p_byte2icon(ti92p_fext2byte(ext));
-		case CALC_V200:
-			return v200_byte2icon(v200_fext2byte(ext));
-#endif
 		case CALC_NSPIRE:
 			return nsp_byte2icon(nsp_fext2byte(ext));
 		case CALC_NONE:

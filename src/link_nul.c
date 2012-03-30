@@ -1,5 +1,5 @@
 /* Hey EMACS -*- linux-c -*- */
-/* $Id: link_nul.c 4392 2011-08-01 09:24:05Z debrouxl $ */
+/* $Id$ */
 
 /*  libticables2 - link cable library, a part of the TiLP project
  *  Copyright (C) 1999-2005  Romain Lievin

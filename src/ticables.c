@@ -57,31 +57,13 @@
 static CableFncts const *const cables[] =
 {
 	&cable_nul,
-#ifndef NO_CABLE_GRY
-	&cable_gry,
-#endif
-#if !defined(NO_CABLE_BLK) && !defined(__MACOSX__)
-	&cable_ser,
-#endif
-#if !defined(NO_CABLE_PAR) && (defined(HAVE_LINUX_PARPORT_H) || defined(__WIN32__))
-	&cable_par,
-#endif
 #if !defined(NO_CABLE_SLV) && (defined(HAVE_LIBUSB) || defined(HAVE_LIBUSB_1_0) || defined(__WIN32__))
 	&cable_slv,
 #endif
 #if !defined(NO_CABLE_SLV) && (defined(HAVE_LIBUSB) || defined(HAVE_LIBUSB_1_0) || defined(__WIN32__))
 	&cable_raw,
 #endif
-#ifndef NO_CABLE_VTI
-	&cable_vti,
-#endif
-#ifndef NO_CABLE_TIE
-	&cable_tie,
-#endif
 	&cable_ilp,
-#if !defined(NO_CABLE_SLV) && defined(HAVE_LINUX_TICABLE_H)
-	&cable_dev,
-#endif
 	NULL
 };
 

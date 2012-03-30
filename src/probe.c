@@ -276,30 +276,6 @@ static int ticalcs_probe_calc_1(CalcHandle* handle, CalcModel* model)
 	if ((status & 1) != 0)
 		return ERR_NOT_READY;
 	
-	// test for TI9x FLASH hand-helds again (request version and analyze HW_ID)
-	if(!err && (host != TI73_PC) && (host != TI83p_PC))
-	{
-		ticalcs_info(_("Check for TI9X... "));
-
-		handle->model = CALC_TI89;
-		handle->calc = (CalcFncts *)&calc_89;
-
-		memset(&infos, 0, sizeof(CalcInfos));		
-		TRYF(ticalcs_calc_get_version(handle, &infos));
-		*model = infos.model;
-	}
-	else
-	{
-		ticalcs_info(_("Check for TI8X... "));
-
-		handle->model = CALC_TI83P;
-		handle->calc = (CalcFncts *)&calc_83p;
-
-		memset(&infos, 0, sizeof(CalcInfos));
-		TRYF(ticalcs_calc_get_version(handle, &infos));
-		*model = infos.model;
-	}
-
 	ticalcs_info(_("Calculator type: %s"), tifiles_model_to_string(*model));
 
 	return (*model == CALC_NONE) ? ERR_NO_CALC : 0;

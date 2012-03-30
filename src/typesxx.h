@@ -22,18 +22,6 @@
 #ifndef __TIFILES_DEFSXX__
 #define __TIFILES_DEFSXX__
 
-#include "types73.h"
-#include "types82.h"
-#include "types83.h"
-#include "types83p.h"
-#include "types84p.h"
-#include "types85.h"
-#include "types86.h"
-#include "types89.h"
-#include "types89t.h"
-#include "types92.h"
-#include "types92p.h"
-#include "typesv2.h"
 #include "typesnsp.h"
 
 #endif

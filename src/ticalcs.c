@@ -46,52 +46,6 @@ extern const CalcUpdate default_update;
 
 static CalcFncts const *const calcs[] = 
 {
-	&calc_00,
-#ifndef NO_TI73
-	&calc_73,
-#endif
-#ifndef NO_TI82
-	&calc_82,
-#endif
-#ifndef NO_TI82S
-	&calc_83/*&calc_82s*/,
-#endif
-#ifndef NO_TI83
-	&calc_83,
-#endif
-#ifndef NO_TI83P
-	&calc_83p,
-#endif
-#ifndef NO_TI84P
-	&calc_84p,
-#endif
-#ifndef NO_TI85
-	&calc_85,
-#endif
-#ifndef NO_TI86
-	&calc_86,
-#endif
-#ifndef NO_TI89
-	&calc_89,
-#endif
-#ifndef NO_TI92
-	&calc_92,
-#endif
-#ifndef NO_TI92P
-	&calc_92p,
-#endif
-#ifndef NO_V200
-	&calc_v2,
-#endif
-#ifndef NO_TI89T
-	&calc_89t,
-#endif
-#ifndef NO_TI84P_USB
-	&calc_84p_usb,
-#endif
-#ifndef NO_TI89T_USB
-	&calc_89t_usb,
-#endif
 #ifndef NO_SPIRE
 	&calc_nsp,
 #endif

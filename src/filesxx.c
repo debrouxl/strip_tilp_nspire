@@ -31,8 +31,6 @@
 
 #include "tifiles.h"
 #include "error.h"
-#include "files8x.h"
-#include "files9x.h"
 #include "filesnsp.h"
 #include "logging.h"
 
@@ -149,16 +147,6 @@ TIEXPORT2 int tifiles_file_read_regular(const char *filename, FileContent *conte
 		return ERR_INVALID_FILE;
 	}
 
-#if !defined(DISABLE_TI8X)
-	if (tifiles_calc_is_ti8x(tifiles_file_get_model(filename)))
-		return ti8x_file_read_regular(filename, (Ti8xRegular *)content);
-	else 
-#endif
-#if !defined(DISABLE_TI9X)
-	if (tifiles_calc_is_ti9x(tifiles_file_get_model(filename)))
-		return ti9x_file_read_regular(filename, (Ti9xRegular *)content);
-	else
-#endif
 	if(content->model == CALC_NSPIRE)
 		return tnsp_file_read_regular(filename, (FileContent *)content);
 	else
@@ -189,16 +177,6 @@ TIEXPORT2 int tifiles_file_write_regular(const char *filename, FileContent *cont
 		return ERR_INVALID_FILE;
 	}
 
-#if !defined(DISABLE_TI8X)
-	if (tifiles_calc_is_ti8x(content->model))
-		return ti8x_file_write_regular(filename, (Ti8xRegular *)content, real_fname);
-	else 
-#endif
-#if !defined(DISABLE_TI9X)
-	if (tifiles_calc_is_ti9x(content->model))
-		return ti9x_file_write_regular(filename, (Ti9xRegular *)content, real_fname);
-	else
-#endif
 	if(content->model == CALC_NSPIRE)
 		return tnsp_file_write_regular(filename, (FileContent *)content, real_fname);
 	else
@@ -223,16 +201,6 @@ TIEXPORT2 int TICALL tifiles_file_display_regular(FileContent *content)
 		return ERR_INVALID_FILE;
 	}
 
-#if !defined(DISABLE_TI8X)
-	if (tifiles_calc_is_ti8x(content->model))
-		return ti8x_content_display_regular(content);
-	else 
-#endif
-#if !defined(DISABLE_TI9X)
-	if (tifiles_calc_is_ti9x(content->model))
-		return ti9x_content_display_regular(content);
-	else
-#endif
 	if(content->model == CALC_NSPIRE)
 		return tnsp_content_display_regular(content);
 	else
@@ -273,16 +241,6 @@ TIEXPORT2 int TICALL tifiles_content_delete_backup(BackupContent *content)
 {
 	if (content != NULL)
 	{
-		if (tifiles_calc_is_ti9x(content->model))
-			g_free(content->data_part);
-		else if (tifiles_calc_is_ti8x(content->model))
-		{
-			g_free(content->data_part1);
-			g_free(content->data_part2);
-			g_free(content->data_part3);
-			g_free(content->data_part4);
-		}
-
 		g_free(content);
 	}
 	else
@@ -313,16 +271,6 @@ TIEXPORT2 int tifiles_file_read_backup(const char *filename, BackupContent *cont
 		return ERR_INVALID_FILE;
 	}
 
-#if !defined(DISABLE_TI8X)
-	if (tifiles_calc_is_ti8x(tifiles_file_get_model(filename)))
-		return ti8x_file_read_backup(filename, content);
-	else
-#endif 
-#if !defined(DISABLE_TI9X)
-	if (tifiles_calc_is_ti9x(tifiles_file_get_model(filename)))
-		return ti9x_file_read_backup(filename, content);
-	else
-#endif
 	return ERR_BAD_CALC;
 
 	return 0;
@@ -345,16 +293,6 @@ TIEXPORT2 int tifiles_file_write_backup(const char *filename, BackupContent *con
 		return ERR_INVALID_FILE;
 	}
 
-#if !defined(DISABLE_TI8X)
-	if (tifiles_calc_is_ti8x(content->model))
-		return ti8x_file_write_backup(filename, content);
-	else
-#endif 
-#if !defined(DISABLE_TI9X)
-	if (tifiles_calc_is_ti9x(content->model))
-		return ti9x_file_write_backup(filename, content);
-	else
-#endif
 	return ERR_BAD_CALC;
 
 	return 0;
@@ -376,16 +314,6 @@ TIEXPORT2 int TICALL tifiles_file_display_backup(BackupContent *content)
 		return ERR_INVALID_FILE;
 	}
 
-#if !defined(DISABLE_TI8X)
-	if (tifiles_calc_is_ti8x(content->model))
-		return ti8x_content_display_backup(content);
-	else 
-#endif
-#if !defined(DISABLE_TI9X)
-	if (tifiles_calc_is_ti9x(content->model))
-		return ti9x_content_display_backup(content);
-	else
-#endif
 	return ERR_BAD_CALC;
 
 	return 0;
@@ -435,38 +363,9 @@ TIEXPORT2 FlashContent* TICALL tifiles_content_create_flash(CalcModel model)
  **/
 TIEXPORT2 int TICALL tifiles_content_delete_flash(FlashContent *content)
 {
-	int i;
 	if (content != NULL)
 	{
-#if !defined(DISABLE_TI8X) && !defined(DISABLE_TI9X)
-		{
-			FlashContent *ptr;
-
-			g_free(content->data_part);
-
-			ptr = content->next;
-			while (ptr != NULL) 
-			{
-				FlashContent *next = ptr->next;
-
-				g_free(ptr->data_part);
-				g_free(ptr);
-
-				for(i = 0; i < content->num_pages; i++)
-				{
-					g_free(content->pages[i]->data);
-					g_free(content->pages[i]);
-				}
-				g_free(content->pages);
-
-				ptr = next;
-			}
-
-			g_free(content);
-		}
-#else
-	return ERR_BAD_CALC;
-#endif
+		return ERR_BAD_CALC;
 	}
 	else
 	{
@@ -496,16 +395,6 @@ TIEXPORT2 int tifiles_file_read_flash(const char *filename, FlashContent *conten
 		return ERR_INVALID_FILE;
 	}
 
-#if !defined(DISABLE_TI8X)
-	if (tifiles_calc_is_ti8x(tifiles_file_get_model(filename)))
-		return ti8x_file_read_flash(filename, content);
-	else 
-#endif
-#if !defined(DISABLE_TI9X)
-	if (tifiles_calc_is_ti9x(tifiles_file_get_model(filename)) || tifiles_file_is_tib(filename))
-		return ti9x_file_read_flash(filename, content);
-	else
-#endif
 	if(content->model == CALC_NSPIRE)
 		return tnsp_file_read_flash(filename, content);
 	else
@@ -536,16 +425,6 @@ TIEXPORT2 int tifiles_file_write_flash2(const char *filename, FlashContent *cont
 		return ERR_INVALID_FILE;
 	}
 
-#if !defined(DISABLE_TI8X)
-	if (tifiles_calc_is_ti8x(content->model))
-		return ti8x_file_write_flash(filename, content, real_fname);
-	else 
-#endif
-#if !defined(DISABLE_TI9X)
-	if (tifiles_calc_is_ti9x(content->model))
-		return ti9x_file_write_flash(filename, content, real_fname);
-	else
-#endif
 	return ERR_BAD_CALC;
 
 	return 0;
@@ -587,33 +466,6 @@ TIEXPORT2 FlashContent* TICALL tifiles_content_dup_flash(FlashContent *content)
 			{
 				memcpy(q, p, sizeof(FlashContent));
 
-				// TI9x part
-				if(tifiles_calc_is_ti9x(content->model))
-				{
-					if(p->data_part)
-					{
-						q->data_part = (uint8_t *)g_malloc0(p->data_length+1);
-						memcpy(q->data_part, p->data_part, p->data_length+1);
-					}
-				}
-
-				// TI8x part
-				if(tifiles_calc_is_ti8x(content->model))
-				{
-					int i;
-
-					// copy pages
-					q->pages = tifiles_fp_create_array(p->num_pages);
-					for(i = 0; i < content->num_pages; i++)
-					{
-						q->pages[i] = (FlashPage *)g_malloc0(sizeof(FlashPage));
-						memcpy(q->pages[i], p->pages[i], sizeof(FlashPage));
-
-						q->pages[i]->data = (uint8_t *) g_malloc0(p->pages[i]->size);
-						memcpy(q->pages[i]->data, p->pages[i]->data, p->pages[i]->size);
-					}
-				}
-
 				if(p->next)
 					q->next = tifiles_content_create_flash(p->model);
 			}
@@ -643,16 +495,6 @@ TIEXPORT2 int TICALL tifiles_file_display_flash(FlashContent *content)
 		return ERR_INVALID_FILE;
 	}
 
-#if !defined(DISABLE_TI8X)
-	if (tifiles_calc_is_ti8x(content->model))
-		return ti8x_content_display_flash(content);
-	else 
-#endif
-#if !defined(DISABLE_TI9X)
-	if (tifiles_calc_is_ti9x(content->model))
-		return ti9x_content_display_flash(content);
-	else
-#endif
 	return ERR_BAD_CALC;
 
 	return 0;
@@ -668,21 +510,7 @@ TIEXPORT2 int TICALL tifiles_file_display_flash(FlashContent *content)
  **/
 TIEXPORT2 int TICALL tifiles_file_display(const char *filename)
 {
-	if (tifiles_file_is_tigroup(filename))
-		return tifiles_file_display_tigroup(filename);
-#if !defined(DISABLE_TI8X)
-	if (tifiles_calc_is_ti8x(tifiles_file_get_model(filename)))
-		return ti8x_file_display(filename);
-	else
-#endif
-#if !defined(DISABLE_TI9X)
-	if (tifiles_calc_is_ti9x(tifiles_file_get_model(filename)))
-		return ti9x_file_display(filename);
-	else
-#endif
 	return ERR_BAD_CALC;
-
-	return 0;
 }
 
 /*****************/
@@ -747,8 +575,6 @@ TIEXPORT2 int** tifiles_create_table_of_entries(FileContent *content, int *nfold
 			num_folders++;
 		}
 	}
-	if (tifiles_calc_is_ti8x(content->model))
-		num_folders++;
 	if (nfolders != NULL)
 	{
 		*nfolders = num_folders;

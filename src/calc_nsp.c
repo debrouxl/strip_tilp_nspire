@@ -568,6 +568,11 @@ static int		send_backup	(CalcHandle* handle, BackupContent* content)
 	return 0;
 }
 
+static int		recv_backup	(CalcHandle* handle, BackupContent* content)
+{
+	return 0;
+}
+
 static int		send_var_ns	(CalcHandle* handle, CalcMode mode, FileContent* content)
 {
 	return 0;
@@ -886,7 +891,7 @@ const CalcFncts calc_nsp =
 	&get_dirlist,
 	&get_memfree,
 	&send_backup,
-	&tixx_recv_backup,
+	&recv_backup,
 	&send_var,
 	&recv_var,
 	&send_var_ns,

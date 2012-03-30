@@ -33,7 +33,7 @@ tilpm_SOURCES = *.h \
 	minizip/*.h \
 	comments.c \
 	error.c \
-	files8x.c files9x.c filesnsp.c filesxx.c \
+	filesnsp.c filesxx.c \
 	filetypes.c \
 	grouped.c \
 	intelhex.c \
@@ -41,11 +41,7 @@ tilpm_SOURCES = *.h \
 	misc.c \
 	rwfile.c \
 	tifiles.c \
-	tigroup.c \
 	type2str.c \
-	types73.c types82.c types83.c types83p.c types84p.c \
-	types85.c types86.c \
-	types89.c types89t.c types92.c types92p.c typesv2.c \
 	typesnsp.c \
 	typesxx.c \
 	ve_fp.c \
@@ -57,30 +53,22 @@ tilpm_SOURCES = *.h \
 	\
 	data_log.c \
 	detect.c \
-	ioports.c \
-	link_gry.c link_nul.c link_par.c link_blk.c \
-	link_usb.c link_tie.c link_vti.c link_xxx.c \
+	link_nul.c link_usb.c link_xxx.c \
 	log_dbus.c log_dusb.c log_hex.c log_nsp.c \
 	hex2dbus.c hex2dusb.c hex2nsp.c \
 	probe.c \
 	ticables.c \
 	none.c \
 	\
-	backup.c \
 	calc_00.c calc_xx.c \
-	calc_73.c calc_82.c calc_83.c calc_85.c calc_86.c \
-	calc_89.c calc_92.c \
-	calc_84p.c calc_89t.c \
 	calc_nsp.c \
-	cmd73.c cmd82.c cmd85.c cmd89.c cmd92.c dusb_cmd.c nsp_cmd.c \
+	dusb_cmd.c nsp_cmd.c \
 	dirlist.c \
-	keys73.c keys83.c keys83p.c keys86.c keys89.c keys92p.c \
 	dbus_pkt.c \
 	dusb_rpkt.c dusb_vpkt.c \
 	nsp_rpkt.c nsp_vpkt.c \
 	romdump.c \
-	ticalcs.c \
-	tikeys.c
+	ticalcs.c
 
 EXTRA_DIST = bsd/* linux/* macos/* win32/*.c win32/*.h win32/dha/* win32/usb/* win64/*.c win64/*.h win64/rwp/*
 

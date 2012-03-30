@@ -456,7 +456,7 @@ TIEXPORT3 void TICALL ticalcs_dirlist_ve_add(GNode* tree, VarEntry *entry)
 			}
 		}
 	}
-		
+
 	// folder doesn't exist? => create!
 	if((!found && fe) || 
 	   (!g_node_n_children(tree) && tifiles_has_folder(info->model)))
@@ -465,7 +465,7 @@ TIEXPORT3 void TICALL ticalcs_dirlist_ve_add(GNode* tree, VarEntry *entry)
 		if (fe != NULL)
 		{
 			strcpy(fe->name, entry->folder);
-			fe->type = TI89_DIR;
+			fe->type = 0x1F; // TI89_DIR
 
 			parent = g_node_new(fe);
 			g_node_append(tree, parent);

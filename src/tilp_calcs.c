@@ -768,37 +768,6 @@ tcrv2:
 			}
 		}
 
-		if(options.recv_as_group)
-		{
-			FileContent* content;
-
-			tmp_filename = g_strconcat(g_get_tmp_dir(), G_DIR_SEPARATOR_S, TMPFILE_GROUP, 
-				".", tifiles_fext_of_group(options.calc_model), NULL);
-
-			err = tifiles_group_contents(array, &content);
-			if(err)
-			{
-				tilp_err(err);
-				tifiles_content_delete_group(array);
-				g_free(tmp_filename);
-				goto tcrv;
-			}
-
-			strcpy(content->comment, tifiles_comment_set_group());
-			err = tifiles_file_write_regular(tmp_filename, content, NULL);
-			if(err)
-			{
-				tilp_err(err);
-				tifiles_content_delete_group(array);
-				g_free(tmp_filename);
-				goto tcrv;
-			}
-			tifiles_content_delete_regular(content);
-
-			g_free(tmp_filename);
-			ret = 1;
-		}
-		else
 		{
 			tilp_file_chdir(g_get_tmp_dir());
 
@@ -838,76 +807,10 @@ tcrv:
 	return ret;
 }
 
-// TI82 & 85
-static int tilp_calc_recv_var2(void)
-{
-	gchar *tmp_filename;
-	gchar *dst_filename;
-	VarEntry* ve;
-	//char *varname;
-	int err;
-	char *basename;
-
-	//
-	// Receive one variable or several variables packed into a group.
-	//
-	tmp_filename = g_strconcat(g_get_tmp_dir(), G_DIR_SEPARATOR_S, TMPFILE_GROUP, 
-		".", tifiles_fext_of_group(options.calc_model), NULL);
-
-	gif->create_pbar_(FNCT_RECV_VAR, _("Receiving var(s)"));
-	err = ticalcs_calc_recv_var_ns2(calc_handle, MODE_NORMAL, tmp_filename, &ve);
-	gif->destroy_pbar();
-
-	if(err)
-	{
-		tilp_err(err);
-		return -1;
-	}
-
-	// Check for single/group
-	if(ve)
-	{
-		//single
-		basename = ticonv_varname_to_filename(options.calc_model, ve->name, ve->type);
-		dst_filename = g_strconcat(local.cwdir, G_DIR_SEPARATOR_S, basename, 
-			".", tifiles_vartype2fext(options.calc_model, ve->type), NULL);
-		tilp_file_move_with_check(tmp_filename, dst_filename);
-
-		tifiles_ve_delete(ve);
-		g_free(basename);
-		g_free(tmp_filename);
-		g_free(dst_filename);
-
-		return 0;
-	}
-	else
-	{
-		if(!options.recv_as_group)
-		{
-			err = tifiles_ungroup_file(tmp_filename, NULL);
-			if(err)
-				tilp_err(err);
-			g_free(tmp_filename);
-			
-			return 0;
-		}
-		else
-		{
-			return 1;
-		}
-	}
-
-	return 0;
-}
 
 int tilp_calc_recv_var(void)
 {
-	if(options.calc_model == CALC_TI82 || options.calc_model == CALC_TI85)
-		return tilp_calc_recv_var2();
-	else
-		return tilp_calc_recv_var1();
-
-	return 0;
+	return tilp_calc_recv_var1();
 }
 
 int tilp_calc_check_version(const char *ti9x_ver)
@@ -1287,62 +1190,6 @@ int tilp_calc_send_cert(const char *filename)
 	
 	gif->create_pbar_(FNCT_SEND_CERT, _("Sending cert"));
 	err = ticalcs_calc_send_cert2(calc_handle, filename);
-	gif->destroy_pbar();
-
-	if(tilp_err(err))
-		return -1;
-
-	return 0;
-}
-
-/*
-  Send a TiGroup from the specified filename
-  - [in] filename: the file to use
-  - [out]: -1 if error, 0 otherwise
-*/
-int tilp_calc_send_tigroup(const char *filename, TigMode mode)
-{
-	int ret;
-	int err;
-
-	ret = gif->msg_box4(_("Warning"), _("You are about to restore the content\nof your calculator with a backup.\nThe whole memory will be erased.\nAre you sure you want to do that?"));
-	if(ret != BUTTON1)
-		return -1;
-
-	if(tilp_calc_isready())
-		return -1;
-
-	tilp_options_increase_timeout();
-
-	gif->create_pbar_type5(_("Restoring"));
-	err = ticalcs_calc_send_tigroup2(calc_handle, filename, mode);
-	if(err)
-		tilp_err(err);
-	gif->destroy_pbar();
-
-	ticables_options_set_timeout(cable_handle, options.cable_timeout);
-
-	return 0;
-}
-
-
-/*
-	Receive a TiGroup
-*/
-int tilp_calc_recv_tigroup(TigMode mode)
-{
-	int err = 0;
-	char *filename;
-
-	if(tilp_calc_isready())
-		return -1;
-
-	gif->create_pbar_type5(_("Backing up"));
-	filename = g_strconcat(g_get_tmp_dir(), G_DIR_SEPARATOR_S, TMPFILE_TIGROUP, NULL);
-
-	err = ticalcs_calc_recv_tigroup2(calc_handle, filename, mode);
-	
-	g_free(filename);
 	gif->destroy_pbar();
 
 	if(tilp_err(err))
