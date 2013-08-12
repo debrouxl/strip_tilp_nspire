@@ -25,7 +25,6 @@
 #endif
 
 #include <gtk/gtk.h>
-#include <glade/glade.h>
 #include <string.h>
 
 #include "support.h"
@@ -37,66 +36,71 @@ static TilpOptions tmp_options;
 
 gint display_options_dbox()
 {
-	GladeXML *xml;
+	GtkBuilder *builder;
+	GError* error = NULL;
 	GtkWidget *dbox;
 	GtkWidget *data;
 	gint result;
 
-	xml = glade_xml_new(tilp_paths_build_glade("options-2.glade"), "options_dbox", PACKAGE);
-	if (!xml)
-		g_error("GUI loading failed !\n");
-	glade_xml_signal_autoconnect(xml);
+	builder = gtk_builder_new();
+	if (!gtk_builder_add_from_file (builder, tilp_paths_build_builder("options.ui"), &error))
+	{
+		g_warning (_("Couldn't load builder file: %s\n"), error->message);
+		g_error_free (error);
+		return 0; // THIS RETURNS !
+	}
+	gtk_builder_connect_signals(builder, NULL);
 
-	dbox = glade_xml_get_widget(xml, "options_dbox");
+	dbox = GTK_WIDGET (gtk_builder_get_object (builder, "options_dbox"));
 	gtk_dialog_set_alternative_button_order(GTK_DIALOG(dbox), GTK_RESPONSE_OK,
 	                                        GTK_RESPONSE_CANCEL,-1);
 	memcpy(&tmp_options, &options, sizeof(options));
 
 	if(options.calc_model == CALC_NSPIRE)
 	{
-		data = glade_xml_get_widget(xml, "radiobutton31");
+		data = GTK_WIDGET (gtk_builder_get_object (builder, "radiobutton31"));
 		gtk_widget_set_sensitive(data, FALSE);
-		data = glade_xml_get_widget(xml, "radiobutton32");
+		data = GTK_WIDGET (gtk_builder_get_object (builder, "radiobutton32"));
 		gtk_widget_set_sensitive(data, FALSE);
 	}
 	else
 	{
-	data = glade_xml_get_widget(xml, "radiobutton31");
+	data = GTK_WIDGET (gtk_builder_get_object (builder, "radiobutton31"));
 	if (!options.backup_as_tigroup)
 		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(data), TRUE);
 
-	data = glade_xml_get_widget(xml, "radiobutton32");
+	data = GTK_WIDGET (gtk_builder_get_object (builder, "radiobutton32"));
 	if (options.backup_as_tigroup)
 		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(data), TRUE);
 	}
 
 	if(options.calc_model == CALC_NSPIRE)
 	{
-		data = glade_xml_get_widget(xml, "radiobutton81");
+		data = GTK_WIDGET (gtk_builder_get_object (builder, "radiobutton81"));
 		gtk_widget_set_sensitive(data, FALSE);
-		data = glade_xml_get_widget(xml, "radiobutton82");
+		data = GTK_WIDGET (gtk_builder_get_object (builder, "radiobutton82"));
 		gtk_widget_set_sensitive(data, FALSE);
 	}
 	else
 	{
-		data = glade_xml_get_widget(xml, "radiobutton81");
+		data = GTK_WIDGET (gtk_builder_get_object (builder, "radiobutton81"));
 		if (!options.recv_as_group)
 			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(data), TRUE);
 
-		data = glade_xml_get_widget(xml, "radiobutton82");
+		data = GTK_WIDGET (gtk_builder_get_object (builder, "radiobutton82"));
 		if (options.recv_as_group)
 			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(data), TRUE);
 	}
 
-	data = glade_xml_get_widget(xml, "radiobutton51");
+	data = GTK_WIDGET (gtk_builder_get_object (builder, "radiobutton51"));
 	if (options.show_all)
 		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(data), TRUE);
 	
-	data = glade_xml_get_widget(xml, "radiobutton52");
+	data = GTK_WIDGET (gtk_builder_get_object (builder, "radiobutton52"));
 	if (!options.show_all)
 		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(data), TRUE);
 	
-	data = glade_xml_get_widget(xml, "checkbutton2");
+	data = GTK_WIDGET (gtk_builder_get_object (builder, "checkbutton2"));
 	if (options.overwrite == CONFIRM_YES)
 		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(data), TRUE);
 	else
@@ -118,19 +122,19 @@ gint display_options_dbox()
 	return 0;
 }
 
-GLADE_CB void
+TILP_EXPORT void
 options_radiobutton51_toggled(GtkToggleButton * togglebutton, gpointer user_data)
 {
 	tmp_options.show_all = 1;
 } 
 
-GLADE_CB void
+TILP_EXPORT void
 options_radiobutton52_toggled(GtkToggleButton * togglebutton, gpointer user_data)
 {
 	tmp_options.show_all = 0;
 } 
 
-GLADE_CB void
+TILP_EXPORT void
 options_checkbutton2_toggled(GtkToggleButton * togglebutton, gpointer user_data)
 {
 	if (togglebutton->active == TRUE)
@@ -139,25 +143,25 @@ options_checkbutton2_toggled(GtkToggleButton * togglebutton, gpointer user_data)
 		tmp_options.overwrite = CONFIRM_NO;
 }
 
-GLADE_CB void
+TILP_EXPORT void
 options_radiobutton81_toggled(GtkToggleButton * togglebutton, gpointer user_data)
 {
 	tmp_options.recv_as_group = 0;
 } 
 
-GLADE_CB void
+TILP_EXPORT void
 options_radiobutton82_toggled(GtkToggleButton * togglebutton, gpointer user_data)
 {
 	tmp_options.recv_as_group = 1;
 }
 
-GLADE_CB void
+TILP_EXPORT void
 options_radiobutton31_toggled(GtkToggleButton * togglebutton, gpointer user_data)
 {
 	tmp_options.backup_as_tigroup = 0;
 } 
 
-GLADE_CB void
+TILP_EXPORT void
 options_radiobutton32_toggled(GtkToggleButton * togglebutton, gpointer user_data)
 {
 	tmp_options.backup_as_tigroup = 1;

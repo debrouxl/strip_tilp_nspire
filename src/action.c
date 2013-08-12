@@ -25,7 +25,6 @@
 #endif				/*  */
 
 #include <gtk/gtk.h>
-#include <glade/glade.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -137,7 +136,8 @@ static const char* action2string(int action)
 
 gint display_action_dbox(gchar *target)
 {
-	GladeXML *xml;
+	GtkBuilder *builder;
+	GError* error = NULL;
 	GtkWidget *dbox;
 	GtkWidget *data;
 	GtkTreeIter iter;
@@ -162,15 +162,19 @@ gint display_action_dbox(gchar *target)
 	}
 
 	// box creation
-	xml = glade_xml_new(tilp_paths_build_glade("action-2.glade"), "action_dbox", PACKAGE);
-	if (!xml)
-		g_error(_("action.c: GUI loading failed !\n"));
-	glade_xml_signal_autoconnect(xml);
+	builder = gtk_builder_new();
+	if (!gtk_builder_add_from_file (builder, tilp_paths_build_builder("action.ui"), &error))
+	{
+		g_warning (_("Couldn't load builder file: %s\n"), error->message);
+		g_error_free (error);
+		return 0; // THIS RETURNS !
+	}
+	gtk_builder_connect_signals(builder, NULL);
 
-	dbox = glade_xml_get_widget(xml, "action_dbox");
+	dbox = GTK_WIDGET (gtk_builder_get_object (builder, "action_dbox"));
 	gtk_dialog_set_alternative_button_order(GTK_DIALOG(dbox), GTK_RESPONSE_OK,
 	                                        GTK_RESPONSE_CANCEL,-1);
-	clist = data = glade_xml_get_widget(xml, "treeview1");
+	clist = data = GTK_WIDGET (gtk_builder_get_object (builder, "treeview1"));
 
 	// clist creation
 	create_clist(data);
@@ -276,7 +280,7 @@ out_clean:
 	return button;
 }
 
-GLADE_CB void action_overwrite_clicked(GtkButton * button, gpointer user_data)
+TILP_EXPORT void action_overwrite_clicked(GtkButton * button, gpointer user_data)
 {
 	GtkTreeModel *model = GTK_TREE_MODEL(list);
 	GtkTreeIter iter;
@@ -304,7 +308,7 @@ GLADE_CB void action_overwrite_clicked(GtkButton * button, gpointer user_data)
 	}
 }
 
-GLADE_CB void action_rename_clicked(GtkButton * button, gpointer user_data)
+TILP_EXPORT void action_rename_clicked(GtkButton * button, gpointer user_data)
 {
 	GtkTreeModel *model = GTK_TREE_MODEL(list);
 	GtkTreeIter iter;
@@ -363,7 +367,7 @@ GLADE_CB void action_rename_clicked(GtkButton * button, gpointer user_data)
 	}
 }
 
-GLADE_CB void action_skip_clicked(GtkButton * button, gpointer user_data)
+TILP_EXPORT void action_skip_clicked(GtkButton * button, gpointer user_data)
 {
 	GtkTreeModel *model = GTK_TREE_MODEL(list);
 	GtkTreeIter iter;
@@ -388,7 +392,7 @@ GLADE_CB void action_skip_clicked(GtkButton * button, gpointer user_data)
 	}
 }
 
-GLADE_CB void action_select_all_clicked(GtkButton * button, gpointer user_data)
+TILP_EXPORT void action_select_all_clicked(GtkButton * button, gpointer user_data)
 {
 	GtkTreeView *view = GTK_TREE_VIEW(clist);
 	GtkTreeSelection *sel;
@@ -397,7 +401,7 @@ GLADE_CB void action_select_all_clicked(GtkButton * button, gpointer user_data)
 	gtk_tree_selection_select_all(sel);
 } 
 
-GLADE_CB void action_deselect_all_clicked(GtkButton * button, gpointer user_data)
+TILP_EXPORT void action_deselect_all_clicked(GtkButton * button, gpointer user_data)
 {
 	GtkTreeView *view = GTK_TREE_VIEW(clist);
 	GtkTreeSelection *sel;
@@ -406,7 +410,7 @@ GLADE_CB void action_deselect_all_clicked(GtkButton * button, gpointer user_data
 	gtk_tree_selection_unselect_all(sel);
 }
 
-GLADE_CB gboolean
+TILP_EXPORT gboolean
 action_treeview1_button_press_event(GtkWidget* widget, GdkEventButton* event, gpointer user_data)
 {
 	GtkTreeView *view = GTK_TREE_VIEW(widget);

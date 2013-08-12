@@ -24,7 +24,6 @@
 #endif				/*  */
 
 #include <gtk/gtk.h>
-#include <glade/glade.h>
 #include <string.h>
 
 #include "support.h"
@@ -39,16 +38,22 @@ static GtkWidget *scrn_img;
 
 gint display_screenshot_dbox()
 {
-	GladeXML *xml;
+	GtkBuilder *builder;
+	GError* error = NULL;
 	GdkPixbuf *pixbuf;
 
-	xml = glade_xml_new(tilp_paths_build_glade("screenshot-2.glade"), "screenshot_dbox", PACKAGE);
-	if (!xml)
-		g_error("GUI loading failed !\n");
-	glade_xml_signal_autoconnect(xml);
+	builder = gtk_builder_new();
+	if (!gtk_builder_add_from_file (builder, tilp_paths_build_builder("screenshot.ui"), &error))
+	{
+		g_warning (_("Couldn't load builder file: %s\n"), error->message);
+		g_error_free (error);
+		return 0; // THIS RETURNS !
+	}
 
-	scrn_win = glade_xml_get_widget(xml, "screenshot_dbox");
-	scrn_img = glade_xml_get_widget(xml, "pixmap7");
+	gtk_builder_connect_signals(builder, NULL);
+
+	scrn_win = GTK_WIDGET (gtk_builder_get_object (builder, "screenshot_dbox"));
+	scrn_img = GTK_WIDGET (gtk_builder_get_object (builder, "pixmap7"));
 
 	pixbuf = create_pixbuf("screendump.png");
 	gtk_image_set_from_pixbuf(GTK_IMAGE(scrn_img), pixbuf);
@@ -59,7 +64,7 @@ gint display_screenshot_dbox()
 	return 0;
 }
 
-GLADE_CB void on_sc_load1_activate(GtkMenuItem * menuitem, gpointer user_data)
+TILP_EXPORT void on_sc_load1_activate(GtkMenuItem * menuitem, gpointer user_data)
 {
 	const gchar *filename;
 	GdkPixbuf *pixbuf;
@@ -82,7 +87,7 @@ GLADE_CB void on_sc_load1_activate(GtkMenuItem * menuitem, gpointer user_data)
 
 static gboolean screen_success = FALSE;
 
-GLADE_CB void on_sc_save1_activate(GtkMenuItem * menuitem,
+TILP_EXPORT void on_sc_save1_activate(GtkMenuItem * menuitem,
 				   gpointer user_data)
 {
 	GdkPixbuf *pixbuf;
@@ -161,13 +166,13 @@ GLADE_CB void on_sc_save1_activate(GtkMenuItem * menuitem,
 	filename = NULL;
 }
 
-GLADE_CB void on_sc_quit1_activate(GtkMenuItem * menuitem,
+TILP_EXPORT void on_sc_quit1_activate(GtkMenuItem * menuitem,
 				   gpointer user_data)
 {
 	gtk_widget_destroy(scrn_win);
 }
 
-GLADE_CB void on_sc_options1_activate(GtkMenuItem * menuitem,
+TILP_EXPORT void on_sc_options1_activate(GtkMenuItem * menuitem,
 				      gpointer user_data)
 {
 	display_scroptions_dbox();
@@ -180,7 +185,7 @@ static void destroy_pixbuf(guchar * pixels, gpointer data)
 
 extern void on_manual1_activate(GtkMenuItem * menuitem, gpointer user_data);
 
-GLADE_CB void on_scdbox_button1_clicked(GtkButton * button,
+TILP_EXPORT void on_scdbox_button1_clicked(GtkButton * button,
 					gpointer user_data)
 {
 	GdkPixbuf *pixbuf;
@@ -241,24 +246,24 @@ GLADE_CB void on_scdbox_button1_clicked(GtkButton * button,
 	g_object_unref(pixbuf);
 }
 
-GLADE_CB void on_scdbox_button2_clicked(GtkButton * button,
+TILP_EXPORT void on_scdbox_button2_clicked(GtkButton * button,
 					gpointer user_data)
 {
 	on_sc_save1_activate(NULL, NULL);
 }
 
-GLADE_CB void on_scdbox_button3_clicked(GtkButton * button,
+TILP_EXPORT void on_scdbox_button3_clicked(GtkButton * button,
 					gpointer user_data)
 {
 	gtk_widget_destroy(scrn_win);
 }
 
-GLADE_CB void on_scdbox_button4_clicked(GtkButton * button, gpointer user_data)
+TILP_EXPORT void on_scdbox_button4_clicked(GtkButton * button, gpointer user_data)
 {
 	on_manual1_activate(NULL, NULL);
 }
 
-GLADE_CB void on_scdbox_button5_clicked(GtkButton * button, gpointer user_data)
+TILP_EXPORT void on_scdbox_button5_clicked(GtkButton * button, gpointer user_data)
 {
 	GdkPixbuf *pixbuf;
 	GtkClipboard *clipboard;

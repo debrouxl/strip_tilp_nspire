@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Free Software Foundation, Inc.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: tilp2 1.16\n"
-"Report-Msgid-Bugs-To: tilp-users@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-12-13 19:16+0100\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-12 18:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,274 +17,277 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/about.c:92
+#: ../src/about.c:91
 #, c-format
 msgid "Framework version (cables=%s, files=%s, calcs=%s, conv=%s)"
 msgstr ""
 
-#: src/action.c:94
+#: ../src/action.c:93
 msgid "Varname"
 msgstr ""
 
-#: src/action.c:99
+#: ../src/action.c:98
 msgid "Attribute"
 msgstr ""
 
-#: src/action.c:104
+#: ../src/action.c:103
 msgid "Filename"
 msgstr ""
 
-#: src/action.c:109
+#: ../src/action.c:108
 msgid "Action"
 msgstr ""
 
-#: src/action.c:129
+#: ../src/action.c:128
 msgid "none"
 msgstr ""
 
-#: src/action.c:130
+#: ../src/action.c:129
 msgid "rename"
 msgstr ""
 
-#: src/action.c:131 src/action.c:304
+#: ../src/action.c:130 ../src/action.c:307
 msgid "overwrite"
 msgstr ""
 
-#: src/action.c:132
+#: ../src/action.c:131
 msgid "skip"
 msgstr ""
 
-#: src/action.c:167 src/clock.c:111
-msgid "action.c: GUI loading failed !\n"
+#: ../src/action.c:168 ../src/clist_rbm.c:360 ../src/ctree_rbm.c:117
+#: ../src/dboxes.c:248 ../src/dboxes.c:296 ../src/device.c:212
+#: ../src/fileprop.c:58 ../src/manpage.c:70 ../src/options.c:48
+#: ../src/pbars.c:56 ../src/pbars.c:84 ../src/pbars.c:112 ../src/pbars.c:141
+#: ../src/pbars.c:172 ../src/release.c:74 ../src/screenshot.c:48
+#: ../src/scroptions.c:49 ../src/tilp.c:89
+#, c-format
+msgid "Couldn't load builder file: %s\n"
 msgstr ""
 
-#: src/action.c:337 src/tilp_files.c:209 src/tilp_slct.c:539
+#: ../src/action.c:340 ../src/tilp_files.c:209 ../src/tilp_slct.c:431
 msgid "Rename the file"
 msgstr ""
 
-#: src/action.c:337 src/tilp_files.c:210
+#: ../src/action.c:340 ../src/tilp_files.c:210
 msgid "New name: "
 msgstr ""
 
-#: src/bookmark.c:100
+#: ../src/bookmark.c:100
 msgid ""
 "A web browser has been launched: this may take a while before it appears. If "
 "it is already launched, the page may be opened in the existing frame."
 msgstr ""
 
-#: src/clist.c:199 src/ctree.c:185
+#: ../src/clist.c:199 ../src/ctree.c:185
 msgid "Name"
 msgstr ""
 
-#: src/clist.c:204 src/ctree.c:208
+#: ../src/clist.c:204 ../src/ctree.c:208
 msgid "Type"
 msgstr ""
 
-#: src/clist.c:209 src/ctree.c:213
+#: ../src/clist.c:209 ../src/ctree.c:213
 msgid "Size"
 msgstr ""
 
-#: src/clist.c:214
+#: ../src/clist.c:214
 msgid "Date"
 msgstr ""
 
-#: src/clist_rbm.c:64
+#: ../src/clist_rbm.c:64
 msgid "Change drive"
 msgstr ""
 
-#: src/clist_rbm.c:262 src/clist_rbm.c:282 src/clock.c:82 src/dboxes.c:47
-#: src/dnd.c:181 src/main.c:186 src/tilp.c:183 src/tilp_calcs.c:358
-#: src/tilp_calcs.c:426 src/tilp_calcs.c:433 src/tilp_calcs.c:559
-#: src/tilp_calcs.c:568 src/tilp_calcs.c:573 src/tilp_calcs.c:578
-#: src/tilp_calcs.c:1280 src/tilp_cmdline.c:191 src/tilp_config.c:382
-#: src/tilp_device.c:405 src/tilp_device.c:447 src/tilp_device.c:455
-#: src/tilp_error.c:86 src/tilp_files.c:252 src/tilp_files.c:324
-#: src/tilp_misc.c:39
+#: ../src/clist_rbm.c:238 ../src/clist_rbm.c:258 ../src/clock.c:36
+#: ../src/dboxes.c:46 ../src/dnd.c:180 ../src/main.c:192 ../src/tilp.c:172
+#: ../src/tilp_calcs.c:328 ../src/tilp_calcs.c:396 ../src/tilp_calcs.c:403
+#: ../src/tilp_calcs.c:529 ../src/tilp_calcs.c:538 ../src/tilp_calcs.c:543
+#: ../src/tilp_calcs.c:548 ../src/tilp_calcs.c:1143 ../src/tilp_cmdline.c:191
+#: ../src/tilp_config.c:382 ../src/tilp_device.c:405 ../src/tilp_device.c:447
+#: ../src/tilp_device.c:455 ../src/tilp_error.c:86 ../src/tilp_files.c:252
+#: ../src/tilp_files.c:324 ../src/tilp_misc.c:39
 msgid "Error"
 msgstr ""
 
-#: src/clist_rbm.c:262
+#: ../src/clist_rbm.c:238
 msgid ""
 "The Group File Manager doesn't seem to be installed on your system.\n"
 "Download it from <http://lpg.ticalc.org/prj_gfm/> or take a look at the TiLP "
 "user manual for more information."
 msgstr ""
 
-#: src/clist_rbm.c:309 src/tilp.c:655
+#: ../src/clist_rbm.c:285 ../src/tilp.c:637
 msgid "Make a new directory"
 msgstr ""
 
-#: src/clist_rbm.c:309 src/tilp.c:655 src/tilp_calcs.c:1019
-#: src/tilp_slct.c:539
+#: ../src/clist_rbm.c:285 ../src/tilp.c:637 ../src/tilp_calcs.c:882
+#: ../src/tilp_slct.c:431
 msgid "Name: "
 msgstr ""
 
-#: src/clist_rbm.c:310 src/tilp.c:655
+#: ../src/clist_rbm.c:286 ../src/tilp.c:637
 msgid "new_directory"
 msgstr ""
 
-#: src/clock.c:82
+#: ../src/clock.c:36
 msgid "No clock support!"
 msgstr ""
 
-#: src/ctree.c:203
+#: ../src/ctree.c:203
 msgid "Attr"
 msgstr ""
 
-#: src/ctree.c:250
+#: ../src/ctree.c:250
 #, c-format
 msgid "%s -> %s:#%i"
 msgstr ""
 
-#: src/ctree.h:34
+#: ../src/ctree.h:25
 msgid "Calc"
 msgstr ""
 
-#: src/ctree.h:35
+#: ../src/ctree.h:26
 msgid "Screen"
 msgstr ""
 
-#: src/ctree.h:36
+#: ../src/ctree.h:27
 msgid "Operating System"
 msgstr ""
 
-#: src/ctree.h:37
+#: ../src/ctree.h:28
 msgid "Variables"
 msgstr ""
 
-#: src/ctree.h:38
+#: ../src/ctree.h:29
 msgid "Applications"
 msgstr ""
 
-#: src/ctree.h:39
+#: ../src/ctree.h:30
 msgid "ID-LIST"
 msgstr ""
 
-#: src/ctree.h:40
+#: ../src/ctree.h:31
 msgid "Clock"
 msgstr ""
 
-#: src/ctree.h:41
+#: ../src/ctree.h:32
 msgid "A Folder"
 msgstr ""
 
-#: src/dboxes.c:41 src/device.c:402 src/device.c:406 src/tilp_calcs.c:283
-#: src/tilp_calcs.c:296 src/tilp_calcs.c:929 src/tilp_calcs.c:1237
-#: src/tilp_config.c:545 src/tilp_config.c:553 src/tilp_files.c:137
-#: src/tilp_files.c:150 src/tilp_files.c:169 src/tilp_misc.c:43
-#: src/tilp_slct.c:81 src/tilp_slct.c:445 src/tilp_slct.c:456
-#: src/tilp_slct.c:548
+#: ../src/dboxes.c:40 ../src/device.c:406 ../src/device.c:410
+#: ../src/tilp_calcs.c:261 ../src/tilp_calcs.c:274 ../src/tilp_calcs.c:802
+#: ../src/tilp_calcs.c:1100 ../src/tilp_config.c:545 ../src/tilp_config.c:553
+#: ../src/tilp_files.c:137 ../src/tilp_files.c:150 ../src/tilp_files.c:169
+#: ../src/tilp_misc.c:43 ../src/tilp_slct.c:75 ../src/tilp_slct.c:337
+#: ../src/tilp_slct.c:348 ../src/tilp_slct.c:440
 msgid "Information"
 msgstr ""
 
-#: src/dboxes.c:43 src/tilp_calcs.c:176 src/tilp_calcs.c:300
-#: src/tilp_calcs.c:438 src/tilp_calcs.c:959 src/tilp_calcs.c:1308
-#: src/tilp_files.c:199 src/tilp_slct.c:514
+#: ../src/dboxes.c:42 ../src/tilp_calcs.c:154 ../src/tilp_calcs.c:278
+#: ../src/tilp_calcs.c:408 ../src/tilp_calcs.c:829 ../src/tilp_files.c:199
+#: ../src/tilp_slct.c:406
 msgid "Warning"
 msgstr ""
 
-#: src/dboxes.c:45 src/tilp_calcs.c:391 src/tilp_calcs.c:515
-#: src/tilp_calcs.c:614 src/tilp_calcs.c:635 src/tilp_calcs.c:700
-#: src/tilp_calcs.c:758
+#: ../src/dboxes.c:44 ../src/tilp_calcs.c:361 ../src/tilp_calcs.c:485
+#: ../src/tilp_calcs.c:584 ../src/tilp_calcs.c:605 ../src/tilp_calcs.c:670
+#: ../src/tilp_calcs.c:728
 msgid "Question"
 msgstr ""
 
-#: src/device.c:58
+#: ../src/device.c:57
 msgid "Cable"
 msgstr ""
 
-#: src/device.c:58
+#: ../src/device.c:57
 msgid "Port"
 msgstr ""
 
-#: src/device.c:58
+#: ../src/device.c:57
 msgid "Device"
 msgstr ""
 
-#: src/device.c:211
-msgid "comm.c: GUI loading failed !\n"
-msgstr ""
-
-#: src/device.c:402
+#: ../src/device.c:406
 msgid ""
 "Please note that Titanium through DirectLink USB works under Linux but it "
 "suffers from a limitation: the cable has to unplugged/plugged whenever TiLP "
 "is exited."
 msgstr ""
 
-#: src/device.c:406
+#: ../src/device.c:410
 msgid "Please note you will have to restart TiLP if connection fails."
 msgstr ""
 
-#: src/filesel.c:256
+#: ../src/filesel.c:256
 msgid "Save file"
 msgstr ""
 
-#: src/filesel.c:259 src/filesel.c:523
+#: ../src/filesel.c:259 ../src/filesel.c:523
 msgid "Open file"
 msgstr ""
 
-#: src/labels.c:113 src/labels.c:133
+#: ../src/labels.c:113 ../src/labels.c:133
 #, c-format
 msgid "used: %s"
 msgstr ""
 
-#: src/labels.c:123 src/labels.c:143
+#: ../src/labels.c:123 ../src/labels.c:143
+#, c-format
 msgid "free: N/A"
 msgstr ""
 
-#: src/labels.c:125 src/labels.c:145
+#: ../src/labels.c:125 ../src/labels.c:145
 #, c-format
 msgid "free: %s"
 msgstr ""
 
-#: src/main.c:108
+#: ../src/main.c:114
 msgid "Initializing KDE..."
 msgstr ""
 
-#: src/main.c:109
+#: ../src/main.c:115
 msgid "TiLP"
 msgstr ""
 
-#: src/main.c:109
+#: ../src/main.c:115
 msgid "Tilp Is a Linking Program"
 msgstr ""
 
-#: src/main.c:115
+#: ../src/main.c:121
 msgid "Loading GUI..."
 msgstr ""
 
-#: src/main.c:141
+#: ../src/main.c:147
 msgid "TiLP2"
 msgstr ""
 
-#: src/main.c:152
+#: ../src/main.c:158
 msgid "Command line..."
 msgstr ""
 
-#: src/main.c:186
+#: ../src/main.c:192
 msgid "An TiLP session is already running. Check the task list."
 msgstr ""
 
-#: src/screenshot.c:232
+#: ../src/screenshot.c:237 ../src/calc_nsp.c:250
 #, c-format
 msgid "Unknown calculator model with %d bpp\n"
 msgstr ""
 
-#: src/support.c:83 src/support.c:102
+#: ../src/support.c:83 ../src/support.c:102
 #, c-format
 msgid "Couldn't find pixmap file: %s"
 msgstr ""
 
-#: src/tilp.c:180
+#: ../src/tilp.c:169
 msgid "Manual_en.html"
 msgstr ""
 
-#: src/tilp.c:183
+#: ../src/tilp.c:172
 msgid "Failed to run browser."
 msgstr ""
 
-#: src/tilp.c:230
+#: ../src/tilp.c:219
 msgid ""
 "There are several ways to get in touch if you encounter a problem with TiLP "
 "or if you have questions, suggestions, bug reports, etc:\n"
@@ -298,32 +301,15 @@ msgid ""
 "Before e-mailing the TiLP team, make sure you have read the FAQ...."
 msgstr ""
 
-#: src/tilp.c:371 src/tilp.c:619 glade/tilp-2.str:15
-msgid "Restore"
-msgstr ""
-
-#: src/tilp.c:371 src/tilp.c:619
-msgid "Data to restore:"
-msgstr ""
-
-#: src/tilp.c:578 glade/options-2.str:16 glade/tilp-2.str:13
-#: glade/user_boxes-2.str:9
-msgid "Backup"
-msgstr ""
-
-#: src/tilp.c:578 glade/user_boxes-2.str:13
-msgid "Data to backup:"
-msgstr ""
-
-#: src/tilp.c:707
+#: ../src/tilp.c:682
 msgid "Path"
 msgstr ""
 
-#: src/tilp.c:707
+#: ../src/tilp.c:682
 msgid "Enter new path"
 msgstr ""
 
-#: src/tilp_calcs.c:176
+#: ../src/tilp_calcs.c:154
 msgid ""
 "You are going to restore the content\n"
 "of your calculator with a backup.\n"
@@ -331,26 +317,26 @@ msgid ""
 "Are you sure you want to do that?"
 msgstr ""
 
-#: src/tilp_calcs.c:183 src/tilp_calcs.c:1317
+#: ../src/tilp_calcs.c:161
 msgid "Restoring"
 msgstr ""
 
-#: src/tilp_calcs.c:206 src/tilp_calcs.c:1340
+#: ../src/tilp_calcs.c:184
 msgid "Backing up"
 msgstr ""
 
-#: src/tilp_calcs.c:249
+#: ../src/tilp_calcs.c:227
 msgid "ID-LIST : "
 msgstr ""
 
-#: src/tilp_calcs.c:296
+#: ../src/tilp_calcs.c:274
 msgid ""
 "ROM contents is copyrighted by Texas Instruments. You are not allowed to "
 "copy and/or distribute any ROM image! For more informations, see the License "
 "Agreement provided with any FLASH OS upgrade."
 msgstr ""
 
-#: src/tilp_calcs.c:300
+#: ../src/tilp_calcs.c:278
 msgid ""
 "An assembly program is about to be sent on your calculator.\n"
 "If you have not made a backup yet, you should do one before\n"
@@ -360,39 +346,40 @@ msgid ""
 "(especially if you have a USB cable)."
 msgstr ""
 
-#: src/tilp_calcs.c:306
+#. Transfer ROM dumper
+#: ../src/tilp_calcs.c:284
 msgid "Dumping ROM"
 msgstr ""
 
-#: src/tilp_calcs.c:358
+#: ../src/tilp_calcs.c:328
 msgid "You cannot send variables/applications and upgrades simultaneously."
 msgstr ""
 
-#: src/tilp_calcs.c:366
+#: ../src/tilp_calcs.c:336
 msgid "Sending app"
 msgstr ""
 
-#: src/tilp_calcs.c:391 src/tilp_calcs.c:515 src/tilp_calcs.c:614
-#: src/tilp_calcs.c:635 src/tilp_calcs.c:700 src/tilp_calcs.c:758
+#: ../src/tilp_calcs.c:361 ../src/tilp_calcs.c:485 ../src/tilp_calcs.c:584
+#: ../src/tilp_calcs.c:605 ../src/tilp_calcs.c:670 ../src/tilp_calcs.c:728
 msgid "Action to take?"
 msgstr ""
 
-#: src/tilp_calcs.c:391 src/tilp_calcs.c:515 src/tilp_calcs.c:614
-#: src/tilp_calcs.c:635 src/tilp_calcs.c:700 src/tilp_calcs.c:758
+#: ../src/tilp_calcs.c:361 ../src/tilp_calcs.c:485 ../src/tilp_calcs.c:584
+#: ../src/tilp_calcs.c:605 ../src/tilp_calcs.c:670 ../src/tilp_calcs.c:728
 msgid "Retry"
 msgstr ""
 
-#: src/tilp_calcs.c:391 src/tilp_calcs.c:515 src/tilp_calcs.c:614
-#: src/tilp_calcs.c:635 src/tilp_calcs.c:700 src/tilp_calcs.c:758
+#: ../src/tilp_calcs.c:361 ../src/tilp_calcs.c:485 ../src/tilp_calcs.c:584
+#: ../src/tilp_calcs.c:605 ../src/tilp_calcs.c:670 ../src/tilp_calcs.c:728
 msgid "Skip"
 msgstr ""
 
-#: src/tilp_calcs.c:391 src/tilp_calcs.c:515 src/tilp_calcs.c:614
-#: src/tilp_calcs.c:635 src/tilp_calcs.c:700 src/tilp_calcs.c:758
+#: ../src/tilp_calcs.c:361 ../src/tilp_calcs.c:485 ../src/tilp_calcs.c:584
+#: ../src/tilp_calcs.c:605 ../src/tilp_calcs.c:670 ../src/tilp_calcs.c:728
 msgid "Cancel"
 msgstr ""
 
-#: src/tilp_calcs.c:422
+#: ../src/tilp_calcs.c:392
 msgid ""
 "You are going to upgrade the Operating System\n"
 "of your calculator.\n"
@@ -404,1286 +391,2468 @@ msgid ""
 "TI73/83+ users need to turn the calculator off and press a key."
 msgstr ""
 
-#: src/tilp_calcs.c:427
+#: ../src/tilp_calcs.c:397
 msgid "You have to select _one_ upgrade to send."
 msgstr ""
 
-#: src/tilp_calcs.c:434
+#: ../src/tilp_calcs.c:404
 msgid ""
 "It's not an FLASH upgrade or this FLASH upgrade is not intended for this "
 "calculator type."
 msgstr ""
 
-#: src/tilp_calcs.c:448
+#: ../src/tilp_calcs.c:418
 msgid "Upgrading OS"
 msgstr ""
 
-#: src/tilp_calcs.c:480
+#: ../src/tilp_calcs.c:450
 msgid "Receiving app"
 msgstr ""
 
-#: src/tilp_calcs.c:559
+#: ../src/tilp_calcs.c:529
 msgid ""
 "You cannot send both variables/applications and upgrades simultaneously."
 msgstr ""
 
-#: src/tilp_calcs.c:568
+#: ../src/tilp_calcs.c:538
 msgid "You cannot send backups in this way. Use the 'Restore' button instead."
 msgstr ""
 
-#: src/tilp_calcs.c:573
+#: ../src/tilp_calcs.c:543
 msgid ""
 "There is an unknown file type in the selection or the path is incorrect."
 msgstr ""
 
-#: src/tilp_calcs.c:578
+#: ../src/tilp_calcs.c:548
 msgid ""
 "There is a file type incompatible with the target hand-held in the selection."
 msgstr ""
 
-#: src/tilp_calcs.c:586
+#: ../src/tilp_calcs.c:556
 msgid "Sending var(s)"
 msgstr ""
 
-#: src/tilp_calcs.c:675 src/tilp_calcs.c:857
+#: ../src/tilp_calcs.c:645
 msgid "Receiving var(s)"
 msgstr ""
 
-#: src/tilp_calcs.c:928
+#: ../src/tilp_calcs.c:801
 #, c-format
 msgid "You need AMS >=%s mini for this operation."
 msgstr ""
 
-#: src/tilp_calcs.c:959
+#: ../src/tilp_calcs.c:829
 msgid ""
 "You are about to delete variable(s).\n"
 "Are you sure you want to do that?"
 msgstr ""
 
-#: src/tilp_calcs.c:964
+#: ../src/tilp_calcs.c:834
 msgid "Deleting..."
 msgstr ""
 
-#: src/tilp_calcs.c:1019
+#: ../src/tilp_calcs.c:882
 msgid "New Folder"
 msgstr ""
 
-#: src/tilp_calcs.c:1019
+#: ../src/tilp_calcs.c:882
 msgid "folder"
 msgstr ""
 
-#: src/tilp_calcs.c:1023
+#: ../src/tilp_calcs.c:886
 msgid "Creating..."
 msgstr ""
 
-#: src/tilp_calcs.c:1051
+#: ../src/tilp_calcs.c:914
 #, c-format
 msgid "%lu bytes"
 msgstr ""
 
-#: src/tilp_calcs.c:1055
+#: ../src/tilp_calcs.c:918
 #, c-format
 msgid "%lu KB"
 msgstr ""
 
-#: src/tilp_calcs.c:1059
+#: ../src/tilp_calcs.c:922
 #, c-format
 msgid "%lu MB"
 msgstr ""
 
-#: src/tilp_calcs.c:1090
+#: ../src/tilp_calcs.c:953
 #, c-format
 msgid "%sProduct Name: %s\n"
 msgstr ""
 
-#: src/tilp_calcs.c:1097 src/tilp_calcs.c:1102
+#: ../src/tilp_calcs.c:960 ../src/tilp_calcs.c:965
 #, c-format
 msgid "%sProduct Id: %s\n"
 msgstr ""
 
-#: src/tilp_calcs.c:1109
+#: ../src/tilp_calcs.c:972
 #, c-format
 msgid "%sLanguage Id: %i %i\n"
 msgstr ""
 
-#: src/tilp_calcs.c:1118
+#: ../src/tilp_calcs.c:981
 #, c-format
 msgid "%sDevice Type: %02x\n"
 msgstr ""
 
-#: src/tilp_calcs.c:1125
+#: ../src/tilp_calcs.c:988
 #, c-format
 msgid "%sHardware Version: %i\n"
 msgstr ""
 
-#: src/tilp_calcs.c:1132
+#: ../src/tilp_calcs.c:995
 #, c-format
 msgid "%sBoot Version: %s\n"
 msgstr ""
 
-#: src/tilp_calcs.c:1138
+#: ../src/tilp_calcs.c:1001
 #, c-format
 msgid "%sBoot2 Version: %s\n"
 msgstr ""
 
-#: src/tilp_calcs.c:1144
+#: ../src/tilp_calcs.c:1007
 #, c-format
 msgid "%sOS Version: %s\n"
 msgstr ""
 
-#: src/tilp_calcs.c:1151
+#: ../src/tilp_calcs.c:1014
 #, c-format
 msgid "%sRun level: %s\n"
 msgstr ""
 
-#: src/tilp_calcs.c:1157
+#: ../src/tilp_calcs.c:1020
 #, c-format
 msgid "%sClock speed: %i MHz\n"
 msgstr ""
 
-#: src/tilp_calcs.c:1166
+#: ../src/tilp_calcs.c:1029
 #, c-format
 msgid "%sLCD width: %i pixels\n"
 msgstr ""
 
-#: src/tilp_calcs.c:1172
+#: ../src/tilp_calcs.c:1035
 #, c-format
 msgid "%sLCD height: %i pixels\n"
 msgstr ""
 
-#: src/tilp_calcs.c:1178
+#: ../src/tilp_calcs.c:1041
 #, c-format
 msgid "%sBits per pixel: %i\n"
 msgstr ""
 
-#: src/tilp_calcs.c:1187
+#: ../src/tilp_calcs.c:1050
 #, c-format
 msgid "%sPhysical RAM: %s\n"
 msgstr ""
 
-#: src/tilp_calcs.c:1194
+#: ../src/tilp_calcs.c:1057
 #, c-format
 msgid "%sUser RAM: %s\n"
 msgstr ""
 
-#: src/tilp_calcs.c:1201
+#: ../src/tilp_calcs.c:1064
 #, c-format
 msgid "%sFree RAM: %s\n"
 msgstr ""
 
-#: src/tilp_calcs.c:1208
+#: ../src/tilp_calcs.c:1071
 #, c-format
 msgid "%sPhysical FLASH: %s\n"
 msgstr ""
 
-#: src/tilp_calcs.c:1215
+#: ../src/tilp_calcs.c:1078
 #, c-format
 msgid "%sUser FLASH: %s\n"
 msgstr ""
 
-#: src/tilp_calcs.c:1222
+#: ../src/tilp_calcs.c:1085
 #, c-format
 msgid "%sFree FLASH: %s\n"
 msgstr ""
 
-#: src/tilp_calcs.c:1232
+#: ../src/tilp_calcs.c:1095
 #, c-format
 msgid "%sBattery: %s\n"
 msgstr ""
 
-#: src/tilp_calcs.c:1232
+#: ../src/tilp_calcs.c:1095
 msgid "good"
 msgstr ""
 
-#: src/tilp_calcs.c:1232
+#: ../src/tilp_calcs.c:1095
 msgid "low"
 msgstr ""
 
-#: src/tilp_calcs.c:1259
+#: ../src/tilp_calcs.c:1122
 msgid "Receiving cert"
 msgstr ""
 
-#: src/tilp_calcs.c:1281
+#: ../src/tilp_calcs.c:1144
 msgid ""
 "It's not a certificate or this certificate is not targetted for this "
 "calculator type."
 msgstr ""
 
-#: src/tilp_calcs.c:1288
+#: ../src/tilp_calcs.c:1151
 msgid "Sending cert"
 msgstr ""
 
-#: src/tilp_calcs.c:1308
-msgid ""
-"You are about to restore the content\n"
-"of your calculator with a backup.\n"
-"The whole memory will be erased.\n"
-"Are you sure you want to do that?"
-msgstr ""
-
-#: src/tilp_cmdline.c:39
+#: ../src/tilp_cmdline.c:39
 msgid "Version"
 msgstr ""
 
-#: src/tilp_cmdline.c:40
+#: ../src/tilp_cmdline.c:40
 msgid "Hand-held model"
 msgstr ""
 
-#: src/tilp_cmdline.c:41
+#: ../src/tilp_cmdline.c:41
 msgid "Link cable model"
 msgstr ""
 
-#: src/tilp_cmdline.c:42
+#: ../src/tilp_cmdline.c:42
 msgid "Link cable port"
 msgstr ""
 
-#: src/tilp_cmdline.c:43
+#: ../src/tilp_cmdline.c:43
 msgid "Link cable timeout"
 msgstr ""
 
-#: src/tilp_cmdline.c:44
+#: ../src/tilp_cmdline.c:44
 msgid "Link cable delay"
 msgstr ""
 
-#: src/tilp_cmdline.c:45
+#: ../src/tilp_cmdline.c:45
 msgid "Does not use GUI"
 msgstr ""
 
-#: src/tilp_cmdline.c:46
+#: ../src/tilp_cmdline.c:46
 msgid "Silent mode (NO-GUI mode only"
 msgstr ""
 
-#: src/tilp_cmdline.c:47
+#: ../src/tilp_cmdline.c:47
 msgid "filename(s)"
 msgstr ""
 
-#: src/tilp_cmdline.c:53
+#: ../src/tilp_cmdline.c:53
 #, c-format
 msgid "TiLP2 - Version %s, (C) 1999-2008 Romain Lievin\n"
 msgstr ""
 
-#: src/tilp_cmdline.c:55
+#: ../src/tilp_cmdline.c:55
 #, c-format
 msgid "FreeBSD port, (c) 2003-2004 Tijl Coosemans\n"
 msgstr ""
 
-#: src/tilp_cmdline.c:57
+#: ../src/tilp_cmdline.c:57
 #, c-format
 msgid "THIS PROGRAM COMES WITH ABSOLUTELY NO WARRANTY\n"
 msgstr ""
 
-#: src/tilp_cmdline.c:58
+#: ../src/tilp_cmdline.c:58
 #, c-format
 msgid "PLEASE READ THE DOCUMENTATION FOR DETAILS\n"
 msgstr ""
 
-#: src/tilp_cmdline.c:59
+#: ../src/tilp_cmdline.c:59
 #, c-format
 msgid "built on %s %s\n"
 msgstr ""
 
-#: src/tilp_cmdline.c:190
+#: ../src/tilp_cmdline.c:190
 #, c-format
 msgid "The file <%s> does not exist."
 msgstr ""
 
-#: src/tilp_config.c:382
+#: ../src/tilp_config.c:382
 msgid "Unable to write the config file (~/.tilp or ~/tilp.ini).\n"
 msgstr ""
 
-#: src/tilp_config.c:545
+#: ../src/tilp_config.c:545
 msgid "Configuration file saved."
 msgstr ""
 
-#: src/tilp_config.c:553
+#: ../src/tilp_config.c:553
 msgid "Configuration file loaded."
 msgstr ""
 
-#: src/tilp_device.c:430
+#: ../src/tilp_device.c:430
 msgid "Connection is being reset... Please wait for 2 seconds."
 msgstr ""
 
-#: src/tilp_device.c:447 src/tilp_device.c:455
+#: ../src/tilp_device.c:447 ../src/tilp_device.c:455
 msgid "Can't set cable."
 msgstr ""
 
-#: src/tilp_files.c:137
+#: ../src/tilp_files.c:137
 msgid ""
 "Unable to move file.\n"
 "\n"
 msgstr ""
 
-#: src/tilp_files.c:150
+#: ../src/tilp_files.c:150
 msgid "Unable to remove the file !"
 msgstr ""
 
-#: src/tilp_files.c:169
+#: ../src/tilp_files.c:169
 msgid ""
 "Unable to create the directory.\n"
 "\n"
 msgstr ""
 
-#: src/tilp_files.c:197
+#: ../src/tilp_files.c:197
 #, c-format
 msgid ""
 "The file %s already exists.\n"
 "Overwrite ?"
 msgstr ""
 
-#: src/tilp_files.c:200
+#: ../src/tilp_files.c:200
 msgid "Overwrite "
 msgstr ""
 
-#: src/tilp_files.c:200
+#: ../src/tilp_files.c:200
 msgid "Rename "
 msgstr ""
 
-#: src/tilp_files.c:200
+#: ../src/tilp_files.c:200
 msgid "Skip "
 msgstr ""
 
-#: src/tilp_files.c:252
+#: ../src/tilp_files.c:252
 msgid "Unable to move the temporary file.\n"
 msgstr ""
 
-#: src/tilp_files.c:324 src/tilp_misc.c:39
+#: ../src/tilp_files.c:324 ../src/tilp_misc.c:39
 msgid "Unable to change directory."
 msgstr ""
 
-#: src/tilp_main.c:51
+#: ../src/tilp_main.c:51
 msgid "Signal SIGINT (Ctrl+C) caught...\n"
 msgstr ""
 
-#: src/tilp_main.c:53
+#: ../src/tilp_main.c:53
 msgid "Done.\n"
 msgstr ""
 
-#: src/tilp_main.c:94
-#, c-format
-msgid "libticonv library version is %s but %s mini required.\n"
-msgstr ""
-
-#: src/tilp_main.c:97
-#, c-format
-msgid "libtifiles library version is %s but %s mini required.\n"
-msgstr ""
-
-#: src/tilp_main.c:100
-#, c-format
-msgid "libticables library version is %s but %s mini required.\n"
-msgstr ""
-
-#: src/tilp_main.c:103
-#, c-format
-msgid "libticalcs library version is %s but %s mini required.\n"
-msgstr ""
-
-#: src/tilp_misc.c:43
+#: ../src/tilp_misc.c:43
 msgid "This function is only available in the Windows version."
 msgstr ""
 
-#: src/tilp_paths.c:131
+#: ../src/tilp_paths.c:136
 msgid "My TI Files"
 msgstr ""
 
-#: src/tilp_screen.c:59
+#. Place a progress bar
+#: ../src/tilp_screen.c:59
 msgid "Screendump"
 msgstr ""
 
-#: src/tilp_screen.c:263 src/tilp_screen.c:280
+#: ../src/tilp_screen.c:263 ../src/tilp_screen.c:280
+#, c-format
 msgid "Couldn't allocate memory!"
 msgstr ""
 
-#: src/tilp_screen.c:295
+#: ../src/tilp_screen.c:295
+#, c-format
 msgid "zlib error"
 msgstr ""
 
-#: src/tilp_screen.c:384 src/tilp_screen.c:454
+#: ../src/tilp_screen.c:384 ../src/tilp_screen.c:454
+#, c-format
 msgid "Couldn't open destination file for writing!"
 msgstr ""
 
-#: src/tilp_slct.c:82
+#: ../src/tilp_slct.c:76
 msgid "A file must have been selected in the right window."
 msgstr ""
 
-#: src/tilp_slct.c:446 src/tilp_slct.c:457
+#: ../src/tilp_slct.c:338 ../src/tilp_slct.c:349
 msgid "An item must have been selected in the left window."
 msgstr ""
 
-#: src/tilp_slct.c:515
+#: ../src/tilp_slct.c:407
 msgid ""
 "Are you sure you want to remove these file(s) ?\n"
 "\n"
 msgstr ""
 
-#: src/tilp_slct.c:549
+#: ../src/tilp_slct.c:441
 msgid "Unable to rename the file or directory."
 msgstr ""
 
-#: src/tilp_vars.c:53
+#. get new trees
+#: ../src/tilp_vars.c:53
 msgid "Directory list"
 msgstr ""
 
-#: glade/action-2.str:7
+#: ../src/error.c:61
+msgid "Msg: unable to allocate memory (malloc)."
+msgstr ""
+
+#: ../src/error.c:63
+msgid "Cause: memory too low ?"
+msgstr ""
+
+#: ../src/error.c:69
+msgid "Msg: unable to open file."
+msgstr ""
+
+#: ../src/error.c:71 ../src/error.c:79
+msgid "Cause: either the file does not exist, either there is no room."
+msgstr ""
+
+#: ../src/error.c:77
+msgid "Msg: unable to close file."
+msgstr ""
+
+#: ../src/error.c:85
+msgid "Msg: the size of a group file cannot exceed 64 KB."
+msgstr ""
+
+#: ../src/error.c:87
+msgid "Cause: too many variables/data."
+msgstr ""
+
+#: ../src/error.c:93
+msgid "Msg: unknown calculator type."
+msgstr ""
+
+#: ../src/error.c:95
+msgid "Cause: probably due to a bug, mail to: tilp-users@lists.sf.net."
+msgstr ""
+
+#: ../src/error.c:102
+msgid "Msg: invalid file."
+msgstr ""
+
+#: ../src/error.c:104
+msgid "Cause: it's probably not a TI formatted file."
+msgstr ""
+
+#: ../src/error.c:110 ../src/error.c:201
+msgid "Msg: checksum error."
+msgstr ""
+
+#: ../src/error.c:112
+msgid "Cause: the file has an incorrect checksum and may be corrupted."
+msgstr ""
+
+#: ../src/error.c:118
+msgid "Msg: (Un)Zip error."
+msgstr ""
+
+#: ../src/error.c:120
+msgid "Cause: unknown..."
+msgstr ""
+
+#: ../src/error.c:126
+msgid "Msg: unsupported function."
+msgstr ""
+
+#: ../src/error.c:128
+msgid "Cause: the function you attempted to use is not available."
+msgstr ""
+
+#: ../src/error.c:134
+msgid "Msg: I/O file error."
+msgstr ""
+
+#: ../src/error.c:136
+msgid "Cause: file is corrupted or invalid."
+msgstr ""
+
+#: ../src/error.c:186
+msgid "Msg: transfer aborted."
+msgstr ""
+
+#: ../src/error.c:188
+msgid "Cause: the user!"
+msgstr ""
+
+#: ../src/error.c:194
+msgid "Msg: calculator is not ready."
+msgstr ""
+
+#: ../src/error.c:196
+msgid ""
+"Cause: the calculator is busy (Var-Link menu, Window, ...). Press HOME..."
+msgstr ""
+
+#: ../src/error.c:203
+msgid "Cause: a transmission error. Try again."
+msgstr ""
+
+#: ../src/error.c:208
+msgid "Msg: invalid host ID."
+msgstr ""
+
+#: ../src/error.c:211
+msgid ""
+"Cause: received an unexpected Machine ID from calculator, probably due to a "
+"transmission error."
+msgstr ""
+
+#: ../src/error.c:216
+msgid "Msg: invalid target ID."
+msgstr ""
+
+#: ../src/error.c:219
+msgid ""
+"Cause: received an unexpected Target ID from calculator, probably due to a "
+"transmission error."
+msgstr ""
+
+#: ../src/error.c:224
+msgid "Msg: invalid command ID."
+msgstr ""
+
+#: ../src/error.c:227
+msgid ""
+"Cause: received an unexpected Command ID from calculator, probably due to a "
+"transmission error."
+msgstr ""
+
+#: ../src/error.c:232
+msgid "Msg: not really an error, should not appear!"
+msgstr ""
+
+#: ../src/error.c:234
+msgid "Cause: a bug. Drop us an email!"
+msgstr ""
+
+#: ../src/error.c:240
+msgid "Msg: contents has been refused."
+msgstr ""
+
+#: ../src/error.c:243
+msgid ""
+"Cause: you attempted to send a variable which is locked/archived on the "
+"target calculator. The calculator may be out of memory. The certificate may "
+"be invalid or already installed."
+msgstr ""
+
+#: ../src/error.c:248
+msgid "Invalid CTS packet."
+msgstr ""
+
+#: ../src/error.c:250 ../src/error.c:264
+msgid "Cause: a transmission error."
+msgstr ""
+
+#: ../src/error.c:255
+msgid "NACK received."
+msgstr ""
+
+#: ../src/error.c:257
+msgid "Cause: the command has been refused."
+msgstr ""
+
+#: ../src/error.c:262
+msgid "Invalid packet."
+msgstr ""
+
+#: ../src/error.c:272
+msgid "The cable cannot be used."
+msgstr ""
+
+#: ../src/error.c:274
+msgid ""
+"Cause: the cable has not been initialized due to a previous/current error."
+msgstr ""
+
+#: ../src/error.c:287
+msgid "Msg: this function does not exist for this calculator."
+msgstr ""
+
+#: ../src/error.c:290
+msgid ""
+"Cause: the operation you attempted is not supported by your calculator model."
+msgstr ""
+
+#: ../src/error.c:295
+msgid "Msg: calculator out of memory."
+msgstr ""
+
+#: ../src/error.c:298
+msgid ""
+"Cause: the calculator does not have memory enough for doing the operation."
+msgstr ""
+
+#: ../src/error.c:303
+msgid "Msg: unable to open (reading) the file."
+msgstr ""
+
+#: ../src/error.c:305 ../src/error.c:312
+msgid "Cause: disk space or permissions."
+msgstr ""
+
+#: ../src/error.c:310
+msgid "Msg: unable to open (writing) the file."
+msgstr ""
+
+#: ../src/error.c:318
+msgid "A transfer is in progress. You cannot start a new one."
+msgstr ""
+
+#: ../src/error.c:321
+msgid "Cause: this should not happen. Probably a bug: drop us an email!"
+msgstr ""
+
+#: ../src/error.c:329
+msgid "The requested var does not exist."
+msgstr ""
+
+#: ../src/error.c:332
+msgid ""
+"Cause: you attempted to download a variable which does not exist on the "
+"calculator any longer. Maybe you have manually deleted it ?"
+msgstr ""
+
+#: ../src/error.c:337
+msgid "There is nothing to backup."
+msgstr ""
+
+#: ../src/error.c:340
+msgid "Cause: 0 variables stored onto your calculator."
+msgstr ""
+
+#: ../src/error.c:345
+msgid "Invalid ticalcs handle."
+msgstr ""
+
+#: ../src/error.c:348
+msgid "Cause: bad cable or calc model."
+msgstr ""
+
+#: ../src/error.c:353
+msgid "Invalid parameter."
+msgstr ""
+
+#: ../src/error.c:355
+msgid ""
+"Cause: if you see this in normal usage, a bug: drop us an email ! Otherwise, "
+"check the arguments you're passing to the function."
+msgstr ""
+
+#. must be synchronized with cmd89.c (static uint8_t dbus_errors[])
+#: ../src/error.c:360
+msgid "Msg: hand-held returned an error."
+msgstr ""
+
+#: ../src/error.c:363 ../src/error.c:399 ../src/error.c:475
+msgid "Cause: hand-held returned an uncaught error. Please report log."
+msgstr ""
+
+#: ../src/error.c:367
+msgid "Msg: cannot delete application."
+msgstr ""
+
+#: ../src/error.c:371
+msgid "Msg: invalid variable name."
+msgstr ""
+
+#: ../src/error.c:375
+msgid "Msg: cannot overwrite variable (locked/archived)."
+msgstr ""
+
+#: ../src/error.c:379
+msgid "Msg: cannot delete variable (locked/archived)."
+msgstr ""
+
+#: ../src/error.c:383
+msgid "Msg: FLASH application rejected (bad target model)."
+msgstr ""
+
+#: ../src/error.c:387
+msgid "Msg: malformed RTS packet (AMS version conflict)."
+msgstr ""
+
+#: ../src/error.c:391 ../src/error.c:463
+msgid "Msg: FLASH application rejected (signature does not match)."
+msgstr ""
+
+#. must be synchronized with dusb_cmd.c (static uint16_t usb_errors[])
+#. must be synchronized with nsp_cmd.c (static uint8_t usb_errors[])
+#: ../src/error.c:396 ../src/error.c:472
+msgid "Msg: hand-held returned an error (not caught)."
+msgstr ""
+
+#: ../src/error.c:403
+msgid "Msg: invalid argument or name."
+msgstr ""
+
+#: ../src/error.c:407
+msgid "Msg: cannot delete var/app from archive."
+msgstr ""
+
+#: ../src/error.c:411
+msgid "Msg: transmission error."
+msgstr ""
+
+#: ../src/error.c:415
+msgid "Msg: using basic mode while being in boot mode."
+msgstr ""
+
+#: ../src/error.c:419 ../src/error.c:479
+msgid "Msg: out of memory."
+msgstr ""
+
+#: ../src/error.c:423 ../src/error.c:427
+msgid "Msg: invalid name."
+msgstr ""
+
+#: ../src/error.c:431
+msgid "Msg: busy?."
+msgstr ""
+
+#: ../src/error.c:435
+msgid "Msg: can't overwrite, variable is locked."
+msgstr ""
+
+#: ../src/error.c:439
+msgid "Msg: mode token too small."
+msgstr ""
+
+#: ../src/error.c:443
+msgid "Msg: mode token too large."
+msgstr ""
+
+#: ../src/error.c:447
+msgid "Msg: invalid parameter ID."
+msgstr ""
+
+#: ../src/error.c:451
+msgid "Msg: wrong modify request?"
+msgstr ""
+
+#: ../src/error.c:455
+msgid "Msg: remote control?"
+msgstr ""
+
+#: ../src/error.c:459
+msgid "Msg: battery low."
+msgstr ""
+
+#: ../src/error.c:467
+msgid "Msg: hand-held is busy (set your calculator to HOME screen)."
+msgstr ""
+
+#: ../src/error.c:483
+msgid "Msg: OS installation failed. File is corrupted/wrong."
+msgstr ""
+
+#: ../src/error.c:488
+msgid "Msg: packet too large."
+msgstr ""
+
+#: ../src/error.c:492
+msgid "Msg: the variable or directory does not exist."
+msgstr ""
+
+#: ../src/error.c:496
+msgid "Msg: the directory name is invalid."
+msgstr ""
+
+#: ../src/error.c:500
+msgid "Msg: not currently listing a directory."
+msgstr ""
+
+#: ../src/error.c:504
+msgid "Msg: no more files to list."
+msgstr ""
+
+#: ../src/error.c:508
+msgid "Msg: the directory name already exists."
+msgstr ""
+
+#: ../src/error.c:513
+msgid "Msg: the destination (folder or file) path is too long."
+msgstr ""
+
+#: ../src/error.c:517
+msgid "Msg: the file name is invalid."
+msgstr ""
+
+#: ../src/error.c:521
+msgid "Msg: no file extension."
+msgstr ""
+
+#: ../src/error.c:525
+msgid "Msg: forbidden characters in folder name."
+msgstr ""
+
+#: ../src/error.c:529
+msgid "Msg: anti-downgrade protection refuses this OS version."
+msgstr ""
+
+#: ../src/error.c:569
+msgid "Msg: link cable is busy."
+msgstr ""
+
+#: ../src/error.c:571
+msgid "Cause: a transfer is in progress."
+msgstr ""
+
+#: ../src/error.c:577
+msgid "Msg: unable to use parallel/serial port: access refused."
+msgstr ""
+
+#: ../src/error.c:579
+msgid "Cause: you are not running program as root or setuid root."
+msgstr ""
+
+#: ../src/error.c:585
+msgid "Msg: unable to use serial (/dev/ttySx) device."
+msgstr ""
+
+#: ../src/error.c:587
+msgid ""
+"Cause: the /dev/ttySx node doesn't exist or you don't have required "
+"permissions. How to grant permission to devices to the user depends on the "
+"distribution, it may involve adding the user to a group such as 'dialout' or "
+"'uucp'. This can be done by editing /etc/group and add the username after "
+"the ':'. Example: dialout:x:20:romain "
+msgstr ""
+
+#: ../src/error.c:599
+msgid "Msg: unable to use parport (/dev/parportX) device."
+msgstr ""
+
+#: ../src/error.c:601
+msgid ""
+"Cause: the /dev/parportX node doesn't exist or you don't have required "
+"permissions. How to grant permission to devices to the user depends on the "
+"distribution, it may involve adding the user to a group such as 'lp'. This "
+"can be done by editing /etc/group and add the username after the ':'. "
+"Example: lp:x:7:romain "
+msgstr ""
+
+#: ../src/error.c:613
+msgid "Msg: unable to use USB pseudo file system."
+msgstr ""
+
+#: ../src/error.c:615
+msgid ""
+"Cause: the USB filesystem is not mounted or cannot access USB device because "
+"current user doesn't have the necessary permissions. How to grant permission "
+"to devices to the user depends on the distribution; it may involve adding "
+"udev and/or pam_console configuration files, and you may in addition have to "
+"add your user to a group such as 'usb' or set-up libusb mounting parameters."
+"If packages of TiLP and its libraries for your distribution exist, it is "
+"recommended to use those, as everything which can be configured "
+"automatically will be set up for you. Otherwise, manual setup steps, if any, "
+"are explained in the CONFIG file shipped with the ticables2 library. "
+msgstr ""
+
+#: ../src/error.c:632
+msgid "Msg: illegal operation or argument."
+msgstr ""
+
+#: ../src/error.c:634
+msgid ""
+"Cause: the program which uses this library is buggy. Fire-up the developer!"
+msgstr ""
+
+#: ../src/error.c:640
+msgid "Msg: DhaHelper driver and/or library not found."
+msgstr ""
+
+#: ../src/error.c:642 ../src/error.c:650
+msgid ""
+"Cause: the driver may have been not started yet; it may have been "
+"uninstalled; the library has been installed without administrator privileges."
+msgstr ""
+
+#: ../src/error.c:648
+msgid "Msg: RwPorts driver and/or library not found."
+msgstr ""
+
+#: ../src/error.c:656
+msgid "Msg: error occured while writing to the device."
+msgstr ""
+
+#: ../src/error.c:662
+msgid "Msg: timeout occured while writing to the device."
+msgstr ""
+
+#: ../src/error.c:664 ../src/error.c:678
+msgid "Cause: check that link cable is plugged and/or the calculator is ready."
+msgstr ""
+
+#: ../src/error.c:670
+msgid "Msg: error occured while reading from the device."
+msgstr ""
+
+#: ../src/error.c:676
+msgid "Msg: timeout occured while reading from the device."
+msgstr ""
+
+#: ../src/error.c:684
+msgid "Msg: the probing of device failed."
+msgstr ""
+
+#: ../src/error.c:686
+msgid "Cause: internal error. If you get it, this is a bug!"
+msgstr ""
+
+#: ../src/error.c:699
+msgid "Msg: unable to open serial port."
+msgstr ""
+
+#: ../src/error.c:701
+msgid "Cause: check that device is not used/locked by another application."
+msgstr ""
+
+#: ../src/error.c:709
+msgid "Msg: failed to get VTI handle."
+msgstr ""
+
+#: ../src/error.c:711
+msgid "Cause: VTI may not be running. VTI must be launched before."
+msgstr ""
+
+#: ../src/error.c:721
+msgid "Msg: unable to get a unique IPC (Inter Process Communication) key."
+msgstr ""
+
+#: ../src/error.c:723
+msgid ""
+"Cause: check that you have enough resources for allocating a shared memory "
+"segment."
+msgstr ""
+
+#: ../src/error.c:730
+msgid "Msg: unable to open/close pipes for virtual linking."
+msgstr ""
+
+#: ../src/error.c:732
+msgid ""
+"Cause: check that you have permissions to create a pipe in the /tmp "
+"directory."
+msgstr ""
+
+#: ../src/error.c:739
+msgid "Msg: unable to open serial device."
+msgstr ""
+
+#: ../src/error.c:741 ../src/error.c:750
+msgid ""
+"Cause: check that you have permissions on /dev/ttySx device. Check that "
+"device is not locked."
+msgstr ""
+
+#: ../src/error.c:748
+msgid "Msg: unable to issue a specific command on serial device."
+msgstr ""
+
+#: ../src/error.c:756
+msgid "Msg: unable to open parallel device."
+msgstr ""
+
+#: ../src/error.c:758 ../src/error.c:766
+msgid ""
+"Cause: check that you have permissions on /dev/parportX device. Check that "
+"device is not locked."
+msgstr ""
+
+#: ../src/error.c:764
+msgid "Msg: unable to issue a specific command on parallel device."
+msgstr ""
+
+#: ../src/error.c:772
+msgid "Msg: unable to find the libusb-win32 driver."
+msgstr ""
+
+#: ../src/error.c:774
+msgid "Cause: the driver is not present and/or installed."
+msgstr ""
+
+#: ../src/error.c:782
+msgid "Msg: failed to open the USB device."
+msgstr ""
+
+#: ../src/error.c:784
+msgid ""
+"Cause: Check that the USB cable is plugged in and that the calculator is "
+"turned ON! Also, check libusb and usbfs for valid permissions."
+msgstr ""
+
+#: ../src/error.c:790
+msgid "Msg: unable to reset USB device."
+msgstr ""
+
+#: ../src/error.c:792
+msgid ""
+"Cause: Check that cable is connected or not stalled. Try to unplug/plug it."
+msgstr ""
+
+#: ../src/error.c:798
+msgid "Msg: attempting to use a cable which has not been open before."
+msgstr ""
+
+#: ../src/error.c:800
+msgid "Cause: Internal error."
+msgstr ""
+
+#: ../src/error.c:806
+msgid "Msg: no cable found."
+msgstr ""
+
+#: ../src/error.c:808
+msgid "Cause: probing failed or invalid parameters."
+msgstr ""
+
+#: ../src/error.c:814
+msgid "Msg: DLL not found."
+msgstr ""
+
+#: ../src/error.c:816
+msgid "Cause: maybe you renamed the DLL ?"
+msgstr ""
+
+#: ../src/filetypes.c:863 ../src/filetypes.c:897 ../src/filetypes.c:903
+msgid "OS upgrade"
+msgstr ""
+
+#: ../src/tifiles.c:86
+#, c-format
+msgid "tifiles library version %s"
+msgstr ""
+
+#: ../src/type2str.c:81 ../src/type2str.c:101
+msgid "none     "
+msgstr ""
+
+#: ../src/type2str.c:82 ../src/type2str.c:103
+msgid "locked   "
+msgstr ""
+
+#: ../src/type2str.c:83 ../src/type2str.c:105
+msgid "archived "
+msgstr ""
+
+#: ../src/type2str.c:84 ../src/type2str.c:107
+msgid "protected"
+msgstr ""
+
+#: ../src/type2str.c:126 ../src/type2str.c:150
+msgid "single"
+msgstr ""
+
+#: ../src/type2str.c:127 ../src/type2str.c:152
+msgid "group"
+msgstr ""
+
+#: ../src/type2str.c:128 ../src/type2str.c:154
+msgid "regular"
+msgstr ""
+
+#: ../src/type2str.c:129 ../src/type2str.c:156
+msgid "backup"
+msgstr ""
+
+#: ../src/type2str.c:130 ../src/type2str.c:164
+msgid "tigroup"
+msgstr ""
+
+#: ../src/type2str.c:131 ../src/type2str.c:158
+msgid "os"
+msgstr ""
+
+#: ../src/type2str.c:132 ../src/type2str.c:160
+msgid "application"
+msgstr ""
+
+#: ../src/type2str.c:133 ../src/type2str.c:162
+msgid "flash"
+msgstr ""
+
+#: ../src/type2str.c:134 ../src/type2str.c:336 ../src/type2str.c:364
+#: ../src/type2str.c:392
+msgid "unknown"
+msgstr ""
+
+#: ../src/type2str.c:334 ../src/type2str.c:344 ../src/type2str.c:362
+#: ../src/type2str.c:372
+msgid "full"
+msgstr ""
+
+#: ../src/type2str.c:335 ../src/type2str.c:346
+msgid "clipped"
+msgstr ""
+
+#: ../src/type2str.c:363 ../src/type2str.c:374
+msgid "local"
+msgstr ""
+
+#: ../src/type2str.c:390 ../src/type2str.c:400
+msgid "free"
+msgstr ""
+
+#: ../src/type2str.c:391 ../src/type2str.c:402
+msgid "used"
+msgstr ""
+
+#: ../src/typesnsp.c:32
+msgid "TIicon1"
+msgstr ""
+
+#: ../src/typesnsp.c:33
+msgid "Directory"
+msgstr ""
+
+#: ../src/typesnsp.c:80
+msgid "Unknown"
+msgstr ""
+
+#: ../src/bsd/detect.c:168 ../src/linux/detect.c:185 ../src/macos/detect.c:137
+#, c-format
+msgid "can't open '%s'."
+msgstr ""
+
+#: ../src/bsd/detect.c:202 ../src/linux/detect.c:219 ../src/macos/detect.c:171
+#, c-format
+msgid "    node %s: exists"
+msgstr ""
+
+#: ../src/bsd/detect.c:206 ../src/linux/detect.c:223 ../src/macos/detect.c:175
+#, c-format
+msgid "    node %s: does not exist"
+msgstr ""
+
+#: ../src/bsd/detect.c:207 ../src/linux/detect.c:224 ../src/macos/detect.c:176
+msgid "    => you will have to create the node."
+msgstr ""
+
+#: ../src/bsd/detect.c:214 ../src/linux/detect.c:231
+#, c-format
+msgid "    node %s: accessible"
+msgstr ""
+
+#: ../src/bsd/detect.c:220 ../src/linux/detect.c:237 ../src/macos/detect.c:183
+#, c-format
+msgid "    permissions/user/group:%s%s %s"
+msgstr ""
+
+#: ../src/bsd/detect.c:233 ../src/linux/detect.c:250 ../src/macos/detect.c:196
+msgid "    user can r/w on device: yes"
+msgstr ""
+
+#: ../src/bsd/detect.c:234 ../src/bsd/detect.c:275 ../src/linux/detect.c:251
+#: ../src/linux/detect.c:292
+msgid "    => device is inaccessible for unknown reasons"
+msgstr ""
+
+#: ../src/bsd/detect.c:239 ../src/linux/detect.c:256 ../src/macos/detect.c:201
+msgid "    user can r/w on device: no"
+msgstr ""
+
+#: ../src/bsd/detect.c:244 ../src/linux/detect.c:261 ../src/macos/detect.c:206
+msgid "    others can r/w on device: yes"
+msgstr ""
+
+#: ../src/bsd/detect.c:250 ../src/linux/detect.c:267 ../src/macos/detect.c:212
+msgid "    others can r/w on device: no"
+msgstr ""
+
+#: ../src/bsd/detect.c:257 ../src/linux/detect.c:274 ../src/macos/detect.c:219
+#, c-format
+msgid "    is the user '%s' in the group '%s': yes"
+msgstr ""
+
+#: ../src/bsd/detect.c:262 ../src/linux/detect.c:279 ../src/macos/detect.c:224
+#, c-format
+msgid "    is the user '%s' in the group '%s': no"
+msgstr ""
+
+#: ../src/bsd/detect.c:263 ../src/linux/detect.c:280 ../src/macos/detect.c:225
+#, c-format
+msgid "    => you should add your username at the group '%s' in '/etc/group'"
+msgstr ""
+
+#: ../src/bsd/detect.c:264 ../src/linux/detect.c:281 ../src/macos/detect.c:226
+msgid "    => you will have to restart your session, too"
+msgstr ""
+
+#: ../src/bsd/detect.c:283 ../src/linux/detect.c:300 ../src/macos/detect.c:244
+#, c-format
+msgid "Check for super-user access: %s"
+msgstr ""
+
+#: ../src/bsd/detect.c:293 ../src/linux/detect.c:311
+msgid "Check for tty support:"
+msgstr ""
+
+#: ../src/bsd/detect.c:294 ../src/linux/detect.c:313
+msgid "    tty support: available."
+msgstr ""
+
+#. check for node usability
+#: ../src/bsd/detect.c:297 ../src/linux/detect.c:320 ../src/macos/detect.c:252
+msgid "Check for tty usability:"
+msgstr ""
+
+#: ../src/bsd/detect.c:309 ../src/linux/detect.c:351
+msgid "    is useable: yes"
+msgstr ""
+
+#: ../src/bsd/detect.c:317 ../src/linux/detect.c:363
+msgid "Check for lib-usb support:"
+msgstr ""
+
+#: ../src/bsd/detect.c:319 ../src/linux/detect.c:365
+msgid "    usb support: available."
+msgstr ""
+
+#: ../src/bsd/detect.c:321 ../src/linux/detect.c:367
+msgid "    usb support: not compiled."
+msgstr ""
+
+#: ../src/link_nul.c:100
+msgid "Dummy link"
+msgstr ""
+
+#: ../src/link_nul.c:101
+msgid "Dummy link used when no cable is set"
+msgstr ""
+
+#: ../src/link_nul.c:114
+msgid "Dummy link for TiEmu"
+msgstr ""
+
+#: ../src/link_nul.c:115
+msgid "Internal Link Port cable for TiEmu (internal use)"
+msgstr ""
+
+#: ../src/linux/detect.c:315
+msgid "    tty support: not compiled."
+msgstr ""
+
+#: ../src/linux/detect.c:323
+msgid "not usable"
+msgstr ""
+
+#: ../src/linux/detect.c:332
+#, c-format
+msgid "unable to open serial device '%s'"
+msgstr ""
+
+#: ../src/linux/detect.c:339
+#, c-format
+msgid "Error running TIOCGSERIAL ioctl - %s"
+msgstr ""
+
+#: ../src/linux/detect.c:346
+msgid "    is useable: no"
+msgstr ""
+
+#: ../src/linux/detect.c:371
+msgid "Check for lib-usb usability:"
+msgstr ""
+
+#: ../src/linux/detect.c:375 ../src/linux/detect.c:386
+#: ../src/linux/detect.c:394 ../src/linux/detect.c:397
+#, c-format
+msgid "    usb filesystem (%s): %s"
+msgstr ""
+
+#: ../src/linux/detect.c:403
+#, c-format
+msgid "    usb filesystem (/[proc|dev]/bus/usb): %s"
+msgstr ""
+
+#: ../src/linux/detect.c:404
+msgid "    => you must have udev or usbfs support."
+msgstr ""
+
+#: ../src/linux/detect.c:405
+msgid "    => take a look at the ticables2/CONFIG file."
+msgstr ""
+
+#: ../src/linux/link_usb1.c:249
+#, c-format
+msgid " found %s on #%i, version <%x.%02x>\n"
+msgstr ""
+
+#: ../src/linux/link_usb1.c:271
+msgid " no devices found!\n"
+msgstr ""
+
+#: ../src/linux/link_usb1.c:869 ../src/linux/link_usb.c:1049
+#: ../builder/device.ui.h:5
+msgid "SilverLink"
+msgstr ""
+
+#: ../src/linux/link_usb1.c:870 ../src/linux/link_usb.c:1050
+msgid "SilverLink (TI-GRAPH LINK USB) cable"
+msgstr ""
+
+#: ../src/linux/link_usb1.c:883 ../src/linux/link_usb.c:1063
+#: ../builder/device.ui.h:6
+msgid "DirectLink"
+msgstr ""
+
+#: ../src/linux/link_usb1.c:884 ../src/linux/link_usb.c:1064
+msgid "DirectLink (DIRECT USB) cable"
+msgstr ""
+
+#: ../src/linux/link_usb.c:351
+#, c-format
+msgid "usb_find_busses (%s).\n"
+msgstr ""
+
+#: ../src/linux/link_usb.c:359
+#, c-format
+msgid "usb_find_devices (%s).\n"
+msgstr ""
+
+#: ../src/linux/link_usb.c:367
+msgid "no devices found!\n"
+msgstr ""
+
+#: ../src/probe.c:218
+#, c-format
+msgid " %i: %i %i %i %i"
+msgstr ""
+
+#: ../src/probe.c:248
+msgid "Link cable probing:"
+msgstr ""
+
+#: ../src/ticables.c:117
+#, c-format
+msgid "ticables library version %s"
+msgstr ""
+
+#: ../src/ticables.c:372
+msgid "Link cable handle details:"
+msgstr ""
+
+#: ../src/ticables.c:373 ../src/ticalcs.c:229
+#, c-format
+msgid "  model   : %s"
+msgstr ""
+
+#: ../src/ticables.c:374
+#, c-format
+msgid "  port    : %s"
+msgstr ""
+
+#: ../src/ticables.c:375
+#, c-format
+msgid "  timeout : %2.1fs"
+msgstr ""
+
+#: ../src/ticables.c:376
+#, c-format
+msgid "  delay   : %i us"
+msgstr ""
+
+#: ../src/ticables.c:379
+#, c-format
+msgid "  device  : %s"
+msgstr ""
+
+#: ../src/ticables.c:380
+#, c-format
+msgid "  address : 0x%03x"
+msgstr ""
+
+#: ../src/calc_00.c:160
+msgid "Dummy hand-held"
+msgstr ""
+
+#: ../src/calc_00.c:161
+msgid "Dummy hand-held used when no calc is set"
+msgstr ""
+
+#: ../src/calc_nsp.c:338
+#, c-format
+msgid "Name: %s | Type: %8s | Attr: %i  | Size: %08X"
+msgstr ""
+
+#: ../src/calc_nsp.c:360
+#, c-format
+msgid "Not enumerating documents in %s because it's not a folder"
+msgstr ""
+
+#: ../src/calc_nsp.c:364
+#, c-format
+msgid "Directory listing in <%s>..."
+msgstr ""
+
+#: ../src/calc_nsp.c:409
+#, c-format
+msgid "Name: %8s | Type: %8s | Attr: %i  | Size: %08X"
+msgstr ""
+
+#: ../src/calc_nsp.c:417
+#, c-format
+msgid "Parsing %s/%s"
+msgstr ""
+
+#: ../src/calc_nsp.c:736
+#, c-format
+msgid "Renaming %s to %s..."
+msgstr ""
+
+#: ../src/calc_nsp.c:776
+#, c-format
+msgid "Deleting %s..."
+msgstr ""
+
+#: ../src/calc_nsp.c:803
+#, c-format
+msgid "Creating %s..."
+msgstr ""
+
+#: ../src/calc_nsp.c:930
+msgid "Nspire thru DirectLink"
+msgstr ""
+
+#: ../src/calc_xx.c:87
+msgid "Checking hand-held status:"
+msgstr ""
+
+#: ../src/calc_xx.c:126
+#, c-format
+msgid "Sending key %04x:"
+msgstr ""
+
+#: ../src/calc_xx.c:172
+#, c-format
+msgid "Executing %s/%s with %s:"
+msgstr ""
+
+#: ../src/calc_xx.c:217
+msgid "Requesting screenshot:"
+msgstr ""
+
+#: ../src/calc_xx.c:263
+msgid "Requesting folder & vars & apps listing:"
+msgstr ""
+
+#: ../src/calc_xx.c:317
+msgid "Requesting RAM & FLASH free"
+msgstr ""
+
+#: ../src/calc_xx.c:361
+msgid "Requesting backup:"
+msgstr ""
+
+#: ../src/calc_xx.c:405
+msgid "Sending backup:"
+msgstr ""
+
+#: ../src/calc_xx.c:450
+msgid "Sending one or more variables:"
+msgstr ""
+
+#: ../src/calc_xx.c:496
+#, c-format
+msgid "Requesting variable '%s':"
+msgstr ""
+
+#: ../src/calc_xx.c:541
+msgid "Sending variable (non-silent mode):"
+msgstr ""
+
+#: ../src/calc_xx.c:587
+msgid "Receiving variable (non-silent mode):"
+msgstr ""
+
+#: ../src/calc_xx.c:631
+msgid "Sending FLASH application:"
+msgstr ""
+
+#: ../src/calc_xx.c:676
+msgid "Requesting receiving of FLASH application:"
+msgstr ""
+
+#: ../src/calc_xx.c:720
+msgid "Sending FLASH os:"
+msgstr ""
+
+#: ../src/calc_xx.c:764
+msgid "Requesting ID-LIST:"
+msgstr ""
+
+#: ../src/calc_xx.c:802
+msgid "Sending ROM dumper:"
+msgstr ""
+
+#: ../src/calc_xx.c:847
+msgid "Dumping ROM:"
+msgstr ""
+
+#: ../src/calc_xx.c:891
+msgid "Setting clock:"
+msgstr ""
+
+#: ../src/calc_xx.c:935
+msgid "Getting clock:"
+msgstr ""
+
+#: ../src/calc_xx.c:979
+msgid "Sending certificate:"
+msgstr ""
+
+#: ../src/calc_xx.c:1023
+msgid "Requesting receiving of certificate:"
+msgstr ""
+
+#: ../src/calc_xx.c:1431
+#, c-format
+msgid "Creating folder '%s':"
+msgstr ""
+
+#: ../src/calc_xx.c:1475
+#, c-format
+msgid "Deleting variable '%s':"
+msgstr ""
+
+#: ../src/calc_xx.c:1521
+#, c-format
+msgid "Renaming variable '%s/%s' to '%s/%s':"
+msgstr ""
+
+#: ../src/calc_xx.c:1523
+#, c-format
+msgid "Renaming variable '%s' to '%s':"
+msgstr ""
+
+#: ../src/calc_xx.c:1569
+#, c-format
+msgid "Setting variable '%s' to %s:"
+msgstr ""
+
+#: ../src/calc_xx.c:1614
+msgid "Requesting version infos:"
+msgstr ""
+
+#: ../src/dirlist.c:125
+#, c-format
+msgid "| B. name          | T. name  |Attr|Type| Size     | Folder   |\n"
+msgstr ""
+
+#: ../src/dirlist.c:185
+#, c-format
+msgid "| No variables     |\n"
+msgstr ""
+
+#: ../src/dirlist.c:187
+#, c-format
+msgid "| No applications  |\n"
+msgstr ""
+
+#: ../src/dirlist.c:189
+#, c-format
+msgid "+------------------+----------+----+----+----------+----------+"
+msgstr ""
+
+#: ../src/ticalcs.c:98
+#, c-format
+msgid "ticalcs library version %s"
+msgstr ""
+
+#: ../src/ticalcs.c:228
+msgid "Link calc handle details:"
+msgstr ""
+
+#: ../builder/action.ui.h:1
 msgid "Upload Variables"
 msgstr ""
 
-#: glade/action-2.str:8
+#: ../builder/action.ui.h:2
 msgid ""
 "The following variable(s) exist(s) on calculator. Please select what you "
 "would like to do...\n"
 "Note that locked/archived cannot be overwritten unless renamed."
 msgstr ""
 
-#: glade/action-2.str:10
+#: ../builder/action.ui.h:4
 msgid "_Overwrite"
 msgstr ""
 
-#: glade/action-2.str:11 glade/clist_rbm-2.str:15
+#: ../builder/action.ui.h:5 ../builder/clist_rbm.ui.h:8
 msgid "_Rename"
 msgstr ""
 
-#: glade/action-2.str:12
+#: ../builder/action.ui.h:6
 msgid "_Skip"
 msgstr ""
 
-#: glade/action-2.str:13
+#: ../builder/action.ui.h:7
 msgid "Select _All"
 msgstr ""
 
-#: glade/action-2.str:14
+#: ../builder/action.ui.h:8
 msgid "_Deselect All"
 msgstr ""
 
-#: glade/clist_rbm-2.str:7
-msgid "_Edit"
+#: ../builder/backupdbox.ui.h:1 ../builder/options.ui.h:10
+#: ../builder/tilp.ui.h:50
+msgid "Backup"
 msgstr ""
 
-#: glade/clist_rbm-2.str:8
-msgid "Cut selected files"
+#: ../builder/backupdbox.ui.h:2
+msgid "vars in RAM"
 msgstr ""
 
-#: glade/clist_rbm-2.str:9
-msgid "_Cut"
+#: ../builder/backupdbox.ui.h:3
+msgid "vars in FLASH"
 msgstr ""
 
-#: glade/clist_rbm-2.str:10
-msgid "Copy selected files"
+#: ../builder/backupdbox.ui.h:4
+msgid "apps"
 msgstr ""
 
-#: glade/clist_rbm-2.str:11
-msgid "C_opy"
+#: ../builder/backupdbox.ui.h:5
+msgid "Data to backup:"
 msgstr ""
 
-#: glade/clist_rbm-2.str:12
-msgid "Paste previously selected files"
+#: ../builder/clist_rbm.ui.h:1
+msgid "Set As Working _Folder"
 msgstr ""
 
-#: glade/clist_rbm-2.str:13
-msgid "_Paste"
-msgstr ""
-
-#: glade/clist_rbm-2.str:14
-msgid "Rename file(s)"
-msgstr ""
-
-#: glade/clist_rbm-2.str:16
-msgid "Delete selected file(s)"
-msgstr ""
-
-#: glade/clist_rbm-2.str:17
-msgid "_Delete"
-msgstr ""
-
-#: glade/clist_rbm-2.str:18 glade/screenshot-2.str:8
-msgid "_File"
-msgstr ""
-
-#: glade/clist_rbm-2.str:19
-msgid "Select all files"
-msgstr ""
-
-#: glade/clist_rbm-2.str:20
-msgid "_Select all"
-msgstr ""
-
-#: glade/clist_rbm-2.str:21
-msgid "Unselect all files"
-msgstr ""
-
-#: glade/clist_rbm-2.str:22
-msgid "_Unselect all"
-msgstr ""
-
-#: glade/clist_rbm-2.str:23
-msgid "Goes up into the parent folder"
-msgstr ""
-
-#: glade/clist_rbm-2.str:24
-msgid "_Go to parent dir"
-msgstr ""
-
-#: glade/clist_rbm-2.str:25
+#: ../builder/clist_rbm.ui.h:2
 msgid "Set the current directory as working directory whenever TiLP starts."
 msgstr ""
 
-#: glade/clist_rbm-2.str:26
-msgid "Set as working _folder"
+#: ../builder/clist_rbm.ui.h:3
+msgid "Cut selected files"
 msgstr ""
 
-#: glade/clist_rbm-2.str:27
-msgid "_Properties"
+#: ../builder/clist_rbm.ui.h:4
+msgid "Copy selected files"
 msgstr ""
 
-#: glade/clist_rbm-2.str:28
-msgid "Open..."
+#: ../builder/clist_rbm.ui.h:5
+msgid "Paste previously selected files"
 msgstr ""
 
-#: glade/clist_rbm-2.str:29 glade/ctree_rbm-2.str:10 glade/screenshot-2.str:12
-msgid "_Options"
+#: ../builder/clist_rbm.ui.h:6
+msgid "Delete selected file(s)"
 msgstr ""
 
-#: glade/clist_rbm-2.str:30
+#: ../builder/clist_rbm.ui.h:7
+msgid "Rename file(s)"
+msgstr ""
+
+#: ../builder/clist_rbm.ui.h:9
+msgid "Open With _GFM"
+msgstr ""
+
+#: ../builder/clist_rbm.ui.h:10 ../builder/tilp.ui.h:14
+msgid "Show all Files in local view"
+msgstr ""
+
+#: ../builder/clist_rbm.ui.h:11 ../builder/tilp.ui.h:15
 msgid "_Show all files"
 msgstr ""
 
-#: glade/clist_rbm-2.str:31
+#: ../builder/clist_rbm.ui.h:12
 msgid "_Confirm delete/overwrite"
 msgstr ""
 
-#: glade/clock-2.str:7
-msgid "Clock Management"
-msgstr ""
-
-#: glade/clock-2.str:8
-msgid "_on"
-msgstr ""
-
-#: glade/clock-2.str:9
-msgid "of_f"
-msgstr ""
-
-#: glade/clock-2.str:10
-msgid "Clock is..."
-msgstr ""
-
-#: glade/clock-2.str:11
-msgid "_AM/PM"
-msgstr ""
-
-#: glade/clock-2.str:12
-msgid "_24h"
-msgstr ""
-
-#: glade/clock-2.str:13
+#: ../builder/clock.ui.h:1
 msgid "MM/DD/YY"
 msgstr ""
 
-#: glade/clock-2.str:14
+#: ../builder/clock.ui.h:2
 msgid "DD/MM/YY"
 msgstr ""
 
-#: glade/clock-2.str:15
+#: ../builder/clock.ui.h:3
 msgid "MM.DD.YY"
 msgstr ""
 
-#: glade/clock-2.str:16
+#: ../builder/clock.ui.h:4
 msgid "DD.MM.YY"
 msgstr ""
 
-#: glade/clock-2.str:17
+#: ../builder/clock.ui.h:5
 msgid "YY.MM.DD"
 msgstr ""
 
-#: glade/clock-2.str:18
+#: ../builder/clock.ui.h:6
 msgid "MM-DD-YY"
 msgstr ""
 
-#: glade/clock-2.str:19
+#: ../builder/clock.ui.h:7
 msgid "DD-MM-YY"
 msgstr ""
 
-#: glade/clock-2.str:20
+#: ../builder/clock.ui.h:8
 msgid "YY-MM-DD"
 msgstr ""
 
-#: glade/clock-2.str:21
-msgid "Format"
-msgstr ""
-
-#: glade/clock-2.str:22
+#: ../builder/clock.ui.h:9
 msgid "Jan"
 msgstr ""
 
-#: glade/clock-2.str:23
+#: ../builder/clock.ui.h:10
 msgid "Feb"
 msgstr ""
 
-#: glade/clock-2.str:24
+#: ../builder/clock.ui.h:11
 msgid "Mar"
 msgstr ""
 
-#: glade/clock-2.str:25
+#: ../builder/clock.ui.h:12
 msgid "Apr"
 msgstr ""
 
-#: glade/clock-2.str:26
+#: ../builder/clock.ui.h:13
 msgid "May"
 msgstr ""
 
-#: glade/clock-2.str:27
+#: ../builder/clock.ui.h:14
 msgid "Jun"
 msgstr ""
 
-#: glade/clock-2.str:28
+#: ../builder/clock.ui.h:15
 msgid "Jul"
 msgstr ""
 
-#: glade/clock-2.str:29
+#: ../builder/clock.ui.h:16
 msgid "Aug"
 msgstr ""
 
-#: glade/clock-2.str:30
+#: ../builder/clock.ui.h:17
 msgid "Sep"
 msgstr ""
 
-#: glade/clock-2.str:31
+#: ../builder/clock.ui.h:18
 msgid "Oct"
 msgstr ""
 
-#: glade/clock-2.str:32
+#: ../builder/clock.ui.h:19
 msgid "Nov"
 msgstr ""
 
-#: glade/clock-2.str:33
+#: ../builder/clock.ui.h:20
 msgid "Dec"
 msgstr ""
 
-#: glade/clock-2.str:34
+#: ../builder/clock.ui.h:21
+msgid "Clock Management"
+msgstr ""
+
+#: ../builder/clock.ui.h:22
+msgid "_on"
+msgstr ""
+
+#: ../builder/clock.ui.h:23
+msgid "of_f"
+msgstr ""
+
+#: ../builder/clock.ui.h:24
+msgid "Clock is..."
+msgstr ""
+
+#: ../builder/clock.ui.h:25
+msgid "_AM/PM"
+msgstr ""
+
+#: ../builder/clock.ui.h:26
+msgid "_24h"
+msgstr ""
+
+#: ../builder/clock.ui.h:27
+msgid "Format"
+msgstr ""
+
+#: ../builder/clock.ui.h:28
 msgid "Date & Time"
 msgstr ""
 
-#: glade/clock-2.str:35
+#: ../builder/clock.ui.h:29
 msgid " _Sync with PC "
 msgstr ""
 
-#: glade/ctree_rbm-2.str:7
-msgid "Change _device"
+#: ../builder/ctree_rbm.ui.h:1
+msgid "Change _Device"
 msgstr ""
 
-#: glade/ctree_rbm-2.str:8
-msgid "_Main Options"
-msgstr ""
-
-#: glade/ctree_rbm-2.str:9
+#: ../builder/ctree_rbm.ui.h:2
 msgid "_Local view"
 msgstr ""
 
-#: glade/ctree_rbm-2.str:11
+#: ../builder/ctree_rbm.ui.h:3
 msgid "Recv as _group"
 msgstr ""
 
-#: glade/ctree_rbm-2.str:12
+#: ../builder/ctree_rbm.ui.h:4
 msgid "Backup as TiGroup"
 msgstr ""
 
-#: glade/ctree_rbm-2.str:13
-msgid "_Delete var/app"
+#: ../builder/ctree_rbm.ui.h:5
+msgid "Create _Folder"
 msgstr ""
 
-#: glade/ctree_rbm-2.str:14
-msgid "Create _folder"
+#: ../builder/device.ui.h:1
+msgid "Null"
 msgstr ""
 
-#: glade/device-2.str:3
-msgid "Communication Settings"
-msgstr ""
-
-#: glade/device-2.str:4
-msgid "_Auto-detect"
-msgstr ""
-
-#: glade/device-2.str:5
-msgid "Cable:"
-msgstr ""
-
-#: glade/device-2.str:6
-msgid "Port:"
-msgstr ""
-
-#: glade/device-2.str:7
-msgid "Calc:"
-msgstr ""
-
-#: glade/device-2.str:8
-msgid "Timeout:"
-msgstr ""
-
-#: glade/device-2.str:9
-msgid "Delay:"
-msgstr ""
-
-#: glade/device-2.str:10
+#: ../builder/device.ui.h:2
 msgid "GrayLink"
 msgstr ""
 
-#: glade/device-2.str:11
+#: ../builder/device.ui.h:3
 msgid "BlackLink"
 msgstr ""
 
-#: glade/device-2.str:12
-msgid "SilverLink"
+#: ../builder/device.ui.h:4
+msgid "Parallel"
 msgstr ""
 
-#: glade/device-2.str:13
-msgid "ParallelLink"
-msgstr ""
-
-#: glade/device-2.str:14
+#: ../builder/device.ui.h:7
 msgid "VTI"
 msgstr ""
 
-#: glade/device-2.str:15
+#: ../builder/device.ui.h:8
 msgid "TiEmu"
 msgstr ""
 
-#: glade/device-2.str:16
-msgid "virtual"
+#: ../builder/device.ui.h:9
+msgid "UsbKernel"
 msgstr ""
 
-#: glade/device-2.str:17 glade/device-2.str:23
-msgid "null"
+#: ../builder/device.ui.h:10
+msgid "None"
 msgstr ""
 
-#: glade/device-2.str:18
-msgid "custom"
-msgstr ""
-
-#: glade/device-2.str:19
+#: ../builder/device.ui.h:11
 msgid "#1"
 msgstr ""
 
-#: glade/device-2.str:20
+#: ../builder/device.ui.h:12
 msgid "#2"
 msgstr ""
 
-#: glade/device-2.str:21
+#: ../builder/device.ui.h:13
 msgid "#3"
 msgstr ""
 
-#: glade/device-2.str:22
+#: ../builder/device.ui.h:14
 msgid "#4"
 msgstr ""
 
-#: glade/device-2.str:24
+#: ../builder/device.ui.h:15
 msgid "TI73"
 msgstr ""
 
-#: glade/device-2.str:25
+#: ../builder/device.ui.h:16
 msgid "TI82"
 msgstr ""
 
-#: glade/device-2.str:26
+#: ../builder/device.ui.h:17
 msgid "TI83"
 msgstr ""
 
-#: glade/device-2.str:27
+#: ../builder/device.ui.h:18
 msgid "TI83+"
 msgstr ""
 
-#: glade/device-2.str:28
+#: ../builder/device.ui.h:19
 msgid "TI84+"
 msgstr ""
 
-#: glade/device-2.str:29
+#: ../builder/device.ui.h:20
 msgid "TI85"
 msgstr ""
 
-#: glade/device-2.str:30
+#: ../builder/device.ui.h:21
 msgid "TI86"
 msgstr ""
 
-#: glade/device-2.str:31
+#: ../builder/device.ui.h:22
 msgid "TI89"
 msgstr ""
 
-#: glade/device-2.str:32
-msgid "TI89 Titanium"
+#: ../builder/device.ui.h:23
+msgid "Titanium"
 msgstr ""
 
-#: glade/device-2.str:33
+#: ../builder/device.ui.h:24
 msgid "TI92"
 msgstr ""
 
-#: glade/device-2.str:34
+#: ../builder/device.ui.h:25
 msgid "TI92+"
 msgstr ""
 
-#: glade/device-2.str:35
+#: ../builder/device.ui.h:26
 msgid "V200PLT"
 msgstr ""
 
-#: glade/device-2.str:36
+#: ../builder/device.ui.h:27
+msgid "Nspire"
+msgstr ""
+
+#: ../builder/device.ui.h:28
+msgid "Communication Settings"
+msgstr ""
+
+#: ../builder/device.ui.h:29
+msgid "Cable:"
+msgstr ""
+
+#: ../builder/device.ui.h:30
+msgid "Port:"
+msgstr ""
+
+#: ../builder/device.ui.h:31
+msgid "Calc:"
+msgstr ""
+
+#: ../builder/device.ui.h:32
+msgid "Timeout:"
+msgstr ""
+
+#: ../builder/device.ui.h:33
+msgid "Delay:"
+msgstr ""
+
+#: ../builder/device.ui.h:34
+msgid "Timeout value in tenth of seconds."
+msgstr ""
+
+#: ../builder/device.ui.h:35
+msgid "Inter-bit delay for serial/parallel link cables."
+msgstr ""
+
+#: ../builder/device.ui.h:36
+msgid ""
+"If checked, TiLP will scan USB devices at startup and will use the first "
+"device found."
+msgstr ""
+
+#: ../builder/device.ui.h:37
+msgid "USB scan at startup"
+msgstr ""
+
+#: ../builder/device.ui.h:38
 msgid "Settings"
 msgstr ""
 
-#: glade/device-2.str:37
-msgid "Have a problem ? Check out the log:"
+#: ../builder/device.ui.h:39
+msgid "Don't know which device you have ? Click =>"
 msgstr ""
 
-#: glade/manpage-2.str:7
+#: ../builder/device.ui.h:40
+msgid "Probe for attached devices..."
+msgstr ""
+
+#: ../builder/device.ui.h:41
+msgid "Double-click a line to update settings."
+msgstr ""
+
+#: ../builder/entrydbox.ui.h:1
+msgid "Title"
+msgstr ""
+
+#: ../builder/entrydbox.ui.h:2
+msgid "Name:"
+msgstr ""
+
+#: ../builder/manpage.ui.h:1
 msgid "Page of Manual"
 msgstr ""
 
-#: glade/options-2.str:7
+#: ../builder/options.ui.h:1
 msgid "Options"
 msgstr ""
 
-#: glade/options-2.str:8
+#: ../builder/options.ui.h:2
 msgid "sin_gle"
 msgstr ""
 
-#: glade/options-2.str:9
+#: ../builder/options.ui.h:3
 msgid "_group"
 msgstr ""
 
-#: glade/options-2.str:10
+#: ../builder/options.ui.h:4
 msgid "Receive as"
 msgstr ""
 
-#: glade/options-2.str:11
+#: ../builder/options.ui.h:5
 msgid "delete files & vars"
 msgstr ""
 
-#: glade/options-2.str:12
+#: ../builder/options.ui.h:6
 msgid "Confirm"
 msgstr ""
 
-#: glade/options-2.str:13
+#: ../builder/options.ui.h:7
 msgid "all _files"
 msgstr ""
 
-#: glade/options-2.str:14
+#: ../builder/options.ui.h:8
 msgid "T_I only"
 msgstr ""
 
-#: glade/options-2.str:15
+#: ../builder/options.ui.h:9
 msgid "Display"
 msgstr ""
 
-#: glade/options-2.str:17
+#: ../builder/options.ui.h:11
 msgid "_TiGroup"
 msgstr ""
 
-#: glade/options-2.str:18
+#: ../builder/options.ui.h:12
 msgid "Backup/Restore with"
 msgstr ""
 
-#: glade/pbars-2.str:7
+#: ../builder/pbar1.ui.h:1
 msgid "Title 1"
 msgstr ""
 
-#: glade/pbars-2.str:8
+#: ../builder/pbar1.ui.h:2
 msgid "Transfer status:"
 msgstr ""
 
-#: glade/pbars-2.str:9
+#: ../builder/pbar1.ui.h:3
 msgid "Rate: 0.00 Kb/s"
 msgstr ""
 
-#: glade/pbars-2.str:10
+#: ../builder/pbar2.ui.h:1
 msgid "Title 2"
 msgstr ""
 
-#: glade/pbars-2.str:11
+#: ../builder/pbar2.ui.h:2
 msgid "Message."
 msgstr ""
 
-#: glade/pbars-2.str:12
+#: ../builder/pbar3.ui.h:1
 msgid "Title 3"
 msgstr ""
 
-#: glade/pbars-2.str:13 glade/pbars-2.str:22
+#: ../builder/pbar3.ui.h:2 ../builder/pbar5.ui.h:2
 msgid "Total transfer:"
 msgstr ""
 
-#: glade/pbars-2.str:14 glade/pbars-2.str:17 glade/pbars-2.str:23
+#: ../builder/pbar3.ui.h:3 ../builder/pbar4.ui.h:2 ../builder/pbar5.ui.h:3
 msgid "Current transfer:"
 msgstr ""
 
-#: glade/pbars-2.str:15 glade/pbars-2.str:20 glade/pbars-2.str:26
+#: ../builder/pbar3.ui.h:4 ../builder/pbar4.ui.h:5 ../builder/pbar5.ui.h:6
 msgid "Rate: 0.0 Kbytes/s"
 msgstr ""
 
-#: glade/pbars-2.str:16
+#: ../builder/pbar4.ui.h:1
 msgid "Title 4"
 msgstr ""
 
-#: glade/pbars-2.str:18 glade/pbars-2.str:24
+#: ../builder/pbar4.ui.h:3 ../builder/pbar5.ui.h:4
 msgid "1/1: "
 msgstr ""
 
-#: glade/pbars-2.str:19 glade/pbars-2.str:25
+#: ../builder/pbar4.ui.h:4 ../builder/pbar5.ui.h:5
 msgid "Text"
 msgstr ""
 
-#: glade/pbars-2.str:21
+#: ../builder/pbar5.ui.h:1
 msgid "Title 5"
 msgstr ""
 
-#: glade/release-2.str:7
+#: ../builder/release.ui.h:1
+msgid "Cannot find the RELEASE file."
+msgstr ""
+
+#: ../builder/release.ui.h:2
 msgid "Welcome to TiLP !"
 msgstr ""
 
-#: glade/release-2.str:8
+#: ../builder/release.ui.h:3
 msgid ""
 "This box appears only 1 time or whenever a new version is installed.\n"
 "You will find in the box below some news about TiLP (the RELEASE file):"
 msgstr ""
 
-#: glade/release-2.str:10
-msgid "Cannot find the RELEASE file."
-msgstr ""
-
-#: glade/release-2.str:11
+#: ../builder/release.ui.h:5
 msgid ""
 "Latest version of TiLP can  be found at: <http://lpg.ticalc.org/prj_tilp>\n"
 "Please report any bugs to the TiLP team: <tilp-users@lists.sf.net>."
 msgstr ""
 
-#: glade/screenopts-2.str:7
+#: ../builder/screenopts.ui.h:1
 msgid "Screen Capture Options"
 msgstr ""
 
-#: glade/screenopts-2.str:8
+#: ../builder/screenopts.ui.h:2
 msgid "_full"
 msgstr ""
 
-#: glade/screenopts-2.str:9
+#: ../builder/screenopts.ui.h:3
 msgid "_clipped (TI89)"
 msgstr ""
 
-#: glade/screenopts-2.str:10
+#: ../builder/screenopts.ui.h:4
 msgid "Screen mode:"
 msgstr ""
 
-#: glade/screenopts-2.str:11
+#: ../builder/screenopts.ui.h:5
 msgid "_emulate"
 msgstr ""
 
-#: glade/screenopts-2.str:12
+#: ../builder/screenopts.ui.h:6
 msgid "Grayscale:"
 msgstr ""
 
-#: glade/screenopts-2.str:13
+#: ../builder/screenopts.ui.h:7
 msgid "Screen Format"
 msgstr ""
 
-#: glade/screenopts-2.str:14
+#: ../builder/screenopts.ui.h:8
 msgid "_PNG"
 msgstr ""
 
-#: glade/screenopts-2.str:15
+#: ../builder/screenopts.ui.h:9
 msgid "_XPM (Unix format)"
 msgstr ""
 
-#: glade/screenopts-2.str:16
+#: ../builder/screenopts.ui.h:10
 msgid "_JPEG (non interlaced)"
 msgstr ""
 
-#: glade/screenopts-2.str:17
+#: ../builder/screenopts.ui.h:11
 msgid "_BMP (Windows)"
 msgstr ""
 
-#: glade/screenopts-2.str:18
+#: ../builder/screenopts.ui.h:12
 msgid "PDF"
 msgstr ""
 
-#: glade/screenopts-2.str:19
+#: ../builder/screenopts.ui.h:13
 msgid "EPS (PostScript)"
 msgstr ""
 
-#: glade/screenopts-2.str:20
+#: ../builder/screenopts.ui.h:14
 msgid "Image type:"
 msgstr ""
 
-#: glade/screenopts-2.str:21
+#: ../builder/screenopts.ui.h:15
 msgid "File Format"
 msgstr ""
 
-#: glade/screenshot-2.str:7
+#: ../builder/screenshot.ui.h:1 ../builder/tilp.ui.h:2
+msgid "_File"
+msgstr ""
+
+#: ../builder/screenshot.ui.h:2
+msgid "_Options"
+msgstr ""
+
+#: ../builder/screenshot.ui.h:3
 msgid "Screen capture"
 msgstr ""
 
-#: glade/screenshot-2.str:9
-msgid "_Load"
-msgstr ""
-
-#: glade/screenshot-2.str:10
-msgid "_Save"
-msgstr ""
-
-#: glade/screenshot-2.str:11
-msgid "_Quit"
-msgstr ""
-
-#: glade/screenshot-2.str:13
+#: ../builder/screenshot.ui.h:4
 msgid "Refresh capture."
 msgstr ""
 
-#: glade/screenshot-2.str:14 glade/tilp-2.str:33
+#: ../builder/screenshot.ui.h:5 ../builder/tilp.ui.h:67
 msgid "Refresh"
 msgstr ""
 
-#: glade/screenshot-2.str:15
+#: ../builder/screenshot.ui.h:6
 msgid "Save capture to picture file."
 msgstr ""
 
-#: glade/screenshot-2.str:16
+#: ../builder/screenshot.ui.h:7
 msgid "Save"
 msgstr ""
 
-#: glade/screenshot-2.str:17
+#: ../builder/screenshot.ui.h:8
 msgid "Quit."
 msgstr ""
 
-#: glade/screenshot-2.str:18
+#: ../builder/screenshot.ui.h:9
 msgid "Quit"
 msgstr ""
 
-#: glade/screenshot-2.str:19
+#: ../builder/screenshot.ui.h:10
 msgid "User's manual."
 msgstr ""
 
-#: glade/screenshot-2.str:20 glade/tilp-2.str:35
+#: ../builder/screenshot.ui.h:11
 msgid "Help"
 msgstr ""
 
-#: glade/screenshot-2.str:21
+#: ../builder/screenshot.ui.h:12
 msgid "Copy capture to clipboard."
 msgstr ""
 
-#: glade/screenshot-2.str:22
+#: ../builder/screenshot.ui.h:13
 msgid "Copy"
 msgstr ""
 
-#: glade/screenshot-2.str:23
+#: ../builder/screenshot.ui.h:14
 msgid "Calculator screen"
 msgstr ""
 
-#: glade/tilp-2.str:7
-msgid "TiLP ('Tilp Is a Linking Program')"
+#: ../builder/tilp.ui.h:1
+msgid "TiLP2 ('Tilp Is a Linking Program')"
 msgstr ""
 
-#: glade/tilp-2.str:8
-msgid "Check whether calculator is ready..."
+#: ../builder/tilp.ui.h:3
+msgid "_Change Device"
 msgstr ""
 
-#: glade/tilp-2.str:9
-msgid "Ready ?"
+#: ../builder/tilp.ui.h:4
+msgid "Change Connection Settings"
 msgstr ""
 
-#: glade/tilp-2.str:10
-msgid "List calculator content (folders, variables and applications)."
+#: ../builder/tilp.ui.h:5
+msgid "_Send Files"
 msgstr ""
 
-#: glade/tilp-2.str:11
-msgid "Dirlist"
+#: ../builder/tilp.ui.h:6
+msgid "Send Files to Device"
 msgstr ""
 
-#: glade/tilp-2.str:12
-msgid "Backup the calculator content."
+#: ../builder/tilp.ui.h:7
+msgid "_Backup"
 msgstr ""
 
-#: glade/tilp-2.str:14
-msgid "Restore the calculator content."
+#: ../builder/tilp.ui.h:8
+msgid "Backup Device Contents"
 msgstr ""
 
-#: glade/tilp-2.str:16
-msgid "Receive variables from non-silent calculators."
+#: ../builder/tilp.ui.h:9
+msgid "_Restore"
 msgstr ""
 
-#: glade/tilp-2.str:17
-msgid "Receive"
+#: ../builder/tilp.ui.h:10
+msgid "Restore Device Contents"
 msgstr ""
 
-#: glade/tilp-2.str:18
-msgid "Send variables to non-silent calculators."
+#: ../builder/tilp.ui.h:11
+msgid "_Edit"
 msgstr ""
 
-#: glade/tilp-2.str:19
-msgid "Send"
+#: ../builder/tilp.ui.h:12
+msgid "_View"
 msgstr ""
 
-#: glade/tilp-2.str:20
-msgid "Calculator files"
+#: ../builder/tilp.ui.h:13
+msgid "_Local View"
 msgstr ""
 
-#: glade/tilp-2.str:21 glade/tilp-2.str:22 glade/tilp-2.str:23
-#: glade/tilp-2.str:24
-msgid "0 bytes free"
+#: ../builder/tilp.ui.h:16
+msgid "_Tools"
 msgstr ""
 
-#: glade/tilp-2.str:25
-msgid "RAM "
+#: ../builder/tilp.ui.h:17
+msgid "Get Calc _Info"
 msgstr ""
 
-#: glade/tilp-2.str:26
-msgid "FLASH "
+#: ../builder/tilp.ui.h:18
+msgid "Take _Screenshot"
 msgstr ""
 
-#: glade/tilp-2.str:27
-msgid "Memory:"
+#: ../builder/tilp.ui.h:19
+msgid "Dump _Rom"
 msgstr ""
 
-#: glade/tilp-2.str:28
-msgid "Create a new directory."
+#: ../builder/tilp.ui.h:20
+msgid "Set _Clock"
 msgstr ""
 
-#: glade/tilp-2.str:29
-msgid "Folder"
+#: ../builder/tilp.ui.h:21
+msgid "Get _ID-List"
 msgstr ""
 
-#: glade/tilp-2.str:30
-msgid "Delete selected files."
-msgstr ""
-
-#: glade/tilp-2.str:31
-msgid "Delete"
-msgstr ""
-
-#: glade/tilp-2.str:32
-msgid "Refresh right frame."
-msgstr ""
-
-#: glade/tilp-2.str:34
-msgid "Help menu."
-msgstr ""
-
-#: glade/tilp-2.str:36
-msgid "Computer files"
-msgstr ""
-
-#: glade/tilp-2.str:37
-msgid "/home/romain/"
-msgstr ""
-
-#: glade/tilp-2.str:38
-msgid "Current folder:"
-msgstr ""
-
-#: glade/tilp-2.str:39
+#: ../builder/tilp.ui.h:22
 msgid "The TiLP User's Manual in html format."
 msgstr ""
 
-#: glade/tilp-2.str:40
-msgid "_User's Manual"
+#: ../builder/tilp.ui.h:23
+msgid "_Man Page"
 msgstr ""
 
-#: glade/tilp-2.str:41
+#: ../builder/tilp.ui.h:24
 msgid "The Linux manual page."
 msgstr ""
 
-#: glade/tilp-2.str:42
-msgid "_Manpage"
-msgstr ""
-
-#: glade/tilp-2.str:43
+#: ../builder/tilp.ui.h:25
 msgid "_Bookmarks"
 msgstr ""
 
-#: glade/tilp-2.str:44
+#: ../builder/tilp.ui.h:26
 msgid "http://education.ti.com, the Texas Instruments web site"
 msgstr ""
 
-#: glade/tilp-2.str:45
+#: ../builder/tilp.ui.h:27
 msgid "TI's web site"
 msgstr ""
 
-#: glade/tilp-2.str:46
-msgid "http://eps.ti.com, TI's store for OS upgrades and FLASH applications."
+#: ../builder/tilp.ui.h:28
+msgid ""
+"http://epsstore.ti.com, TI's store for OS upgrades and FLASH applications."
 msgstr ""
 
-#: glade/tilp-2.str:47
+#: ../builder/tilp.ui.h:29
 msgid "Calculator software"
 msgstr ""
 
-#: glade/tilp-2.str:48
+#: ../builder/tilp.ui.h:30
 msgid "A great web site on TI related stuffs."
 msgstr ""
 
-#: glade/tilp-2.str:49
+#: ../builder/tilp.ui.h:31
 msgid "ticalc.org"
 msgstr ""
 
-#: glade/tilp-2.str:50 glade/tilp-2.str:52
+#: ../builder/tilp.ui.h:32
+msgid "The leading French-speaking calculator web site."
+msgstr ""
+
+#: ../builder/tilp.ui.h:33
+msgid "tiplanet.org"
+msgstr ""
+
+#: ../builder/tilp.ui.h:34
 msgid "A French calculator web site."
 msgstr ""
 
-#: glade/tilp-2.str:51
-msgid "tigen.org"
-msgstr ""
-
-#: glade/tilp-2.str:53
+#: ../builder/tilp.ui.h:35
 msgid "ti-fr.org"
 msgstr ""
 
-#: glade/tilp-2.str:54
+#: ../builder/tilp.ui.h:36
 msgid "http://lpg.ticalc.org, the Linux Programmer Group"
 msgstr ""
 
-#: glade/tilp-2.str:55
+#: ../builder/tilp.ui.h:37
 msgid "The LPG"
 msgstr ""
 
-#: glade/tilp-2.str:56
+#: ../builder/tilp.ui.h:38
 msgid "http://tilp.info, the TiLP web site."
 msgstr ""
 
-#: glade/tilp-2.str:57
+#: ../builder/tilp.ui.h:39
 msgid "TiLP's web site"
 msgstr ""
 
-#: glade/tilp-2.str:58
+#: ../builder/tilp.ui.h:40
+msgid "_Report Bug"
+msgstr ""
+
+#: ../builder/tilp.ui.h:41
 msgid "How to send a bug report..."
 msgstr ""
 
-#: glade/tilp-2.str:59
-msgid "_Bug report"
-msgstr ""
-
-#: glade/tilp-2.str:60
-msgid "Display the log file generated by TiLP. Useful for debugging problems."
-msgstr ""
-
-#: glade/tilp-2.str:61
+#: ../builder/tilp.ui.h:42
 msgid "_ChangeLog"
 msgstr ""
 
-#: glade/tilp-2.str:62
+#: ../builder/tilp.ui.h:43
+msgid "Display the log file generated by TiLP. Useful for debugging problems."
+msgstr ""
+
+#: ../builder/tilp.ui.h:44
 msgid "About TiLP..."
 msgstr ""
 
-#: glade/tilp-2.str:63
-msgid "_About"
+#: ../builder/tilp.ui.h:45
+msgid "Check whether calculator is ready..."
 msgstr ""
 
-#: glade/user_boxes-2.str:7
-msgid "Title"
+#: ../builder/tilp.ui.h:46
+msgid "Ready ?"
 msgstr ""
 
-#: glade/user_boxes-2.str:8
-msgid "Name:"
+#: ../builder/tilp.ui.h:47
+msgid "List calculator content (folders, variables and applications)."
 msgstr ""
 
-#: glade/user_boxes-2.str:10
-msgid "vars in RAM"
+#: ../builder/tilp.ui.h:48
+msgid "Dirlist"
 msgstr ""
 
-#: glade/user_boxes-2.str:11
-msgid "vars in FLASH"
+#: ../builder/tilp.ui.h:49
+msgid "Backup the calculator content."
 msgstr ""
 
-#: glade/user_boxes-2.str:12
-msgid "apps"
+#: ../builder/tilp.ui.h:51
+msgid "Restore the calculator content."
+msgstr ""
+
+#: ../builder/tilp.ui.h:52
+msgid "Restore"
+msgstr ""
+
+#: ../builder/tilp.ui.h:53
+msgid "Receive variables from non-silent calculators."
+msgstr ""
+
+#: ../builder/tilp.ui.h:54
+msgid "Receive"
+msgstr ""
+
+#: ../builder/tilp.ui.h:55
+msgid "Send variables to non-silent calculators."
+msgstr ""
+
+#: ../builder/tilp.ui.h:56
+msgid "Send"
+msgstr ""
+
+#: ../builder/tilp.ui.h:57
+msgid "Calculator files"
+msgstr ""
+
+#: ../builder/tilp.ui.h:58
+msgid "0 bytes free"
+msgstr ""
+
+#: ../builder/tilp.ui.h:59
+msgid "RAM "
+msgstr ""
+
+#: ../builder/tilp.ui.h:60
+msgid "FLASH "
+msgstr ""
+
+#: ../builder/tilp.ui.h:61
+msgid "Memory:"
+msgstr ""
+
+#: ../builder/tilp.ui.h:62
+msgid "Create a new directory."
+msgstr ""
+
+#: ../builder/tilp.ui.h:63
+msgid "Folder"
+msgstr ""
+
+#: ../builder/tilp.ui.h:64
+msgid "Delete selected files."
+msgstr ""
+
+#: ../builder/tilp.ui.h:65
+msgid "Delete"
+msgstr ""
+
+#: ../builder/tilp.ui.h:66
+msgid "Refresh right frame."
+msgstr ""
+
+#: ../builder/tilp.ui.h:68
+msgid "Computer files"
+msgstr ""
+
+#: ../builder/tilp.ui.h:69
+msgid "/home/romain/"
+msgstr ""
+
+#: ../builder/tilp.ui.h:70
+msgid "Current folder:"
 msgstr ""

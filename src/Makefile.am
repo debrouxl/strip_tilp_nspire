@@ -7,15 +7,15 @@ bin_PROGRAMS = tilpm
 
 # build instructions
 tilpm_CPPFLAGS = -I$(top_srcdir)/intl \
-	@GLIB_CFLAGS@ @GTK_CFLAGS@ @GLADE_CFLAGS@ \
+	@GLIB_CFLAGS@ @GTK_CFLAGS@ \
 	-DSHARE_DIR=\"$(pkgdatadir)\" \
 	-DLOCALEDIR=\"$(datadir)/locale\" \
 	-DSYSCONFDIR=\"$(sysconfdir)\" \
 	@LIBUSB_CFLAGS@ @LIBUSB10_CFLAGS@ \
 	-DGTK_DISABLE_DEPRECATED
 tilpm_LDFLAGS = -export-dynamic
-tilpm_LDADD = @GLIB_LIBS@ @GTK_LIBS@ @GLADE_LIBS@ \
-	@LTLIBINTL@ @LIBZ@ @LIBUSB_LIBS@ @LIBUSB10_LIBS@
+tilpm_LDADD = @GLIB_LIBS@ @GTK_LIBS@ \
+	@LIBZ@ @LIBUSB_LIBS@ @LIBUSB10_LIBS@
 tilpm_SOURCES = *.h \
 	tilp_calcs.c tilp_cmdline.c tilp_config.c tilp_error.c \
 	tilp_files.c tilp_gif.c tilp_log.c tilp_main.c \

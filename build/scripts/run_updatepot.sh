@@ -1,2 +1,2 @@
 #! /bin/sh
-cd po; make tilp2m.pot-update; make update-po; cd ../
+cd po; intltool-update --pot; intltool-update fr; cd ../

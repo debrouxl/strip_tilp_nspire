@@ -1,6 +1,6 @@
 # List of source files containing translatable strings.
 
-# TiLP source code
+# TILP source code
 src/about.c
 src/action.c
 src/bookmark.c
@@ -13,6 +13,7 @@ src/ctree.h
 src/dboxes.c
 src/device.c
 src/dnd.c
+src/fileprop.c
 src/filesel.c
 src/gtk_gif.c
 src/gtk_update.c
@@ -85,17 +86,24 @@ src/ticalcs.c
 src/tikeys.c
 src/type2str.c
 
-# TiLP GUI
-glade/action-2.str
-glade/clist_rbm-2.str
-glade/clock-2.str
-glade/ctree_rbm-2.str
-glade/device-2.str
-glade/manpage-2.str
-glade/options-2.str
-glade/pbars-2.str
-glade/release-2.str
-glade/screenopts-2.str
-glade/screenshot-2.str
-glade/tilp-2.str
-glade/user_boxes-2.str
+# TILP GUI
+[type: gettext/glade]builder/action.ui
+[type: gettext/glade]builder/backupdbox.ui
+[type: gettext/glade]builder/clist_rbm.ui
+[type: gettext/glade]builder/clock.ui
+[type: gettext/glade]builder/ctree_rbm.ui
+[type: gettext/glade]builder/device.ui
+[type: gettext/glade]builder/entrydbox.ui
+[type: gettext/glade]builder/manpage.ui
+[type: gettext/glade]builder/options.ui
+[type: gettext/glade]builder/pbar1.ui
+[type: gettext/glade]builder/pbar2.ui
+[type: gettext/glade]builder/pbar3.ui
+[type: gettext/glade]builder/pbar4.ui
+[type: gettext/glade]builder/pbar5.ui
+[type: gettext/glade]builder/release.ui
+[type: gettext/glade]builder/screenopts.ui
+[type: gettext/glade]builder/screenshot.ui
+[type: gettext/glade]builder/tilp.ui
+# files added by intltool-prepare
+desktop/tilp.desktop.in

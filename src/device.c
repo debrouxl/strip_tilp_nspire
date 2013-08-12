@@ -25,7 +25,6 @@
 #endif
 
 #include <gtk/gtk.h>
-#include <glade/glade.h>
 #include <string.h>
 
 #include "support.h"
@@ -36,7 +35,7 @@
 #include "tilp_core.h"
 #include "gtk_update.h"
 
-static DeviceOptions	tmp;
+static DeviceOptions tmp;
 static GtkWidget* lbl;
 static GtkWidget* om_cable;
 static GtkWidget* om_calc;
@@ -45,8 +44,8 @@ static GtkWidget* om_port;
 static GtkListStore *store = NULL;
 
 enum { COL_CABLE, COL_PORT, COL_CALC };
-#define CLIST_NVCOLS	(3)		// 3 visible columns
-#define CLIST_NCOLS		(3)		// 3 real columns
+#define CLIST_NVCOLS (3)          // 3 visible columns
+#define CLIST_NCOLS  (3)          // 3 real columns
 
 static GtkListStore* clist_create(GtkWidget *widget)
 {
@@ -55,14 +54,14 @@ static GtkListStore* clist_create(GtkWidget *widget)
 	GtkTreeModel *model;
 	GtkCellRenderer *renderer;
 	GtkTreeSelection *selection;
-    const gchar *text[CLIST_NVCOLS] = { _("Cable"), _("Port"), _("Device") };
-    gint i;
-	
+	const gchar *text[CLIST_NVCOLS] = { _("Cable"), _("Port"), _("Device") };
+	gint i;
+
 	store2 = gtk_list_store_new(CLIST_NCOLS, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, -1);
-    model = GTK_TREE_MODEL(store2);
-	
-    gtk_tree_view_set_model(view, model); 
-    gtk_tree_view_set_headers_visible(view, TRUE);
+	model = GTK_TREE_MODEL(store2);
+
+	gtk_tree_view_set_model(view, model);
+	gtk_tree_view_set_headers_visible(view, TRUE);
 	gtk_tree_view_set_rules_hint(view, FALSE);
   
 	for(i = COL_CABLE; i <= COL_CALC; i++)
@@ -70,15 +69,15 @@ static GtkListStore* clist_create(GtkWidget *widget)
 		renderer = gtk_cell_renderer_text_new();
 		gtk_tree_view_insert_column_with_attributes(view, -1, text[i], renderer, "text", i, NULL);
 	}
-    
-    for (i = 0; i < CLIST_NVCOLS; i++) 
-    {
+
+	for (i = 0; i < CLIST_NVCOLS; i++)
+	{
 		GtkTreeViewColumn *col;
 
 		col = gtk_tree_view_get_column(view, i);
 		gtk_tree_view_column_set_resizable(col, TRUE);
 	}
-	
+
 	selection = gtk_tree_view_get_selection(view);
 	gtk_tree_selection_set_mode(selection, GTK_SELECTION_SINGLE);
 
@@ -92,7 +91,7 @@ static void clist_populate(GtkListStore *_store, int full)
 		int i, n, *list;
 
 		ticables_get_usb_devices(&list, &n);
-		
+
 		for(i = 0; i < n; i++)
 		{
 			GtkTreeIter iter;
@@ -154,11 +153,8 @@ static void list_refresh(GtkListStore *_store, int full)
 	clist_populate(_store, full);
 }
 
-GLADE_CB gboolean
-comm_treeview1_button_press_event  (GtkWidget       *widget,
-                                    GdkEventButton  *event,
-                                    gpointer         user_data)
-{	
+TILP_EXPORT gboolean comm_treeview1_button_press_event(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
+{
 	GtkWidget *list = GTK_WIDGET(widget);
 	GtkTreeView *view = GTK_TREE_VIEW(list);
 	GtkTreeSelection *selection;
@@ -192,39 +188,44 @@ comm_treeview1_button_press_event  (GtkWidget       *widget,
 	gtk_combo_box_set_active(GTK_COMBO_BOX(om_calc), 
 		cm >= CALC_NSPIRE ? cm-CALC_NSPIRE+13 : cm);
 
-    g_strfreev(row_text);
+	g_strfreev(row_text);
 
-    return FALSE;
+	return FALSE;
 }
 
 //=========================================
 
-gint display_device_dbox()
+gint display_device_dbox(void)
 {
-	GladeXML *xml;
+	GtkBuilder *builder;
+	GError* error = NULL;
 	GtkWidget *dbox;
 	GtkWidget *data;
 	gint result;
 
-	xml = glade_xml_new(tilp_paths_build_glade("device-2.glade"), "device_dbox", PACKAGE);
-	if (!xml)
-		g_error(_("comm.c: GUI loading failed !\n"));
-	glade_xml_signal_autoconnect(xml);
+	builder = gtk_builder_new();
+	if (!gtk_builder_add_from_file (builder, tilp_paths_build_builder("device.ui"), &error))
+	{
+		g_warning (_("Couldn't load builder file: %s\n"), error->message);
+		g_error_free (error);
+		return 0; // THIS RETURNS !
+	}
+	gtk_builder_connect_signals(builder, NULL);
 
-	dbox = glade_xml_get_widget(xml, "device_dbox");
+	dbox = GTK_WIDGET (gtk_builder_get_object (builder, "device_dbox"));
 	gtk_dialog_set_alternative_button_order(GTK_DIALOG(dbox), GTK_RESPONSE_OK,
 	                                        GTK_RESPONSE_CANCEL,-1);
-	lbl = glade_xml_get_widget(xml, "label7");
+	lbl = GTK_WIDGET (gtk_builder_get_object (builder, "label7"));
 
 	// Tree View
-	data = glade_xml_get_widget(xml, "treeview1");
+	data = GTK_WIDGET (gtk_builder_get_object (builder, "treeview1"));
 	store = clist_create(data);
 	gtk_widget_show_all(data);
 	if(options.usb_avail)
 		clist_populate(store, 0);
 
 	// Cable  
-	data = om_cable = glade_xml_get_widget(xml, "combobox1");
+	data = om_cable = GTK_WIDGET (gtk_builder_get_object (builder, "combobox1"));
 	switch (options.cable_model) 
 	{
 	case CABLE_NUL:
@@ -255,7 +256,7 @@ gint display_device_dbox()
 		gtk_combo_box_set_active(GTK_COMBO_BOX(data), 6);
 	break;
 
-    case CABLE_TIE:
+	case CABLE_TIE:
 		gtk_combo_box_set_active(GTK_COMBO_BOX(data), 7);
 	break;
 
@@ -264,12 +265,12 @@ gint display_device_dbox()
 	break;
 
 	default:
-	  gtk_combo_box_set_active(GTK_COMBO_BOX(data), 0);
-	  break;
+		gtk_combo_box_set_active(GTK_COMBO_BOX(data), 0);
+		break;
 	}
 
 	// Port
-	data = om_port = glade_xml_get_widget(xml, "combobox2");
+	data = om_port = GTK_WIDGET (gtk_builder_get_object (builder, "combobox2"));
 	switch (options.cable_port) 
 	{
 	case PORT_0:
@@ -290,77 +291,77 @@ gint display_device_dbox()
 	}
 
 	// Calc
-	data = om_calc = glade_xml_get_widget(xml, "combobox3");
+	data = om_calc = GTK_WIDGET (gtk_builder_get_object (builder, "combobox3"));
 	switch (options.calc_model) 
 	{
 	case CALC_NONE:
-	  gtk_combo_box_set_active(GTK_COMBO_BOX(data), 0);
-	  break;
+		gtk_combo_box_set_active(GTK_COMBO_BOX(data), 0);
+		break;
 
 	case CALC_TI73:
-	  gtk_combo_box_set_active(GTK_COMBO_BOX(data), 1);
-	  break;
-	  
+		gtk_combo_box_set_active(GTK_COMBO_BOX(data), 1);
+		break;
+
 	case CALC_TI82:
-	  gtk_combo_box_set_active(GTK_COMBO_BOX(data), 2);
-	  break;
+		gtk_combo_box_set_active(GTK_COMBO_BOX(data), 3);
+		break;
 
 	case CALC_TI83:
-	  gtk_combo_box_set_active(GTK_COMBO_BOX(data), 3);
-	  break;
-	  
+		gtk_combo_box_set_active(GTK_COMBO_BOX(data), 4);
+		break;
+
 	case CALC_TI83P:
-	  gtk_combo_box_set_active(GTK_COMBO_BOX(data), 4);
-	  break;
+		gtk_combo_box_set_active(GTK_COMBO_BOX(data), 5);
+		break;
 
 	case CALC_TI84P:
 	case CALC_TI84P_USB:
-	  gtk_combo_box_set_active(GTK_COMBO_BOX(data), 5);
-	  break;
-	  
+		gtk_combo_box_set_active(GTK_COMBO_BOX(data), 6);
+		break;
+
 	case CALC_TI85:
-	  gtk_combo_box_set_active(GTK_COMBO_BOX(data), 6);
-	  break;
-	  
+		gtk_combo_box_set_active(GTK_COMBO_BOX(data), 7);
+		break;
+
 	case CALC_TI86:
-	  gtk_combo_box_set_active(GTK_COMBO_BOX(data), 7);
-	  break;
-	  
+		gtk_combo_box_set_active(GTK_COMBO_BOX(data), 8);
+		break;
+
 	case CALC_TI89:
-	  gtk_combo_box_set_active(GTK_COMBO_BOX(data), 8);
-	  break;
+		gtk_combo_box_set_active(GTK_COMBO_BOX(data), 9);
+		break;
 
 	case CALC_TI89T:
 	case CALC_TI89T_USB:
-	  gtk_combo_box_set_active(GTK_COMBO_BOX(data), 9);
-	  break;
-	  
+		gtk_combo_box_set_active(GTK_COMBO_BOX(data), 10);
+		break;
+
 	case CALC_TI92:
-	  gtk_combo_box_set_active(GTK_COMBO_BOX(data), 10);
-	  break;
-	  
+		gtk_combo_box_set_active(GTK_COMBO_BOX(data), 11);
+		break;
+
 	case CALC_TI92P:
-	  gtk_combo_box_set_active(GTK_COMBO_BOX(data), 11);
-	  break;
-	  
+		gtk_combo_box_set_active(GTK_COMBO_BOX(data), 12);
+		break;
+
 	case CALC_V200:
-	  gtk_combo_box_set_active(GTK_COMBO_BOX(data), 12);
-	  break;
+		gtk_combo_box_set_active(GTK_COMBO_BOX(data), 13);
+		break;
 
 	case CALC_NSPIRE:
-	  gtk_combo_box_set_active(GTK_COMBO_BOX(data), 13);
-	  break;
+		gtk_combo_box_set_active(GTK_COMBO_BOX(data), 14);
+		break;
 	}
 
 	// Timeout
-	data = glade_xml_get_widget(xml, "spinbutton_comm_timeout");
+	data = GTK_WIDGET (gtk_builder_get_object (builder, "spinbutton_comm_timeout"));
 	gtk_spin_button_set_value(GTK_SPIN_BUTTON(data), options.cable_timeout);
-	
+
 	// Delay
-	data = glade_xml_get_widget(xml, "spinbutton_comm_delay");
+	data = GTK_WIDGET (gtk_builder_get_object (builder, "spinbutton_comm_delay"));
 	gtk_spin_button_set_value(GTK_SPIN_BUTTON(data), options.cable_delay);
 
-	data = glade_xml_get_widget(xml, "checkbutton1");
+	data = GTK_WIDGET (gtk_builder_get_object (builder, "checkbutton1"));
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(data), options.auto_detect);
 	gtk_widget_set_sensitive(GTK_WIDGET(data), options.usb_avail);
 
@@ -370,7 +371,7 @@ gint display_device_dbox()
 	tmp.cable_port = options.cable_port;
 	tmp.cable_timeout = options.cable_timeout;
 	tmp.calc_model = options.calc_model;
-	
+
 	// Dialog box
 	result = gtk_dialog_run(GTK_DIALOG(dbox));
 	switch (result) 
@@ -416,18 +417,16 @@ gint display_device_dbox()
 }
 
 
-GLADE_CB void
-on_device_combobox1_changed            (GtkComboBox     *combobox,
-                                        gpointer         user_data)
+TILP_EXPORT void on_device_combobox1_changed (GtkComboBox *combobox, gpointer user_data)
 {
 	gint nitem = gtk_combo_box_get_active(combobox);
-	
+
 	switch(nitem)
 	{
 	case 0: tmp.cable_model = CABLE_NUL; break;
 	case 1: tmp.cable_model = CABLE_GRY; break;
 	case 2: tmp.cable_model = CABLE_BLK; break;
-	case 3:	tmp.cable_model = CABLE_PAR; break;
+	case 3: tmp.cable_model = CABLE_PAR; break;
 	case 4: tmp.cable_model = CABLE_SLV; break;
 	case 5: tmp.cable_model = CABLE_USB; break;
 	case 6: tmp.cable_model = CABLE_VTI; break;
@@ -442,12 +441,10 @@ on_device_combobox1_changed            (GtkComboBox     *combobox,
 }
 
 
-GLADE_CB void
-on_device_combobox2_changed            (GtkComboBox     *combobox,
-                                        gpointer         user_data)
+TILP_EXPORT void on_device_combobox2_changed (GtkComboBox *combobox, gpointer user_data)
 {
 	gint nitem = gtk_combo_box_get_active(combobox);
-	
+
 	switch(nitem)
 	{
 	case 0: tmp.cable_port = PORT_0; break;
@@ -459,60 +456,49 @@ on_device_combobox2_changed            (GtkComboBox     *combobox,
 }
 
 
-GLADE_CB void
-on_device_combobox3_changed            (GtkComboBox     *combobox,
-                                        gpointer         user_data)
+TILP_EXPORT void on_device_combobox3_changed (GtkComboBox *combobox, gpointer user_data)
 {
 	gint nitem = gtk_combo_box_get_active(combobox);
 
 	switch(nitem)
 	{
-	case 0: tmp.calc_model = CALC_NONE;	 break;
-	case 1: tmp.calc_model = CALC_TI73;	 break;
-	case 2:	tmp.calc_model = CALC_TI82;  break;
-	case 3: tmp.calc_model = CALC_TI83;  break;
-	case 4: tmp.calc_model = CALC_TI83P; break;
-	case 5: tmp.calc_model = CALC_TI84P; break;
-	case 6: tmp.calc_model = CALC_TI85;  break;
-	case 7: tmp.calc_model = CALC_TI86;  break;
-	case 8: tmp.calc_model = CALC_TI89;  break;
-	case 9: tmp.calc_model = CALC_TI89T; break;
-	case 10:tmp.calc_model = CALC_TI92;  break;
-	case 11:tmp.calc_model = CALC_TI92P; break;
-	case 12:tmp.calc_model = CALC_V200;  break;
-	case 13:tmp.calc_model = CALC_NSPIRE;break;
-  	}	
+	case 0:  tmp.calc_model = CALC_NONE;   break;
+	case 1:  tmp.calc_model = CALC_TI73;   break;
+	case 2:  tmp.calc_model = CALC_NONE;   break; // Code will go away later.
+	case 3:  tmp.calc_model = CALC_TI82;   break;
+	case 4:  tmp.calc_model = CALC_TI83;   break;
+	case 5:  tmp.calc_model = CALC_TI83P;  break;
+	case 6:  tmp.calc_model = CALC_TI84P;  break;
+	case 7:  tmp.calc_model = CALC_TI85;   break;
+	case 8:  tmp.calc_model = CALC_TI86;   break;
+	case 9:  tmp.calc_model = CALC_TI89;   break;
+	case 10: tmp.calc_model = CALC_TI89T;  break;
+	case 11: tmp.calc_model = CALC_TI92;   break;
+	case 12: tmp.calc_model = CALC_TI92P;  break;
+	case 13: tmp.calc_model = CALC_V200;   break;
+	case 14: tmp.calc_model = CALC_NSPIRE; break;
+	}
 }
 
 
-GLADE_CB void
-comm_checkbutton1_toggled     (GtkToggleButton *togglebutton,
-                                        gpointer         user_data)
+TILP_EXPORT void comm_checkbutton1_toggled(GtkToggleButton *togglebutton, gpointer user_data)
 {
 	options.auto_detect = togglebutton->active;
 }
 
 
-GLADE_CB void
-comm_spinbutton_delay_changed          (GtkEditable     *editable,
-                                        gpointer         user_data)
+TILP_EXPORT void comm_spinbutton_delay_changed(GtkEditable *editable, gpointer user_data)
 {
-  	tmp.cable_delay =
-    		gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(user_data));
+	tmp.cable_delay = gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(user_data));
 }
 
 
-GLADE_CB void
-comm_spinbutton_timeout_changed        (GtkEditable     *editable,
-                                        gpointer         user_data)
+TILP_EXPORT void comm_spinbutton_timeout_changed(GtkEditable *editable, gpointer user_data)
 {
-  	tmp.cable_timeout =
-    		gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(user_data));
+	tmp.cable_timeout = gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(user_data));
 }
 
-GLADE_CB void
-comm_button_search_clicked                (GtkButton       *button,
-                                        gpointer         user_data)
+TILP_EXPORT void comm_button_search_clicked(GtkButton  *button, gpointer user_data)
 {
-	list_refresh(store, !0);	
+	list_refresh(store, !0);
 }
