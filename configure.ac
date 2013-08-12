@@ -3,7 +3,7 @@ dnl $Id: configure.ac 4422 2011-12-07 20:49:53Z debrouxl $
 
 # Init.
 AC_PREREQ(2.57)
-AC_INIT(TILP2M, 1.16, [tilp-users@lists.sourceforge.net])
+AC_INIT(TILP2M, 1.17, [tilp-users@lists.sourceforge.net])
 
 AM_INIT_AUTOMAKE([dist-bzip2])
 AM_MAINTAINER_MODE
