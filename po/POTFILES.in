@@ -44,6 +44,47 @@ src/tilp_update.c
 src/tilp_vars.c
 src/toolbar.c
 
+# libtifiles
+src/comments.c
+src/error.c
+src/filesnsp.c
+src/filesxx.c
+src/filetypes.c
+src/grouped.c
+src/intelhex.c
+src/logging.c
+src/misc.c
+src/rwfile.c
+src/tifiles.c
+src/type2str.c
+src/typesnsp.c
+src/typesxx.c
+src/ve_fp.c
+
+# libticables
+src/bsd/detect.c
+src/link_nul.c
+src/linux/detect.c
+src/linux/link_usb1.c
+src/linux/link_usb.c
+src/macos/detect.c
+src/probe.c
+src/ticables.c
+src/win32/detect.c
+
+# libticalcs
+src/backup.c
+src/calc_00.c
+src/calc_nsp.c
+src/calc_xx.c
+src/clock.c
+src/dirlist.c
+src/nsp_cmd.c
+src/romdump.c
+src/ticalcs.c
+src/tikeys.c
+src/type2str.c
+
 # TiLP GUI
 glade/action-2.str
 glade/clist_rbm-2.str
@@ -58,4 +99,3 @@ glade/screenopts-2.str
 glade/screenshot-2.str
 glade/tilp-2.str
 glade/user_boxes-2.str
-

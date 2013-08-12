@@ -28,6 +28,7 @@
 #include <string.h>
 
 #include "ticalcs.h"
+#include "internal.h"
 #include "logging.h"
 #include "error.h"
 #include "gettext.h"

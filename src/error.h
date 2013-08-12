@@ -111,21 +111,21 @@ typedef enum
 	ERR_CTS_ERROR,			// Invalid CTS packet
 	ERR_NACK,				// NACK received
 	ERR_INVALID_PACKET,		// Packet is invalid
-	
+
 	ERR_MALLOC_3,				// No memory ?!
 	ERR_NO_CABLE_3,			// No cable attached
 	ERR_BUSY_3,				// Device is busy (transfer in progress)
 	ERR_FILE_OPEN_3,			// Can't open file
 	ERR_UNSUPPORTED_3,		// This function does not exist for the calc
-	
+
 // ---
-		
+
 	ERR_VOID_FUNCTION,		// This function does not exist for the calc
 	ERR_OUT_OF_MEMORY,		// Calc reply out of *memory
 	ERR_OPEN_FILE,
 	ERR_SAVE_FILE,			// Can not open (writing) file
 	ERR_PENDING_TRANSFER,	// A transfer is in progress
-	
+
 	ERR_FATAL_ERROR,		// Fatal error (alloc, file, ...)
 	ERR_MISSING_VAR,		// The requested var does not exist
 	ERR_NO_VARS,			// No vars to backup
@@ -135,13 +135,14 @@ typedef enum
 	ERR_ROM_ERROR,
 	ERR_NO_CALC,			// No calc probed
 	ERR_INVALID_HANDLE,		// Invalid handle
+	ERR_INVALID_PARAMETER,
 
 // --- 300 to 349 are reserved for hand-held status (DUSB)
-	
+
 	ERR_CALC_ERROR2 = 300,	// Hand-held returned an error code
 
 // --- 350 to 399 are reserved for hand-held status (DBUS)
-	
+
 	ERR_CALC_ERROR1 = 350,	// Hand-held returned an error code
 
 // --- 400 to 459 are reserved for hand-held status (NSpire)
